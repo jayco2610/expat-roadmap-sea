@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum ContactVisibility {
+  PUBLIC
+  MEMBERS
+  PRIVATE
+}
+
+enum RsvpStatus {
+  GOING
+  MAYBE
+  CANCELLED
+}
+
+enum ListingKind {
+  JOB
+  SERVICE
+}
+
+enum PropertyType {
+  ROOM
+  APARTMENT
+  HOUSE
+  COLIVING
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  displayName String
+  bio         String?
+  city        String
+  country     String   @default("Vietnam")
+  avatarUrl   String?
+  languages   String[] @default([])
+  interests   String[] @default([])
+
+  email    String?
+  phone    String?
+  telegram String?
+
+  contactVisibility ContactVisibility @default(MEMBERS)
+  showEmail         Boolean           @default(false)
+  showPhone         Boolean           @default(false)
+  showTelegram      Boolean           @default(true)
+
+  events          Event[]
+  eventRsvps      EventRsvp[]
+  housingListings HousingListing[]
+  jobListings     JobListing[]
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  title       String
+  description String
+  city        String
+  location    String
+  startsAt    DateTime
+  endsAt      DateTime?
+  capacity    Int?
+
+  authorId String
+  author   Profile @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  rsvps EventRsvp[]
+}
+
+model EventRsvp {
+  id        String     @id @default(cuid())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  status    RsvpStatus @default(GOING)
+
+  eventId   String
+  profileId String
+  event     Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, profileId])
+}
+
+model HousingListing {
+  id          String       @id @default(cuid())
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  title       String
+  description String
+  city        String
+  address     String
+  priceMonth  Int
+  currency    String       @default("USD")
+  propertyType PropertyType @default(APARTMENT)
+  availableFrom DateTime?
+
+  authorId String
+  author   Profile @relation(fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+model JobListing {
+  id          String      @id @default(cuid())
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  title       String
+  description String
+  city        String
+  kind        ListingKind @default(JOB)
+  compensation String?
+  remote      Boolean     @default(true)
+
+  authorId String
+  author   Profile @relation(fields: [authorId], references: [id], onDelete: Cascade)
+}

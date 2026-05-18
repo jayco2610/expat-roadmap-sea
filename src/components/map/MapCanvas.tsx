@@ -1,0 +1,118 @@
+"use client";
+
+import type { Accommodation, CityId } from "@/lib/accommodations";
+import { cityCenters } from "@/lib/accommodations";
+import L from "leaflet";
+import { useTheme } from "next-themes";
+import { useEffect, useMemo } from "react";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+
+type MapCanvasProps = {
+  items: Accommodation[];
+  selectedId: string | null;
+  city: CityId | "all";
+  onSelect: (id: string) => void;
+};
+
+function MapController({
+  items,
+  selectedId,
+  city,
+}: {
+  items: Accommodation[];
+  selectedId: string | null;
+  city: CityId | "all";
+}) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (selectedId) {
+      const item = items.find((i) => i.id === selectedId);
+      if (item) {
+        map.flyTo([item.lat, item.lng], 16, { duration: 0.6 });
+        return;
+      }
+    }
+
+    if (city !== "all") {
+      const center = cityCenters[city];
+      map.flyTo([center.lat, center.lng], center.zoom, { duration: 0.6 });
+      return;
+    }
+
+    if (items.length > 0) {
+      const bounds = L.latLngBounds(items.map((i) => [i.lat, i.lng] as [number, number]));
+      map.flyToBounds(bounds, { padding: [48, 48], duration: 0.6, maxZoom: 13 });
+    }
+  }, [map, items, selectedId, city]);
+
+  return null;
+}
+
+function createMarkerIcon(type: Accommodation["type"], selected: boolean) {
+  const color = type === "hostel" ? "#34c759" : "#0071e3";
+  const size = selected ? 36 : 28;
+  const ring = selected ? "box-shadow:0 0 0 4px rgba(0,113,227,0.35);" : "";
+
+  return L.divIcon({
+    className: "",
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    html: `<span style="display:block;width:${size}px;height:${size}px;border-radius:50%;background:${color};border:3px solid #fff;${ring}"></span>`,
+  });
+}
+
+export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanvasProps) {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  const tileUrl = isDark
+    ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+    : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+
+  const initialCenter = useMemo((): [number, number] => {
+    if (city !== "all") {
+      const c = cityCenters[city];
+      return [c.lat, c.lng];
+    }
+    return [3.5, 108];
+  }, [city]);
+
+  const initialZoom = city !== "all" ? cityCenters[city].zoom : 6;
+
+  return (
+    <MapContainer
+      center={initialCenter}
+      zoom={initialZoom}
+      className="map-leaflet h-full w-full"
+      scrollWheelZoom
+      zoomControl
+    >
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; CARTO'
+        url={tileUrl}
+      />
+      <MapController items={items} selectedId={selectedId} city={city} />
+      {items.map((item) => (
+        <Marker
+          key={item.id}
+          position={[item.lat, item.lng]}
+          icon={createMarkerIcon(item.type, item.id === selectedId)}
+          eventHandlers={{
+            click: () => onSelect(item.id),
+          }}
+        >
+          <Popup>
+            <div className="min-w-[180px] p-1">
+              <p className="font-semibold text-[#1d1d1f]">{item.name}</p>
+              <p className="mt-1 text-xs text-[#6e6e73]">{item.address}</p>
+              <p className="mt-2 text-sm font-semibold text-[#0071e3]">
+                ${item.pricePerNight} / night
+              </p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+    </MapContainer>
+  );
+}

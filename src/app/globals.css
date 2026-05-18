@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", system-ui, sans-serif;
+  --font-display: var(--font-alegreya), Georgia, "Times New Roman", serif;
+
+  --color-surface: #f5f5f7;
+  --color-surface-elevated: #ffffff;
+  --color-ink: #1d1d1f;
+  --color-ink-muted: #6e6e73;
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-border: rgba(0, 0, 0, 0.08);
+
+  --color-surface-dark: #000000;
+  --color-surface-elevated-dark: #1c1c1e;
+  --color-ink-dark: #f5f5f7;
+  --color-ink-muted-dark: #a1a1a6;
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background-color: var(--color-surface-dark);
+  color: var(--color-ink-dark);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.glass-nav {
+  background: rgba(245, 245, 247, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dark .glass-nav {
+  background: rgba(0, 0, 0, 0.72);
+  border-bottom-color: var(--color-border-dark);
+}
+
+.card-apple {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dark .card-apple {
+  background: var(--color-surface-elevated-dark);
+  border-color: var(--color-border-dark);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.card-apple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.dark .card-apple:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+  background: var(--color-accent);
+  border-radius: 9999px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-ink);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.dark .btn-secondary {
+  color: var(--color-ink-dark);
+  border-color: var(--color-border-dark);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.dark .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.map-leaflet {
+  z-index: 0;
+  font-family: inherit;
+}
+
+.map-leaflet .leaflet-control-attribution {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px);
+}
+
+.dark .map-leaflet .leaflet-control-attribution {
+  background: rgba(28, 28, 30, 0.85) !important;
+  color: #a1a1a6;
+}
+
+.map-leaflet .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.map-leaflet .leaflet-popup-tip {
+  display: none;
+}
