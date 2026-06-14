@@ -5,7 +5,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
   return (
     <Link href={`/community/${profile.id}`} className="card-apple block p-5">
       <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0071e3]/15 text-lg font-semibold text-[#0071e3]">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#ff6a00]/15 text-lg font-semibold text-[#ff6a00]">
           {profile.displayName.charAt(0).toUpperCase()}
         </div>
         <div className="min-w-0 flex-1">
@@ -21,7 +21,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
             </p>
           ) : null}
           {profile.languages.length > 0 ? (
-            <p className="mt-2 text-xs text-[#0071e3]">{profile.languages.join(" · ")}</p>
+            <p className="mt-2 text-xs text-[#ff6a00]">{profile.languages.join(" · ")}</p>
           ) : null}
         </div>
       </div>

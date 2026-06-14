@@ -24,7 +24,7 @@ export function ContactBlock({
       {contacts.email ? (
         <li>
           <span className="text-[#6e6e73] dark:text-[#a1a1a6]">Email: </span>
-          <a href={`mailto:${contacts.email}`} className="text-[#0071e3] hover:underline">
+          <a href={`mailto:${contacts.email}`} className="text-[#ff6a00] hover:underline">
             {contacts.email}
           </a>
         </li>
@@ -32,7 +32,7 @@ export function ContactBlock({
       {contacts.phone ? (
         <li>
           <span className="text-[#6e6e73] dark:text-[#a1a1a6]">Phone: </span>
-          <a href={`tel:${contacts.phone}`} className="text-[#0071e3] hover:underline">
+          <a href={`tel:${contacts.phone}`} className="text-[#ff6a00] hover:underline">
             {contacts.phone}
           </a>
         </li>

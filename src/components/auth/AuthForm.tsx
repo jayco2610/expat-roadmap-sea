@@ -12,13 +12,16 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
   return (
     <form action={formAction} className="card-apple mx-auto max-w-md space-y-5 p-6 sm:p-8">
       <div>
-        <h1 className="font-display text-2xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
-          {mode === "signin" ? "Sign in" : "Create account"}
+        <h1 className="font-display text-3xl font-bold tracking-tight text-[#111114] dark:text-[#f5f5f5]">
+          Welcome
+          <span className="block text-[#ff6a00]">
+            {mode === "signin" ? "Sign in" : "Create account"}
+          </span>
         </h1>
-        <p className="mt-1 text-sm text-[#6e6e73] dark:text-[#a1a1a6]">
+        <p className="mt-3 text-sm text-[#6e6e73] dark:text-[#9a9a9e]">
           {mode === "signin"
             ? "Access your expat profile and post listings."
-            : "Join the community — set up your profile next."}
+            : "Join the community. Set up your profile next."}
         </p>
       </div>
       {state?.error ? <FormAlert message={state.error} /> : null}

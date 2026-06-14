@@ -26,13 +26,13 @@ export function FormField({
   autoComplete,
 }: FormFieldProps) {
   const baseClass =
-    "mt-1.5 w-full rounded-xl border border-black/10 bg-white px-3.5 py-2.5 text-sm text-[#1d1d1f] outline-none transition focus:border-[#0071e3] focus:ring-2 focus:ring-[#0071e3]/25 dark:border-white/12 dark:bg-[#1c1c1e] dark:text-[#f5f5f7]";
+    "mt-1.5 w-full rounded-lg border border-black/10 bg-white px-3.5 py-2.5 text-sm text-[#1d1d1f] outline-none transition focus:border-[#ff6a00] focus:ring-2 focus:ring-[#ff6a00]/25 dark:border-white/12 dark:bg-[#161618] dark:text-[#f5f5f7]";
 
   return (
     <label className="block">
       <span className="text-sm font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">
         {label}
-        {required ? <span className="text-[#0071e3]"> *</span> : null}
+        {required ? <span className="text-[#ff6a00]"> *</span> : null}
       </span>
       {as === "textarea" ? (
         <textarea

@@ -22,14 +22,14 @@ export default async function LoginPage({
         {mode === "signin" ? (
           <>
             No account?{" "}
-            <Link href="/login?mode=signup" className="text-[#0071e3] hover:underline">
+            <Link href="/login?mode=signup" className="text-[#ff6a00] hover:underline">
               Sign up
             </Link>
           </>
         ) : (
           <>
             Already have an account?{" "}
-            <Link href="/login" className="text-[#0071e3] hover:underline">
+            <Link href="/login" className="text-[#ff6a00] hover:underline">
               Sign in
             </Link>
           </>

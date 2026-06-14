@@ -144,7 +144,7 @@ async function main() {
         authorId: lena.id,
       },
       {
-        title: "Content writer — travel & expat niche",
+        title: "Content writer: travel & expat niche",
         description: "Part-time blog posts and newsletter for SEA relocation brand.",
         city: "Ubud",
         kind: "JOB",

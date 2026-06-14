@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import { HousingCard } from "@/components/housing/HousingCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -13,14 +14,19 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+const getHousingListings = unstable_cache(
+  () =>
+    prisma.housingListing.findMany({
+      orderBy: { createdAt: "desc" },
+      include: { author: { select: { displayName: true } } },
+    }),
+  ["housing-list"],
+  { revalidate: 60 },
+);
+
 export default async function HousingPage() {
   const user = await getSessionUser();
-  const listings = isDbConfigured()
-    ? await prisma.housingListing.findMany({
-        orderBy: { createdAt: "desc" },
-        include: { author: { select: { displayName: true } } },
-      })
-    : [];
+  const listings = isDbConfigured() ? await getHousingListings() : [];
 
   return (
     <PageShell>

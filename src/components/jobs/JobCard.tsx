@@ -21,7 +21,7 @@ export function JobCard({ listing }: JobCardProps) {
           className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
             listing.kind === "SERVICE"
               ? "bg-[#34c759]/15 text-[#248a3d] dark:text-[#34c759]"
-              : "bg-[#0071e3]/15 text-[#0071e3]"
+              : "bg-[#ff6a00]/15 text-[#ff6a00]"
           }`}
         >
           {listing.kind === "SERVICE" ? "Service" : "Job"}
@@ -35,7 +35,7 @@ export function JobCard({ listing }: JobCardProps) {
       </h2>
       <p className="text-sm text-[#6e6e73] dark:text-[#a1a1a6]">{listing.city}</p>
       {listing.compensation ? (
-        <p className="mt-2 text-sm font-medium text-[#0071e3]">{listing.compensation}</p>
+        <p className="mt-2 text-sm font-medium text-[#ff6a00]">{listing.compensation}</p>
       ) : null}
       <p className="mt-3 line-clamp-3 text-sm text-[#1d1d1f]/85 dark:text-[#f5f5f7]/85">
         {listing.description}

@@ -26,6 +26,20 @@ function MapController({
   const map = useMap();
 
   useEffect(() => {
+    const refresh = () => map.invalidateSize();
+    const t1 = setTimeout(refresh, 100);
+    const t2 = setTimeout(refresh, 600);
+    window.addEventListener("resize", refresh);
+    window.addEventListener("orientationchange", refresh);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("resize", refresh);
+      window.removeEventListener("orientationchange", refresh);
+    };
+  }, [map]);
+
+  useEffect(() => {
     if (selectedId) {
       const item = items.find((i) => i.id === selectedId);
       if (item) {
@@ -50,9 +64,9 @@ function MapController({
 }
 
 function createMarkerIcon(type: Accommodation["type"], selected: boolean) {
-  const color = type === "hostel" ? "#34c759" : "#0071e3";
+  const color = type === "hostel" ? "#34c759" : "#ff6a00";
   const size = selected ? 36 : 28;
-  const ring = selected ? "box-shadow:0 0 0 4px rgba(0,113,227,0.35);" : "";
+  const ring = selected ? "box-shadow:0 0 0 4px rgba(255,106,0,0.35);" : "";
 
   return L.divIcon({
     className: "",
@@ -67,8 +81,8 @@ export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanv
   const isDark = resolvedTheme === "dark";
 
   const tileUrl = isDark
-    ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-    : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+    ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
+    : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png";
 
   const initialCenter = useMemo((): [number, number] => {
     if (city !== "all") {
@@ -106,7 +120,7 @@ export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanv
             <div className="min-w-[180px] p-1">
               <p className="font-semibold text-[#1d1d1f]">{item.name}</p>
               <p className="mt-1 text-xs text-[#6e6e73]">{item.address}</p>
-              <p className="mt-2 text-sm font-semibold text-[#0071e3]">
+              <p className="mt-2 text-sm font-semibold text-[#ff6a00]">
                 ${item.pricePerNight} / night
               </p>
             </div>

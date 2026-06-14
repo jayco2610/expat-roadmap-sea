@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import { ProfileCard } from "@/components/community/ProfileCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -14,11 +15,15 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+const getProfiles = unstable_cache(
+  () => prisma.profile.findMany({ orderBy: { createdAt: "desc" } }),
+  ["community-profiles"],
+  { revalidate: 60 },
+);
+
 export default async function CommunityPage() {
   const user = await getSessionUser();
-  const profiles = isDbConfigured()
-    ? await prisma.profile.findMany({ orderBy: { createdAt: "desc" } })
-    : [];
+  const profiles = isDbConfigured() ? await getProfiles() : [];
 
   return (
     <PageShell>

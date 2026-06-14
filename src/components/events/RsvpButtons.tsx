@@ -16,7 +16,7 @@ export function RsvpButtons({ eventId, currentStatus, isLoggedIn }: RsvpButtonsP
   if (!isLoggedIn) {
     return (
       <p className="text-sm text-[#6e6e73] dark:text-[#a1a1a6]">
-        <a href="/login" className="text-[#0071e3] hover:underline">
+        <a href="/login" className="text-[#ff6a00] hover:underline">
           Sign in
         </a>{" "}
         to RSVP.

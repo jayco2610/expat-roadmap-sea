@@ -62,7 +62,7 @@ export function MapExplorer() {
       />
 
       <div className="flex flex-1 flex-col lg:min-h-0 lg:flex-row">
-        <div className="relative order-1 min-h-[42dvh] flex-1 sm:min-h-[48dvh] lg:order-2 lg:min-h-0">
+        <div className="relative order-1 h-[58dvh] sm:h-[62dvh] lg:order-2 lg:h-auto lg:min-h-0 lg:flex-1">
           <MapCanvas
             items={filtered}
             selectedId={selectedId}

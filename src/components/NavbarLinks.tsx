@@ -9,17 +9,18 @@ export function NavbarLinks({ mobile = false }: { mobile?: boolean }) {
 
   if (mobile) {
     return (
-      <ul className="flex gap-1 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <ul className="flex flex-wrap gap-1.5">
         {navLinks.map(({ href, label }) => {
           const active = pathname === href;
           return (
-            <li key={href} className="shrink-0">
+            <li key={href}>
               <Link
                 href={href}
-                className={`block rounded-full px-3 py-1.5 text-xs font-medium whitespace-nowrap ${
+                prefetch={false}
+                className={`block rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap ${
                   active
-                    ? "bg-black/8 text-[#1d1d1f] dark:bg-white/12 dark:text-[#f5f5f7]"
-                    : "text-[#6e6e73] dark:text-[#a1a1a6]"
+                    ? "bg-black/8 text-[#111114] dark:bg-white/12 dark:text-[#f5f5f5]"
+                    : "text-[#6e6e73] dark:text-[#9a9a9e]"
                 }`}
               >
                 {label}
@@ -39,6 +40,7 @@ export function NavbarLinks({ mobile = false }: { mobile?: boolean }) {
           <li key={href}>
             <Link
               href={href}
+              prefetch={false}
               className={`rounded-full px-3 py-1.5 text-sm font-medium transition ${
                 active
                   ? "bg-black/8 text-[#1d1d1f] dark:bg-white/12 dark:text-[#f5f5f7]"

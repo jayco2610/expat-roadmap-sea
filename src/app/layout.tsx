@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Alegreya, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -11,19 +11,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const alegreya = Alegreya({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-alegreya",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: {
     default: "Expat Roadmap SEA",
     template: "%s · Expat Roadmap SEA",
   },
   description:
-    "A calm, curated guide for expats and digital nomads across Southeast Asia — visas, cities, housing, jobs, and community.",
+    "A calm, curated guide for expats and digital nomads across Southeast Asia: visas, cities, housing, jobs, and community.",
 };
 
 export default function RootLayout({
@@ -33,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${alegreya.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Navbar />

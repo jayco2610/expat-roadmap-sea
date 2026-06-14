@@ -7,7 +7,7 @@ export async function UserMenu() {
 
   if (!user) {
     return (
-      <Link href="/login" className="btn-secondary hidden text-sm sm:inline-flex">
+      <Link href="/login" className="btn-secondary text-sm">
         Sign in
       </Link>
     );
@@ -16,10 +16,10 @@ export async function UserMenu() {
   const profile = await getCurrentProfile();
 
   return (
-    <div className="hidden items-center gap-2 sm:flex">
+    <div className="flex items-center gap-2">
       <Link
         href="/settings/profile"
-        className="rounded-full px-3 py-1.5 text-sm font-medium text-[#6e6e73] hover:text-[#1d1d1f] dark:text-[#a1a1a6] dark:hover:text-[#f5f5f7]"
+        className="hidden rounded-full px-3 py-1.5 text-sm font-medium text-[#6e6e73] hover:text-[#111114] sm:block dark:text-[#9a9a9e] dark:hover:text-[#f5f5f5]"
       >
         {profile?.displayName ?? "Profile"}
       </Link>

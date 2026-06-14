@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import { JobCard } from "@/components/jobs/JobCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -13,22 +14,30 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+function getJobListings(kindFilter?: "JOB" | "SERVICE") {
+  return unstable_cache(
+    () =>
+      prisma.jobListing.findMany({
+        where: kindFilter ? { kind: kindFilter } : undefined,
+        orderBy: { createdAt: "desc" },
+        include: { author: { select: { displayName: true } } },
+      }),
+    ["jobs-list", kindFilter ?? "all"],
+    { revalidate: 60 },
+  )();
+}
+
 export default async function JobsPage({
   searchParams,
 }: {
   searchParams: Promise<{ kind?: string }>;
 }) {
   const params = await searchParams;
-  const kindFilter = params.kind === "SERVICE" ? "SERVICE" : params.kind === "JOB" ? "JOB" : undefined;
+  const kindFilter =
+    params.kind === "SERVICE" ? "SERVICE" : params.kind === "JOB" ? "JOB" : undefined;
   const user = await getSessionUser();
 
-  const listings = isDbConfigured()
-    ? await prisma.jobListing.findMany({
-        where: kindFilter ? { kind: kindFilter } : undefined,
-        orderBy: { createdAt: "desc" },
-        include: { author: { select: { displayName: true } } },
-      })
-    : [];
+  const listings = isDbConfigured() ? await getJobListings(kindFilter) : [];
 
   return (
     <PageShell>

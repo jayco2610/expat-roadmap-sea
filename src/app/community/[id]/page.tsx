@@ -32,14 +32,14 @@ export default async function ProfilePage({ params }: Props) {
     <PageShell>
       <Link
         href="/community"
-        className="mb-6 inline-flex text-sm text-[#0071e3] hover:underline"
+        className="mb-6 inline-flex text-sm text-[#ff6a00] hover:underline"
       >
         ← Back to community
       </Link>
 
       <article className="card-apple max-w-2xl p-6 sm:p-8">
         <div className="flex items-start gap-4">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#0071e3]/15 text-2xl font-semibold text-[#0071e3]">
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#ff6a00]/15 text-2xl font-semibold text-[#ff6a00]">
             {profile.displayName.charAt(0).toUpperCase()}
           </div>
           <div>

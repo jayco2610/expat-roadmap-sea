@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { unstable_cache } from "next/cache";
 import { EventCard } from "@/components/events/EventCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -13,22 +14,27 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+const getEvents = unstable_cache(
+  () =>
+    prisma.event.findMany({
+      orderBy: { startsAt: "asc" },
+      include: {
+        rsvps: { where: { status: "GOING" }, select: { id: true } },
+      },
+    }),
+  ["events-list"],
+  { revalidate: 60 },
+);
+
 export default async function EventsPage() {
   const user = await getSessionUser();
-  const events = isDbConfigured()
-    ? await prisma.event.findMany({
-        orderBy: { startsAt: "asc" },
-        include: {
-          rsvps: { where: { status: "GOING" }, select: { id: true } },
-        },
-      })
-    : [];
+  const events = isDbConfigured() ? await getEvents() : [];
 
   return (
     <PageShell>
       <PageHeader
         title="Events"
-        description="Meetups and gatherings with RSVP — know who's going before you show up."
+        description="Meetups and gatherings with RSVP. Know who's going before you show up."
         action={
           user
             ? { href: "/events/new", label: "Create event" }
