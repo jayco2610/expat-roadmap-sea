@@ -1,95 +1,95 @@
 # Expat Roadmap SEA
 
-Платформа для экспатов в Юго-Восточной Азии: профили, события с RSVP, доски жилья и работы/услуг, карта жилья. Next.js 15, Tailwind CSS 4, **Prisma** + **Supabase** (PostgreSQL + Auth).
+A full-stack community platform for expats and digital nomads in Southeast Asia — built as a portfolio project by a PM using AI-assisted development.
 
-## Возможности
+**Live demo:** [expat-roadmap-sea.vercel.app](https://expat-roadmap-sea.vercel.app)
 
-| Раздел | Функции |
-|--------|---------|
-| **Community** | Профили экспатов, приватность контактов |
-| **Events** | Создание событий, RSVP (Going / Maybe) |
-| **Housing** | Доска объявлений о жилье |
-| **Jobs** | Вакансии и услуги (фильтр Job / Service) |
-| **Map** | Leaflet-карта с seed-отелями HCMC и Ubud |
-| **Settings** | Профиль + настройки приватности email / phone / Telegram |
+---
 
-### Приватность контактов
+## What it does
 
-В `/settings/profile` можно задать:
+| Section | Features |
+|---|---|
+| **Community** | Expat profiles with privacy controls (contacts visible to everyone / members only / nobody) |
+| **Events** | Create meetups, RSVP with Going / Maybe status |
+| **Housing** | Listings board for rooms, apartments, co-living |
+| **Jobs** | Remote roles and local services with Job / Service filter |
+| **Map** | Interactive Leaflet map of accommodations in HCMC and Ubud |
+| **Auth** | Email sign-up/in via Supabase Auth, profile settings |
 
-- **Who can see contacts** — Everyone / Logged-in members / Only me
-- Чекбоксы **Show email**, **Show phone**, **Show Telegram**
+## Stack
 
-На публичном профиле (`/community/[id]`) контакты показываются только при выполнении этих правил.
+- **Next.js 15** — App Router, React Server Components, Server Actions
+- **Tailwind CSS 4** — dark/light theme (Polestar-inspired dark, Apple Wallet-inspired light)
+- **Prisma ORM** + **Supabase** — PostgreSQL + Auth
+- **React Leaflet** — interactive map with CartoCSS tiles
+- **Vercel** — production deployment with auto-deploy from GitHub
 
-## Требования
+## Why this exists
+
+I'm a product manager exploring how far AI-assisted development can go for someone without a traditional engineering background. This project was built end-to-end using Claude as the primary development tool — from architecture decisions to component-level implementation.
+
+The goal was to ship something real: a working product with auth, a database, mobile-responsive UI, and production deployment. Not a tutorial clone — a platform with a defined use case, real routing, and actual data persistence.
+
+## Setup
+
+### Prerequisites
 
 - Node.js 18.18+
-- Проект [Supabase](https://supabase.com) (PostgreSQL + Auth)
+- [Supabase](https://supabase.com) project (PostgreSQL + Auth)
 
-## Настройка Supabase
-
-1. Создайте проект в Supabase.
-2. Скопируйте `.env.example` → `.env.local` и заполните:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `DATABASE_URL` (Transaction pooler, порт **6543**)
-   - `DIRECT_URL` (Direct connection, порт **5432**)
-3. В Supabase → Authentication → Providers включите **Email**.
-4. Site URL: `http://localhost:3000`, Redirect URLs: `http://localhost:3000/auth/callback`
-
-## Быстрый старт
+### Install
 
 ```bash
+git clone https://github.com/jayco2610/expat-roadmap-sea.git
 cd expat-roadmap-sea
 npm install
-npm run db:push      # применить схему Prisma к Supabase
-npm run db:seed      # демо-профили, события, жильё, работы
-npm run dev
 ```
 
-Откройте [http://localhost:3000](http://localhost:3000).
+### Environment variables
 
-Для полного функционала зарегистрируйтесь (`/login?mode=signup`), создайте профиль в `/settings/profile`, затем публикуйте события и объявления.
-
-## Скрипты
-
-| Команда | Действие |
-|---------|----------|
-| `npm run dev` | Режим разработки |
-| `npm run build` | `prisma generate` + production-сборка |
-| `npm run db:push` | Синхронизация схемы с БД |
-| `npm run db:seed` | Демо-данные |
-| `npm run db:studio` | Prisma Studio |
-
-## Маршруты
-
-| Маршрут | Описание |
-|---------|----------|
-| `/` | Лендинг |
-| `/map` | Карта Leaflet |
-| `/community` | Список профилей |
-| `/community/[id]` | Профиль экспата |
-| `/settings/profile` | Профиль и приватность |
-| `/events`, `/events/new`, `/events/[id]` | События и RSVP |
-| `/housing`, `/housing/new` | Доска жилья |
-| `/jobs`, `/jobs/new` | Работа и услуги |
-| `/login` | Вход / регистрация |
-
-## Стек
-
-- **Next.js 15** — App Router, Server Actions
-- **Prisma** — ORM для PostgreSQL (Supabase)
-- **Supabase Auth** — email + password
-- **Tailwind CSS v4**, **next-themes**, **Leaflet**
-- **Zod** — валидация форм
-
-## Структура
+Create `.env` (for Prisma CLI):
 
 ```
-prisma/schema.prisma   # модели Profile, Event, Housing, Job
-src/actions/           # server actions
-src/app/               # страницы
-src/components/        # UI, формы, карточки
-src/lib/               # prisma, supabase, privacy helpers
+DATABASE_URL="postgresql://..."   # Transaction pooler, port 6543, add ?pgbouncer=true&connection_limit=1
+DIRECT_URL="postgresql://..."     # Direct connection, port 5432
 ```
+
+Create `.env.local` (for Next.js):
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+### Database
+
+```bash
+npm run db:push    # push schema to Supabase
+npm run db:seed    # load demo data (3 profiles, 2 events, 2 listings, 3 jobs)
+```
+
+### Run
+
+```bash
+npm run dev        # http://localhost:3000
+```
+
+## Routes
+
+| Route | Description |
+|---|---|
+| `/` | Landing page |
+| `/map` | Interactive accommodation map |
+| `/community`, `/community/[id]` | Profiles and public profile view |
+| `/events`, `/events/new`, `/events/[id]` | Events list, create, detail + RSVP |
+| `/housing`, `/housing/new` | Housing board and post listing |
+| `/jobs`, `/jobs/new` | Jobs and services board |
+| `/settings/profile` | Edit profile and contact privacy |
+| `/login` | Sign in / sign up |
+
+## Author
+
+**Jasur Akhmadaliev** — Product Manager
+
+[Telegram: @pmvision_ai](https://t.me/pmvision_ai)
