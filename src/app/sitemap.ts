@@ -1,8 +1,16 @@
 import type { MetadataRoute } from "next";
+import { guides } from "@/lib/guides";
 
 const BASE_URL = "https://expat-roadmap-sea.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const guidePages: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${BASE_URL}/guides/${guide.slug}`,
+    lastModified: new Date(guide.updatedAt),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -16,6 +24,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/guides`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    ...guidePages,
     {
       url: `${BASE_URL}/community`,
       lastModified: new Date(),
