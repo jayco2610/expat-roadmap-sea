@@ -9,7 +9,14 @@ import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Events",
+  title: "Expat Events & Meetups in Southeast Asia",
+  description:
+    "Networking events, nomad meetups and group tours for expats in Thailand, Bali, Vietnam and across SEA. Join, RSVP and meet people nearby.",
+  openGraph: {
+    title: "Expat Events & Meetups in Southeast Asia",
+    description:
+      "Networking events and group tours for expats in Thailand, Bali and Vietnam.",
+  },
 };
 
 export const dynamic = "force-dynamic";

@@ -9,7 +9,14 @@ import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Jobs & services",
+  title: "Remote Jobs & Freelance Services for Expats in SEA",
+  description:
+    "Find remote work, local gigs and freelance services in Thailand, Bali, Vietnam. Jobs posted by and for the expat community in Southeast Asia.",
+  openGraph: {
+    title: "Remote Jobs & Services for Expats in Southeast Asia",
+    description:
+      "Remote work and freelance services in Thailand, Bali, Vietnam — posted by the expat community.",
+  },
 };
 
 export const dynamic = "force-dynamic";

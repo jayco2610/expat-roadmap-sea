@@ -13,11 +13,40 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Expat Roadmap SEA",
+    default: "Expat Roadmap SEA — Community Platform for Expats in Southeast Asia",
     template: "%s · Expat Roadmap SEA",
   },
   description:
-    "A calm, curated guide for expats and digital nomads across Southeast Asia: visas, cities, housing, jobs, and community.",
+    "Find housing, jobs, events and connect with expats in Thailand, Bali, Vietnam and across Southeast Asia. Visa guides, community reviews, and group tours.",
+  keywords: [
+    "expat community SEA",
+    "digital nomad Southeast Asia",
+    "expat housing Thailand",
+    "digital nomad Bali",
+    "expat jobs Vietnam",
+    "Thailand visa guide 2026",
+    "KITAS Indonesia",
+    "expat forum Southeast Asia",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://expat-roadmap-sea.vercel.app",
+    siteName: "Expat Roadmap SEA",
+    title: "Expat Roadmap SEA — Community Platform for Expats in Southeast Asia",
+    description:
+      "Find housing, jobs, events and connect with expats in Thailand, Bali, Vietnam and across Southeast Asia.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Expat Roadmap SEA",
+    description:
+      "Housing, jobs, events and community for expats across Southeast Asia.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

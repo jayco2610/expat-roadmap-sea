@@ -9,7 +9,14 @@ import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Housing",
+  title: "Housing for Expats in Southeast Asia",
+  description:
+    "Find rooms, apartments and co-living spaces in Thailand, Bali, Vietnam and across SEA. Listings posted by expats — fair prices, no agencies.",
+  openGraph: {
+    title: "Expat Housing in Southeast Asia",
+    description:
+      "Rooms, apartments and co-living spaces posted by expats in Thailand, Bali and Vietnam.",
+  },
 };
 
 export const dynamic = "force-dynamic";
