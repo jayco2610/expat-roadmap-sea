@@ -5,8 +5,18 @@ export function ProfileCard({ profile }: { profile: Profile }) {
   return (
     <Link href={`/community/${profile.id}`} className="card-apple block p-5">
       <div className="flex items-start gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#ff6a00]/15 text-lg font-semibold text-[#ff6a00]">
-          {profile.displayName.charAt(0).toUpperCase()}
+        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#ff6a00]/15">
+          {profile.avatarUrl ? (
+            <img
+              src={profile.avatarUrl}
+              alt={profile.displayName}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <span className="flex h-full w-full items-center justify-center text-lg font-semibold text-[#ff6a00]">
+              {profile.displayName.charAt(0).toUpperCase()}
+            </span>
+          )}
         </div>
         <div className="min-w-0 flex-1">
           <h2 className="font-display truncate text-lg font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
