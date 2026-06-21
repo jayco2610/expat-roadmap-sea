@@ -217,7 +217,19 @@ Big-city comfort at a fraction of Singapore prices. Great for a DE Rantau base. 
     data: [
       {
         title: "Senior React Developer (remote)",
-        description: "EU fintech startup, async team, 4h overlap with CET. TypeScript, Next.js, 4+ years.",
+        description: `EU fintech startup hiring a senior frontend engineer to join a fully async team.
+
+What you'll do:
+- Build and own features in our Next.js / TypeScript web app
+- Work closely with design and product on a 4-hour overlap with CET
+- Improve performance and test coverage across the codebase
+
+We're looking for:
+- 4+ years with React and TypeScript in production
+- Strong with Next.js, state management and modern tooling
+- Comfortable in a remote, written-first culture
+
+Fully remote from anywhere in Southeast Asia. Equipment budget and yearly team retreat included.`,
         city: "Ho Chi Minh City",
         kind: "JOB",
         compensation: "$4k–5k / month",
@@ -226,7 +238,15 @@ Big-city comfort at a fraction of Singapore prices. Great for a DE Rantau base. 
       },
       {
         title: "Visa & relocation consulting",
-        description: "Help with DN visa, temporary residence, and apartment contracts in Vietnam.",
+        description: `One-on-one help navigating visas and settling into Vietnam, from someone who has done it for 100+ expats.
+
+I help with:
+- Choosing the right visa (e-visa, TRC, work permit) for your situation
+- Document prep and application review
+- Apartment contracts and avoiding common rental traps
+- Setting up banking, SIM, and local registration
+
+Sessions over video call or in person in Ho Chi Minh City. First call includes a written action plan.`,
         city: "Ho Chi Minh City",
         kind: "SERVICE",
         compensation: "From $150 / session",
@@ -235,17 +255,82 @@ Big-city comfort at a fraction of Singapore prices. Great for a DE Rantau base. 
       },
       {
         title: "Content writer: travel & expat niche",
-        description: "Part-time blog posts and newsletter for SEA relocation brand.",
+        description: `Part-time remote writer for a SEA relocation brand's blog and newsletter.
+
+The work:
+- 4–6 articles per month on visas, cost of living, and city guides
+- Research-backed, practical, no fluff
+- Light SEO (we provide keywords and briefs)
+
+You:
+- Native or fluent English
+- Have lived in or traveled SEA (you get the audience)
+- Can turn a brief into a clear, useful article
+
+Flexible hours, paid per article, long-term collaboration preferred.`,
         city: "Ubud",
         kind: "JOB",
         compensation: "$40–60 / article",
         remote: true,
         authorId: mia.id,
       },
+      {
+        title: "Remote Product Designer (contract)",
+        description: `B2B SaaS company looking for a product designer for a 3-month contract with extension potential.
+
+Scope:
+- Redesign core dashboard flows in Figma
+- Build and maintain the design system
+- Hand off cleanly to a React engineering team
+
+Requirements:
+- 3+ years product design, B2B experience a plus
+- Strong Figma and design-system skills
+- Async-friendly, 3h overlap with US East
+
+Fully remote. Paid weekly.`,
+        city: "Bali",
+        kind: "JOB",
+        compensation: "$3k–4k / month",
+        remote: true,
+        authorId: mia.id,
+      },
+      {
+        title: "Motorbike delivery & airport pickup",
+        description: `Reliable local service for new arrivals in Da Nang.
+
+I offer:
+- Airport pickup with English-speaking driver
+- Help with first-week errands (SIM, groceries, scooter rental)
+- Motorbike delivery and basic maintenance referrals
+
+Honest pricing, on time, used by dozens of nomads landing in Da Nang. Message me your flight details.`,
+        city: "Da Nang",
+        kind: "SERVICE",
+        compensation: "From $15 / trip",
+        remote: false,
+        authorId: arun.id,
+      },
+      {
+        title: "Bookkeeping for freelancers & nomads",
+        description: `Stay on top of your finances while living abroad.
+
+I handle:
+- Monthly bookkeeping and expense categorization
+- Invoicing and income tracking across currencies
+- Simple reports you can hand to a tax advisor
+
+Experience with freelancers, remote employees, and small online businesses. Fully remote, monthly retainer.`,
+        city: "Chiang Mai",
+        kind: "SERVICE",
+        compensation: "From $120 / month",
+        remote: true,
+        authorId: lena.id,
+      },
     ],
   });
 
-  console.log("Seed complete:", { profiles: 3, events: 2, housing: 2, jobs: 3 });
+  console.log("Seed complete: profiles 3, events 2, housing 6, jobs 6");
 }
 
 main()
