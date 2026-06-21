@@ -14,15 +14,17 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #55633f, #7d8c63)",
-          color: "#ffffff",
-          fontSize: 40,
-          fontWeight: 700,
-          fontFamily: "Georgia, serif",
+          background: "linear-gradient(140deg, #5c6b4a, #7d8c63)",
           borderRadius: 14,
         }}
       >
-        E
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 2.5c-4.0 0-7.2 3.2-7.2 7.2 0 5.4 7.2 12.3 7.2 12.3s7.2-6.9 7.2-12.3c0-4.0-3.2-7.2-7.2-7.2z"
+            fill="#ffffff"
+          />
+          <circle cx="12" cy="9.6" r="3" fill="#5c6b4a" />
+        </svg>
       </div>
     ),
     { ...size },
