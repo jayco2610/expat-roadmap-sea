@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { eventImage } from "@/lib/event-image";
 
 type EventCardProps = {
   event: {
@@ -21,19 +23,35 @@ export function EventCard({ event }: EventCardProps) {
   }).format(new Date(event.startsAt));
 
   return (
-    <Link href={`/events/${event.id}`} className="card-apple block p-5">
-      <p className="text-xs font-medium tracking-wide text-[#7d8c63] uppercase">{date}</p>
-      <h2 className="font-display mt-1 text-lg font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
-        {event.title}
-      </h2>
-      <p className="mt-1 text-sm text-[#6e6e73] dark:text-[#a1a1a6]">
-        {event.city} · {event.location}
-      </p>
-      {event._count ? (
-        <p className="mt-3 text-xs text-[#6e6e73] dark:text-[#a1a1a6]">
-          {event._count.rsvps} going
+    <Link
+      href={`/events/${event.id}`}
+      className="card-apple group flex h-full flex-col overflow-hidden"
+    >
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
+        <Image
+          src={eventImage(event.title)}
+          alt={event.title}
+          fill
+          sizes="(max-width: 640px) 100vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <span className="absolute top-3 left-3 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold text-[#55633f] backdrop-blur-sm">
+          {date}
+        </span>
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <h2 className="font-display text-lg font-semibold leading-snug text-[#2b2e28] dark:text-[#ecebe3]">
+          {event.title}
+        </h2>
+        <p className="mt-1 text-sm text-[#6e7167] dark:text-[#9a9c8f]">
+          {event.city} · {event.location}
         </p>
-      ) : null}
+        {event._count ? (
+          <p className="mt-auto pt-3 text-xs text-[#6e7167]/80 dark:text-[#9a9c8f]/80">
+            {event._count.rsvps} going
+          </p>
+        ) : null}
+      </div>
     </Link>
   );
 }

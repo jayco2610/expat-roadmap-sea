@@ -18,6 +18,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://expat-roadmap-sea.vercel.app"),
   title: {
     default: "Expat Roadmap SEA — Community Platform for Expats in Southeast Asia",
     template: "%s · Expat Roadmap SEA",
