@@ -11,10 +11,10 @@ type Props = {
 
 export function AvatarUpload({ currentUrl, userId, displayName }: Props) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(currentUrl ?? null);
+  const [savedUrl, setSavedUrl] = useState<string>(currentUrl ?? "");
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const hiddenInputRef = useRef<HTMLInputElement>(null);
 
   const initials = displayName
     ? displayName.split(" ").map((w) => w[0]).join("").slice(0, 2).toUpperCase()
@@ -45,9 +45,7 @@ export function AvatarUpload({ currentUrl, userId, displayName }: Props) {
       if (uploadError) throw uploadError;
 
       const { data } = supabase.storage.from("avatar").getPublicUrl(path);
-      if (hiddenInputRef.current) {
-        hiddenInputRef.current.value = `${data.publicUrl}?t=${Date.now()}`;
-      }
+      setSavedUrl(`${data.publicUrl}?t=${Date.now()}`);
     } catch {
       setError("Upload failed. Try again.");
       setPreviewUrl(currentUrl ?? null);
@@ -58,12 +56,8 @@ export function AvatarUpload({ currentUrl, userId, displayName }: Props) {
 
   return (
     <div className="mb-6">
-      <input
-        ref={hiddenInputRef}
-        type="hidden"
-        name="avatarUrl"
-        defaultValue={currentUrl ?? ""}
-      />
+      {/* React state controls this value — guaranteed to be in FormData */}
+      <input type="hidden" name="avatarUrl" value={savedUrl} readOnly />
 
       <button
         type="button"
