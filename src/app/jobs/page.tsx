@@ -4,7 +4,6 @@ import { JobCard } from "@/components/jobs/JobCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
@@ -18,8 +17,6 @@ export const metadata: Metadata = {
       "Remote work and freelance services in Thailand, Bali, Vietnam — posted by the expat community.",
   },
 };
-
-export const dynamic = "force-dynamic";
 
 function getJobListings(kindFilter?: "JOB" | "SERVICE") {
   return unstable_cache(
@@ -42,7 +39,6 @@ export default async function JobsPage({
   const params = await searchParams;
   const kindFilter =
     params.kind === "SERVICE" ? "SERVICE" : params.kind === "JOB" ? "JOB" : undefined;
-  const user = await getSessionUser();
 
   const listings = isDbConfigured() ? await getJobListings(kindFilter) : [];
 
@@ -51,11 +47,7 @@ export default async function JobsPage({
       <PageHeader
         title="Jobs & services"
         description="Remote roles, local gigs, and freelance services from the community."
-        action={
-          user
-            ? { href: "/jobs/new", label: "Post listing" }
-            : { href: "/login", label: "Sign in to post" }
-        }
+        action={{ href: "/jobs/new", label: "Post listing" }}
       />
 
       <div className="mb-6 flex gap-2 overflow-x-auto">

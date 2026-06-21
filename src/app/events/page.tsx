@@ -4,7 +4,6 @@ import { EventCard } from "@/components/events/EventCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 const getEvents = unstable_cache(
   () =>
@@ -34,7 +33,6 @@ const getEvents = unstable_cache(
 );
 
 export default async function EventsPage() {
-  const user = await getSessionUser();
   const events = isDbConfigured() ? await getEvents() : [];
 
   return (
@@ -42,11 +40,7 @@ export default async function EventsPage() {
       <PageHeader
         title="Events"
         description="Meetups and gatherings with RSVP. Know who's going before you show up."
-        action={
-          user
-            ? { href: "/events/new", label: "Create event" }
-            : { href: "/login", label: "Sign in to host" }
-        }
+        action={{ href: "/events/new", label: "Create event" }}
       />
 
       {events.length === 0 ? (

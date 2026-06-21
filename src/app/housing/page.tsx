@@ -4,7 +4,6 @@ import { HousingCard } from "@/components/housing/HousingCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 const getHousingListings = unstable_cache(
   () =>
@@ -32,7 +31,6 @@ const getHousingListings = unstable_cache(
 );
 
 export default async function HousingPage() {
-  const user = await getSessionUser();
   const listings = isDbConfigured() ? await getHousingListings() : [];
 
   return (
@@ -40,11 +38,7 @@ export default async function HousingPage() {
       <PageHeader
         title="Housing board"
         description="Rooms, apartments, and co-living posted by expats in the community."
-        action={
-          user
-            ? { href: "/housing/new", label: "Post listing" }
-            : { href: "/login", label: "Sign in to post" }
-        }
+        action={{ href: "/housing/new", label: "Post listing" }}
       />
 
       {listings.length === 0 ? (

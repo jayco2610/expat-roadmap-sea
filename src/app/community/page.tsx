@@ -4,7 +4,6 @@ import { ProfileCard } from "@/components/community/ProfileCard";
 import { PageShell } from "@/components/layout/PageShell";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
   description: "Expat profiles across Southeast Asia.",
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 const getProfiles = unstable_cache(
   () => prisma.profile.findMany({ orderBy: { createdAt: "desc" } }),
@@ -22,7 +21,6 @@ const getProfiles = unstable_cache(
 );
 
 export default async function CommunityPage() {
-  const user = await getSessionUser();
   const profiles = isDbConfigured() ? await getProfiles() : [];
 
   return (
@@ -30,11 +28,7 @@ export default async function CommunityPage() {
       <PageHeader
         title="Expat community"
         description="Discover members living across SEA. Contact details respect each member's privacy settings."
-        action={
-          user
-            ? { href: "/settings/profile", label: "Edit profile" }
-            : { href: "/login?mode=signup", label: "Join community" }
-        }
+        action={{ href: "/settings/profile", label: "Edit profile" }}
       />
 
       {profiles.length === 0 ? (
