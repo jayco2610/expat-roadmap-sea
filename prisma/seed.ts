@@ -330,6 +330,13 @@ Experience with freelancers, remote employees, and small online businesses. Full
     ],
   });
 
+  // Security: lock down direct anon/public access. The app reads through
+  // Prisma (postgres role, bypasses RLS); the public Supabase key gets nothing.
+  for (const t of ["Profile", "HousingListing", "JobListing", "Event", "EventRsvp"]) {
+    await prisma.$executeRawUnsafe(`ALTER TABLE "${t}" ENABLE ROW LEVEL SECURITY;`);
+  }
+  console.log("RLS enabled on all tables");
+
   console.log("Seed complete: profiles 3, events 2, housing 6, jobs 6");
 }
 
