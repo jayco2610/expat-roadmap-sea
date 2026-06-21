@@ -39,8 +39,18 @@ export default async function ProfilePage({ params }: Props) {
 
       <article className="card-apple max-w-2xl p-6 sm:p-8">
         <div className="flex items-start gap-4">
-          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#ff6a00]/15 text-2xl font-semibold text-[#ff6a00]">
-            {profile.displayName.charAt(0).toUpperCase()}
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-[#ff6a00]/15">
+            {profile.avatarUrl ? (
+              <img
+                src={profile.avatarUrl}
+                alt={profile.displayName}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              <span className="flex h-full w-full items-center justify-center text-2xl font-semibold text-[#ff6a00]">
+                {profile.displayName.charAt(0).toUpperCase()}
+              </span>
+            )}
           </div>
           <div>
             <h1 className="font-display text-3xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
