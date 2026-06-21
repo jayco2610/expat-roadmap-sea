@@ -2,8 +2,8 @@
 
 import type { Accommodation, CityId } from "@/lib/accommodations";
 import { cityCenters } from "@/lib/accommodations";
+import { seaLocations, type SeaLocation } from "@/lib/sea-locations";
 import L from "leaflet";
-import { useTheme } from "next-themes";
 import { useEffect, useMemo } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
@@ -66,7 +66,7 @@ function MapController({
 function createMarkerIcon(type: Accommodation["type"], selected: boolean) {
   const color = type === "hostel" ? "#34c759" : "#7d8c63";
   const size = selected ? 36 : 28;
-  const ring = selected ? "box-shadow:0 0 0 4px rgba(255,106,0,0.35);" : "";
+  const ring = selected ? "box-shadow:0 0 0 4px rgba(85,99,63,0.35);" : "";
 
   return L.divIcon({
     className: "",
@@ -76,13 +76,57 @@ function createMarkerIcon(type: Accommodation["type"], selected: boolean) {
   });
 }
 
-export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanvasProps) {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+const badgeEmoji: Record<SeaLocation["badge"], string> = {
+  Hot: "🔥",
+  Trending: "📈",
+  Popular: "⭐",
+  New: "✨",
+};
 
-  const tileUrl = isDark
-    ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"
-    : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png";
+function createCityIcon(loc: SeaLocation) {
+  const isHot = loc.badge === "Hot";
+  const border = isHot ? "border:1.5px solid #f97316;" : "border:1px solid rgba(0,0,0,0.08);";
+  const flameGlow = isHot ? "filter:drop-shadow(0 0 5px rgba(249,115,22,0.9));" : "";
+  const pulse = isHot ? "sea-flame" : "";
+
+  return L.divIcon({
+    className: "sea-city-marker",
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    html: `
+      <div style="transform:translate(-50%,-130%);position:absolute;left:0;top:0;">
+        <div style="display:flex;align-items:center;gap:6px;background:#fff;border-radius:999px;padding:5px 11px;box-shadow:0 6px 18px rgba(20,22,16,0.18);white-space:nowrap;${border}">
+          <span class="${pulse}" style="font-size:13px;line-height:1;${flameGlow}">${badgeEmoji[loc.badge]}</span>
+          <span style="font-weight:600;font-size:12px;color:#2b2e28;letter-spacing:-0.01em;">${loc.name}</span>
+          <span style="font-size:11px;color:#6e7167;">$${loc.cost}/mo</span>
+        </div>
+        <div style="width:8px;height:8px;background:#fff;${border}border-top:none;border-left:none;transform:rotate(45deg);margin:-4px auto 0;"></div>
+      </div>`,
+  });
+}
+
+function CityMarkers() {
+  const map = useMap();
+  return (
+    <>
+      {seaLocations.map((loc) => (
+        <Marker
+          key={loc.name}
+          position={[loc.lat, loc.lng]}
+          icon={createCityIcon(loc)}
+          eventHandlers={{
+            click: () => map.flyTo([loc.lat, loc.lng], 11, { duration: 0.8 }),
+          }}
+        />
+      ))}
+    </>
+  );
+}
+
+export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanvasProps) {
+  // Bright, colorful Voyager basemap — green parks, blue water, like the design reference
+  const tileUrl =
+    "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png";
 
   const initialCenter = useMemo((): [number, number] => {
     if (city !== "all") {
@@ -107,6 +151,7 @@ export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanv
         url={tileUrl}
       />
       <MapController items={items} selectedId={selectedId} city={city} />
+      <CityMarkers />
       {items.map((item) => (
         <Marker
           key={item.id}

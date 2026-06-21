@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { destinations } from "@/lib/destinations";
+import { DestinationBadge } from "@/components/ui/DestinationBadge";
 
 export function DestinationsSection() {
   return (
@@ -45,9 +46,9 @@ export function DestinationsSection() {
                       "linear-gradient(to top, rgba(20,22,16,0.7) 0%, rgba(20,22,16,0.1) 45%, rgba(20,22,16,0) 70%)",
                   }}
                 />
-                <span className="absolute top-3 left-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-[#2b2e28] backdrop-blur-sm">
-                  {d.badge}
-                </span>
+                <div className="absolute top-3 left-3">
+                  <DestinationBadge badge={d.badge} />
+                </div>
                 <div className="absolute right-3 bottom-3 left-3">
                   <h3 className="font-display text-xl font-semibold text-white sm:text-2xl">
                     {d.name}

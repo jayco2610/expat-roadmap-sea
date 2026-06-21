@@ -48,6 +48,28 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* Smooth page transition on navigation (template.tsx remounts per route) */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
+  }
+}
+
 @layer components {
   .glass-nav {
     background: rgba(244, 243, 238, 0.78);
@@ -164,6 +186,17 @@ body {
 .map-leaflet {
   z-index: 0;
   font-family: inherit;
+}
+
+/* Pulsing flame for Hot city markers */
+@keyframes sea-flame-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.85; }
+}
+
+.sea-flame {
+  display: inline-block;
+  animation: sea-flame-pulse 1.4s ease-in-out infinite;
 }
 
 .map-leaflet .leaflet-control-attribution {

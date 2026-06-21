@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { NavbarLinks } from "@/components/NavbarLinks";
-import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
   return (
@@ -22,7 +21,6 @@ export function Navbar() {
         <NavbarLinks />
 
         <div className="flex shrink-0 items-center gap-2">
-          <ThemeToggle />
           <UserMenu />
           <Link href="/map" className="btn-primary hidden text-sm md:inline-flex">
             Explore map
