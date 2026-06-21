@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 const getUpcoming = unstable_cache(
   () =>
     prisma.event.findMany({
+      where: { status: "PUBLISHED" },
       orderBy: { startsAt: "asc" },
       take: 3,
       include: { rsvps: { where: { status: "GOING" }, select: { id: true } } },

@@ -23,6 +23,7 @@ export const revalidate = 60;
 const getHousingListings = unstable_cache(
   () =>
     prisma.housingListing.findMany({
+      where: { status: "PUBLISHED" },
       orderBy: { createdAt: "desc" },
       include: { author: { select: { displayName: true } } },
     }),

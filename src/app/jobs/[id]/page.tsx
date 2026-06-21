@@ -8,8 +8,8 @@ import { prisma } from "@/lib/prisma";
 
 async function getListing(id: string) {
   if (!isDbConfigured()) return null;
-  return prisma.jobListing.findUnique({
-    where: { id },
+  return prisma.jobListing.findFirst({
+    where: { id, status: "PUBLISHED" },
     include: {
       author: {
         select: {

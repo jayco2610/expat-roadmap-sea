@@ -22,8 +22,8 @@ export default async function EventDetailPage({ params }: Props) {
   const { id } = await params;
   if (!isDbConfigured()) notFound();
 
-  const event = await prisma.event.findUnique({
-    where: { id },
+  const event = await prisma.event.findFirst({
+    where: { id, status: "PUBLISHED" },
     include: {
       author: true,
       rsvps: {

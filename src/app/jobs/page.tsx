@@ -22,7 +22,7 @@ function getJobListings(kindFilter?: "JOB" | "SERVICE") {
   return unstable_cache(
     () =>
       prisma.jobListing.findMany({
-        where: kindFilter ? { kind: kindFilter } : undefined,
+        where: { status: "PUBLISHED", ...(kindFilter ? { kind: kindFilter } : {}) },
         orderBy: { createdAt: "desc" },
         include: { author: { select: { displayName: true } } },
       }),

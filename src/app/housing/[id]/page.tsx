@@ -9,8 +9,8 @@ import { housingImage } from "@/lib/housing-image";
 
 async function getListing(id: string) {
   if (!isDbConfigured()) return null;
-  return prisma.housingListing.findUnique({
-    where: { id },
+  return prisma.housingListing.findFirst({
+    where: { id, status: "PUBLISHED" },
     include: {
       author: {
         select: {

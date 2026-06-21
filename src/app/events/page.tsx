@@ -23,6 +23,7 @@ export const revalidate = 60;
 const getEvents = unstable_cache(
   () =>
     prisma.event.findMany({
+      where: { status: "PUBLISHED" },
       orderBy: { startsAt: "asc" },
       include: {
         rsvps: { where: { status: "GOING" }, select: { id: true } },

@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 const getJobs = unstable_cache(
   () =>
     prisma.jobListing.findMany({
+      where: { status: "PUBLISHED" },
       orderBy: { createdAt: "desc" },
       take: 4,
       include: { author: { select: { displayName: true } } },

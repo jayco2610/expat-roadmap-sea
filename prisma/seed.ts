@@ -330,6 +330,13 @@ Experience with freelancers, remote employees, and small online businesses. Full
     ],
   });
 
+  // Seed data is pre-approved so it shows publicly; real user submissions
+  // default to PENDING and wait for moderation.
+  await prisma.housingListing.updateMany({ data: { status: "PUBLISHED" } });
+  await prisma.jobListing.updateMany({ data: { status: "PUBLISHED" } });
+  await prisma.event.updateMany({ data: { status: "PUBLISHED" } });
+  console.log("Seed listings set to PUBLISHED");
+
   // Security: lock down direct anon/public access. The app reads through
   // Prisma (postgres role, bypasses RLS); the public Supabase key gets nothing.
   for (const t of ["Profile", "HousingListing", "JobListing", "Event", "EventRsvp"]) {
