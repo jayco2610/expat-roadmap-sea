@@ -55,6 +55,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "ermUeuFnbtJDN2Fsof7M6jpEmSM4Zb_VmMgJyhAfgX8",
+  },
   appleWebApp: {
     capable: true,
     title: "Expat Roadmap",
