@@ -39,12 +39,12 @@ export function AvatarUpload({ currentUrl, userId, displayName }: Props) {
       const path = `${userId}/avatar.${ext}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("avatars")
+        .from("avatar")
         .upload(path, file, { upsert: true, contentType: file.type });
 
       if (uploadError) throw uploadError;
 
-      const { data } = supabase.storage.from("avatars").getPublicUrl(path);
+      const { data } = supabase.storage.from("avatar").getPublicUrl(path);
       if (hiddenInputRef.current) {
         hiddenInputRef.current.value = `${data.publicUrl}?t=${Date.now()}`;
       }
