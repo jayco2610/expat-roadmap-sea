@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { navLinks } from "@/lib/routes";
+import { navIcons } from "@/components/icons/NavIcons";
 
 export function Hero() {
   return (
@@ -15,18 +17,18 @@ export function Hero() {
           className="object-cover"
         />
 
-        {/* Readability overlay — warm wash on the left where text sits */}
+        {/* Readability overlay */}
         <div
           aria-hidden
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(100deg, rgba(20,22,16,0.78) 0%, rgba(20,22,16,0.55) 38%, rgba(20,22,16,0.15) 65%, rgba(20,22,16,0) 100%)",
+              "linear-gradient(100deg, rgba(20,22,16,0.78) 0%, rgba(20,22,16,0.5) 38%, rgba(20,22,16,0.12) 65%, rgba(20,22,16,0) 100%)",
           }}
         />
 
         {/* Content */}
-        <div className="relative flex min-h-[78vh] flex-col justify-center px-6 py-16 sm:min-h-[70vh] sm:px-12 lg:min-h-[600px] lg:px-16">
+        <div className="relative flex min-h-[80vh] flex-col justify-center px-6 pt-16 pb-32 sm:min-h-[72vh] sm:px-12 sm:pb-36 lg:min-h-[620px] lg:px-16">
           <p className="label-upper text-white/75">Southeast Asia</p>
 
           <h1 className="font-display mt-4 max-w-2xl text-5xl leading-[1.04] font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
@@ -54,6 +56,23 @@ export function Hero() {
             </Link>
           </div>
         </div>
+
+        {/* Glass quick-nav docked inside the hero */}
+        <nav className="glass absolute right-4 bottom-4 left-4 grid grid-cols-3 gap-1 rounded-2xl p-2 sm:right-6 sm:bottom-6 sm:left-6 sm:grid-cols-6 sm:p-2.5">
+          {navLinks.map(({ href, label }) => {
+            const Icon = navIcons[href];
+            return (
+              <Link
+                key={href}
+                href={href}
+                className="group flex flex-col items-center gap-1.5 rounded-xl px-2 py-3 text-[#2b2e28] transition hover:bg-white/40"
+              >
+                {Icon ? <Icon className="h-5 w-5 sm:h-6 sm:w-6" /> : null}
+                <span className="text-[11px] font-medium sm:text-sm">{label}</span>
+              </Link>
+            );
+          })}
+        </nav>
       </div>
     </section>
   );

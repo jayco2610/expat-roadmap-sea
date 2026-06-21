@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import { Hero } from "@/components/Hero";
-import { QuickNav } from "@/components/home/QuickNav";
 import { DestinationsSection } from "@/components/home/DestinationsSection";
 import { PopularGuides } from "@/components/home/PopularGuides";
 import { UpcomingEvents } from "@/components/home/UpcomingEvents";
@@ -10,7 +9,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <QuickNav />
       <DestinationsSection />
       <PopularGuides />
       <Suspense fallback={null}>

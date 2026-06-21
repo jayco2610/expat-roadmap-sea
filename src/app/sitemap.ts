@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
+import { destinations } from "@/lib/destinations";
 
 const BASE_URL = "https://expat-roadmap-sea.vercel.app";
 
@@ -11,7 +12,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
+  const destinationPages: MetadataRoute.Sitemap = destinations.map((d) => ({
+    url: `${BASE_URL}/destinations/${d.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
   return [
+    ...destinationPages,
     {
       url: BASE_URL,
       lastModified: new Date(),

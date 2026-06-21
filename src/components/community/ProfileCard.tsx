@@ -3,7 +3,7 @@ import type { Profile } from "@prisma/client";
 
 export function ProfileCard({ profile }: { profile: Profile }) {
   return (
-    <Link href={`/community/${profile.id}`} className="card-apple block p-5">
+    <Link href={`/community/${profile.id}`} className="glass-card block p-5">
       <div className="flex items-start gap-4">
         <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#7d8c63]/15">
           {profile.avatarUrl ? (
