@@ -1,41 +1,58 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      {/* Soft natural backdrop — sage glow on warm canvas */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(80% 70% at 85% 10%, rgba(125,140,99,0.22), transparent 60%), radial-gradient(60% 60% at 10% 90%, rgba(85,99,63,0.12), transparent 55%)",
-        }}
-      />
+    <section className="px-4 pt-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl">
+        {/* Background photo */}
+        <Image
+          src="/images/hero.jpg"
+          alt="Southeast Asia coastline at sunset"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
 
-      <div className="mx-auto max-w-6xl px-5 pt-20 pb-16 sm:px-8 sm:pt-28 sm:pb-24">
-        <p className="label-upper text-[#7d8c63]">Southeast Asia</p>
+        {/* Readability overlay — warm wash on the left where text sits */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(20,22,16,0.78) 0%, rgba(20,22,16,0.55) 38%, rgba(20,22,16,0.15) 65%, rgba(20,22,16,0) 100%)",
+          }}
+        />
 
-        <h1 className="font-display mt-5 max-w-4xl text-5xl leading-[1.05] font-semibold tracking-tight text-[#2b2e28] sm:text-6xl md:text-7xl dark:text-[#ecebe3]">
-          Move abroad.
-          <br />
-          <span className="font-normal italic text-[#6b7a52] dark:text-[#9aac7a]">
-            Without the chaos.
-          </span>
-        </h1>
+        {/* Content */}
+        <div className="relative flex min-h-[78vh] flex-col justify-center px-6 py-16 sm:min-h-[70vh] sm:px-12 lg:min-h-[600px] lg:px-16">
+          <p className="label-upper text-white/75">Southeast Asia</p>
 
-        <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#6e7167] dark:text-[#9a9c8f]">
-          Visas, cities, housing, jobs, and community for digital nomads and
-          long-term movers across Thailand, Vietnam, Bali, and beyond.
-        </p>
+          <h1 className="font-display mt-4 max-w-2xl text-5xl leading-[1.04] font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+            Live anywhere.
+            <br />
+            <span className="font-normal italic text-[#cdd6b8]">
+              Start with Southeast Asia.
+            </span>
+          </h1>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Link href="/map" className="btn-primary min-w-[200px]">
-            Start exploring
-          </Link>
-          <Link href="/community" className="btn-secondary min-w-[200px]">
-            Join community
-          </Link>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-white/85 sm:text-lg">
+            Visas, cities, housing, jobs, and community for digital nomads and
+            long-term movers.
+          </p>
+
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link href="/map" className="btn-primary min-w-[190px]">
+              Start exploring
+            </Link>
+            <Link
+              href="/community"
+              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-lg border border-white/40 bg-white/10 px-6 py-3 text-[0.9375rem] font-medium text-white backdrop-blur-sm transition hover:bg-white/20"
+            >
+              Join community
+            </Link>
+          </div>
         </div>
       </div>
     </section>
