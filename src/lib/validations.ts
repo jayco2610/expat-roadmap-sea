@@ -14,6 +14,7 @@ export const profileSchema = z.object({
   showEmail: z.coerce.boolean(),
   showPhone: z.coerce.boolean(),
   showTelegram: z.coerce.boolean(),
+  avatarUrl: z.string().url().optional().or(z.literal("")),
 });
 
 export const eventSchema = z.object({

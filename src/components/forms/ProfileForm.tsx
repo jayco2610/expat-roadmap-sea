@@ -3,6 +3,7 @@
 import type { Profile } from "@prisma/client";
 import { upsertProfile } from "@/actions/profile";
 import { contactVisibilityLabels } from "@/lib/contact-privacy";
+import { AvatarUpload } from "@/components/ui/AvatarUpload";
 import { ActionForm } from "./ActionForm";
 import { FormField } from "@/components/ui/FormField";
 
@@ -14,6 +15,13 @@ type ProfileFormProps = {
 export function ProfileForm({ profile, showPrivacy = true }: ProfileFormProps) {
   return (
     <ActionForm action={upsertProfile} submitLabel={profile ? "Save profile" : "Create profile"}>
+      {profile?.userId && (
+        <AvatarUpload
+          currentUrl={profile.avatarUrl}
+          userId={profile.userId}
+          displayName={profile.displayName}
+        />
+      )}
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField label="Display name" name="displayName" required defaultValue={profile?.displayName} />
         <FormField label="City" name="city" required defaultValue={profile?.city ?? "Ho Chi Minh City"} />

@@ -36,6 +36,7 @@ export async function upsertProfile(
     showEmail: formData.get("showEmail") === "on",
     showPhone: formData.get("showPhone") === "on",
     showTelegram: formData.get("showTelegram") === "on",
+    avatarUrl: formData.get("avatarUrl") || undefined,
   });
 
   if (!parsed.success) {
@@ -43,6 +44,7 @@ export async function upsertProfile(
   }
 
   const data = parsed.data;
+  const avatarUrl = data.avatarUrl || null;
 
   await prisma.profile.upsert({
     where: { userId: user.id },
@@ -61,6 +63,7 @@ export async function upsertProfile(
       showEmail: data.showEmail,
       showPhone: data.showPhone,
       showTelegram: data.showTelegram,
+      avatarUrl,
     },
     update: {
       displayName: data.displayName,
@@ -76,6 +79,7 @@ export async function upsertProfile(
       showEmail: data.showEmail,
       showPhone: data.showPhone,
       showTelegram: data.showTelegram,
+      avatarUrl,
     },
   });
 
