@@ -4,6 +4,7 @@ import type { Accommodation, CityId } from "@/lib/accommodations";
 import { cityCenters } from "@/lib/accommodations";
 import { seaLocations, type SeaLocation } from "@/lib/sea-locations";
 import L from "leaflet";
+import { useRouter } from "next/navigation";
 import { useEffect, useMemo } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
@@ -105,7 +106,7 @@ function createCityIcon(loc: SeaLocation) {
   });
 }
 
-function CityMarkers() {
+function CityMarkers({ onOpenCity }: { onOpenCity: (slug: string) => void }) {
   const map = useMap();
   return (
     <>
@@ -115,7 +116,10 @@ function CityMarkers() {
           position={[loc.lat, loc.lng]}
           icon={createCityIcon(loc)}
           eventHandlers={{
-            click: () => map.flyTo([loc.lat, loc.lng], 11, { duration: 0.8 }),
+            click: () => {
+              if (loc.slug) onOpenCity(loc.slug);
+              else map.flyTo([loc.lat, loc.lng], 11, { duration: 0.8 });
+            },
           }}
         />
       ))}
@@ -124,6 +128,7 @@ function CityMarkers() {
 }
 
 export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanvasProps) {
+  const router = useRouter();
   // Bright, colorful Voyager basemap — green parks, blue water, like the design reference
   const tileUrl =
     "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png";
@@ -151,7 +156,7 @@ export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanv
         url={tileUrl}
       />
       <MapController items={items} selectedId={selectedId} city={city} />
-      <CityMarkers />
+      <CityMarkers onOpenCity={(slug) => router.push(`/destinations/${slug}`)} />
       {items.map((item) => (
         <Marker
           key={item.id}

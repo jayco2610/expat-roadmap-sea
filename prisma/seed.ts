@@ -104,7 +104,16 @@ async function main() {
     data: [
       {
         title: "Bright studio near Ben Thanh",
-        description: "Fully furnished 35m² studio, fast Wi‑Fi, washer, quiet building. 5 min walk to market.",
+        description: `Fully furnished 35m² studio in the heart of District 1, a 5-minute walk to Ben Thanh Market.
+
+What's included:
+- Fast fiber Wi-Fi (200 Mbps), perfect for video calls
+- In-unit washing machine and full kitchenette
+- Quiet, secure building with elevator and 24/7 reception
+- Air conditioning in the main room
+- Weekly cleaning available on request
+
+Great for a remote worker who wants to be central. Cafes, coworking and street food all within walking distance. Minimum stay 1 month.`,
         city: "Ho Chi Minh City",
         address: "12 Nguyen Thi Nghia, District 1",
         priceMonth: 650,
@@ -113,12 +122,93 @@ async function main() {
       },
       {
         title: "Ubud jungle room with desk",
-        description: "Private room in shared villa, fiber internet, pool, monthly cleaning included.",
+        description: `Private room in a shared villa surrounded by rice fields, 10 minutes from Ubud center.
+
+The space:
+- Private ensuite bathroom
+- Large desk and ergonomic chair set up for work
+- Fiber internet throughout the villa
+- Shared saltwater pool and open-air kitchen
+- Monthly cleaning and pool service included
+
+Live with two other nomads in a calm, green setting. Scooter recommended to get around. Available for stays of 1 month or longer.`,
         city: "Ubud",
         address: "Jl. Raya Tebakan, Mas",
         priceMonth: 480,
         propertyType: "ROOM",
         authorId: arun.id,
+      },
+      {
+        title: "Beachside 1BR in An Thuong",
+        description: `Modern one-bedroom apartment in Da Nang's An Thuong area, the nomad heart of the city. 3-minute walk to My Khe beach.
+
+Highlights:
+- 200 Mbps fiber, backup 4G router included
+- Balcony with partial sea view
+- Full kitchen, washer, smart TV
+- Building gym and rooftop coworking lounge
+- Surrounded by cafes, gyms and Western restaurants
+
+Ideal long-stay base for remote workers. Motorbike parking included.`,
+        city: "Da Nang",
+        address: "15 An Thuong 4, Ngu Hanh Son",
+        priceMonth: 700,
+        propertyType: "APARTMENT",
+        authorId: lena.id,
+      },
+      {
+        title: "Canggu co-living loft",
+        description: `Private loft inside a designed co-living house in Canggu, 7 minutes to Echo Beach.
+
+What you get:
+- Private room + bathroom in a 10-person community house
+- Dedicated coworking floor with standing desks and fast fiber
+- Pool, gym, and weekly community dinners
+- All bills, cleaning and water included
+- Scooter rental arranged on arrival
+
+Built for nomads who want community and a ready-made routine. Min stay 1 month.`,
+        city: "Canggu",
+        address: "Jl. Pantai Batu Bolong, Canggu",
+        priceMonth: 620,
+        propertyType: "COLIVING",
+        authorId: mia.id,
+      },
+      {
+        title: "Quiet 2BR house in Chiang Mai",
+        description: `Two-bedroom house with a small garden in Nimman, Chiang Mai's cafe district.
+
+Details:
+- Two bedrooms, perfect for a couple or to use one as an office
+- 100+ Mbps fiber internet
+- Full kitchen, washer, two bathrooms
+- Covered parking for a car or two scooters
+- Walking distance to Maya Mall, cafes and coworking
+
+Excellent value for a long stay. Quiet soi, friendly neighbors. 3-month minimum preferred.`,
+        city: "Chiang Mai",
+        address: "Soi 7, Nimmanhaemin Rd",
+        priceMonth: 540,
+        propertyType: "HOUSE",
+        authorId: arun.id,
+      },
+      {
+        title: "KLCC high-rise studio",
+        description: `Serviced studio on the 28th floor with a view of the Petronas Towers, central Kuala Lumpur.
+
+Includes:
+- 300 Mbps fiber, ideal for heavy uploads
+- Infinity pool, gym and sky lounge in the building
+- Walking distance to KLCC, Suria mall and the MRT
+- Full kitchenette, washer/dryer, daily security
+- Serviced cleaning twice a week
+
+Big-city comfort at a fraction of Singapore prices. Great for a DE Rantau base. Flexible 1-month+ stays.`,
+        city: "Kuala Lumpur",
+        address: "Jalan Ampang, KLCC",
+        priceMonth: 780,
+        propertyType: "APARTMENT",
+        authorId: lena.id,
       },
     ],
   });

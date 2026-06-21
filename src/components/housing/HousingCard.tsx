@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { housingImage } from "@/lib/housing-image";
 
 type HousingCardProps = {
@@ -16,7 +17,10 @@ type HousingCardProps = {
 
 export function HousingCard({ listing }: HousingCardProps) {
   return (
-    <article className="card-apple group flex h-full flex-col overflow-hidden">
+    <Link
+      href={`/housing/${listing.id}`}
+      className="card-apple group flex h-full flex-col overflow-hidden"
+    >
       <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={housingImage(listing.propertyType)}
@@ -47,6 +51,6 @@ export function HousingCard({ listing }: HousingCardProps) {
           by {listing.author.displayName}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }

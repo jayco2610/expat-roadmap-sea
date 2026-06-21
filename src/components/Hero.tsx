@@ -28,7 +28,7 @@ export function Hero() {
         />
 
         {/* Content */}
-        <div className="relative flex min-h-[80vh] flex-col justify-center px-6 pt-16 pb-32 sm:min-h-[72vh] sm:px-12 sm:pb-36 lg:min-h-[620px] lg:px-16">
+        <div className="relative flex min-h-[72vh] flex-col justify-center px-6 pt-16 pb-16 sm:min-h-[72vh] sm:px-12 sm:pb-36 lg:min-h-[620px] lg:px-16">
           <p className="label-upper text-white/75">Southeast Asia</p>
 
           <h1 className="font-display mt-4 max-w-2xl text-5xl leading-[1.04] font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
@@ -57,18 +57,19 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Glass quick-nav docked inside the hero */}
-        <nav className="glass absolute right-4 bottom-4 left-4 grid grid-cols-3 gap-1 rounded-2xl p-2 sm:right-6 sm:bottom-6 sm:left-6 sm:grid-cols-6 sm:p-2.5">
+        {/* Glass quick-nav docked inside the hero — desktop/tablet only */}
+        <nav className="glass absolute right-6 bottom-6 left-6 hidden grid-cols-6 gap-1 rounded-2xl p-2.5 sm:grid">
           {navLinks.map(({ href, label }) => {
             const Icon = navIcons[href];
             return (
               <Link
                 key={href}
                 href={href}
-                className="group flex flex-col items-center gap-1.5 rounded-xl px-2 py-3 text-[#2b2e28] transition hover:bg-white/40"
+                className="group flex flex-col items-center gap-1.5 rounded-xl px-2 py-3 text-white transition hover:bg-white/20"
+                style={{ textShadow: "0 1px 6px rgba(0,0,0,0.4)" }}
               >
-                {Icon ? <Icon className="h-5 w-5 sm:h-6 sm:w-6" /> : null}
-                <span className="text-[11px] font-medium sm:text-sm">{label}</span>
+                {Icon ? <Icon className="h-6 w-6 drop-shadow" /> : null}
+                <span className="text-sm font-medium">{label}</span>
               </Link>
             );
           })}

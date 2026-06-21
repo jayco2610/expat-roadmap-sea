@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ListingKind } from "@prisma/client";
 
 type JobCardProps = {
@@ -15,7 +16,7 @@ type JobCardProps = {
 
 export function JobCard({ listing }: JobCardProps) {
   return (
-    <article className="card-apple p-5">
+    <Link href={`/jobs/${listing.id}`} className="card-apple block p-5">
       <div className="flex flex-wrap items-center gap-2">
         <span
           className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
@@ -41,6 +42,6 @@ export function JobCard({ listing }: JobCardProps) {
         {listing.description}
       </p>
       <p className="mt-3 text-xs text-[#6e6e73] dark:text-[#a1a1a6]">Posted by {listing.author.displayName}</p>
-    </article>
+    </Link>
   );
 }
