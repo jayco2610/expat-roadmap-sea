@@ -9,10 +9,14 @@ export function Navbar() {
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:px-8">
         <Link
           href="/"
-          className="shrink-0 text-sm font-bold tracking-[0.1em] whitespace-nowrap text-[#111114] uppercase dark:text-[#f5f5f5]"
+          className="flex shrink-0 items-center gap-2 whitespace-nowrap"
         >
-          Expat Roadmap{" "}
-          <span className="text-[#7d8c63]">SEA</span>
+          <span className="font-display text-lg font-semibold tracking-tight text-[#2b2e28] dark:text-[#ecebe3]">
+            Expat Roadmap
+          </span>
+          <span className="rounded-full bg-[#7d8c63]/15 px-2 py-0.5 text-[0.65rem] font-semibold tracking-wider text-[#55633f] uppercase dark:text-[#cdd6b8]">
+            SEA
+          </span>
         </Link>
 
         <NavbarLinks />

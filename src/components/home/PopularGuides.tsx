@@ -1,15 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
-
-function guideImage(country: string): string {
-  const c = country.toLowerCase();
-  if (c.includes("thai")) return "/images/guide-thailand-dtv.jpg";
-  if (c.includes("viet")) return "/images/danang.jpg";
-  if (c.includes("indo") || c.includes("bali")) return "/images/bali.jpg";
-  if (c.includes("malay")) return "/images/kualalumpur.jpg";
-  return "/images/hero.jpg";
-}
+import { guideImage } from "@/lib/guide-image";
 
 export function PopularGuides() {
   const featured = guides[0];

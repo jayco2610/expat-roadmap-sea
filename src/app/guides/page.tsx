@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { guides } from "@/lib/guides";
+import { guideImage } from "@/lib/guide-image";
 
 export const metadata: Metadata = {
   title: "Expat Guides for Southeast Asia",
@@ -15,27 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-const countryEmoji: Record<string, string> = {
-  Thailand: "🇹🇭",
-  Таиланд: "🇹🇭",
-  Bali: "🇮🇩",
-  Indonesia: "🇮🇩",
-  Vietnam: "🇻🇳",
-  Malaysia: "🇲🇾",
-  Philippines: "🇵🇭",
-};
-
 export default function GuidesPage() {
-  const guidesByCountry = guides.reduce<Record<string, typeof guides>>(
-    (acc, guide) => {
-      const key = guide.country;
-      if (!acc[key]) acc[key] = [];
-      acc[key].push(guide);
-      return acc;
-    },
-    {},
-  );
-
   return (
     <PageShell>
       <PageHeader
@@ -43,43 +25,41 @@ export default function GuidesPage() {
         description="Visa rules, tax basics, and practical tips for living and working across Southeast Asia. Written for digital nomads and long-stay expats."
       />
 
-      <div className="space-y-10">
-        {Object.entries(guidesByCountry).map(([country, countryGuides]) => (
-          <section key={country}>
-            <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
-              <span>{countryEmoji[country] ?? "🌏"}</span>
-              {country}
-            </h2>
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {countryGuides.map((guide) => (
-                <li key={guide.slug}>
-                  <Link
-                    href={`/guides/${guide.slug}`}
-                    className="group block rounded-2xl border border-black/[0.08] bg-white p-5 transition hover:border-[#7d8c63]/40 hover:shadow-md dark:border-white/[0.08] dark:bg-[#1c1c1e] dark:hover:border-[#7d8c63]/40"
-                  >
-                    <div className="mb-2 flex items-start justify-between gap-3">
-                      <h3 className="font-medium leading-snug text-[#1d1d1f] group-hover:text-[#7d8c63] dark:text-[#f5f5f7] dark:group-hover:text-[#7d8c63]">
-                        {guide.title}
-                      </h3>
-                      <span className="shrink-0 rounded-full bg-[#f5f5f7] px-2 py-0.5 text-xs text-[#6e6e73] dark:bg-[#2c2c2e] dark:text-[#9a9a9e]">
-                        {guide.lang === "ru" ? "RU" : "EN"}
-                      </span>
-                    </div>
-                    <p className="text-sm leading-relaxed text-[#6e6e73] dark:text-[#a1a1a6]">
-                      {guide.description}
-                    </p>
-                    <div className="mt-3 flex items-center gap-3 text-xs text-[#9a9a9e]">
-                      <span>{guide.readingTime} min read</span>
-                      <span>·</span>
-                      <span>Updated {guide.updatedAt}</span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
+      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {guides.map((guide) => (
+          <li key={guide.slug}>
+            <Link
+              href={`/guides/${guide.slug}`}
+              className="group card-apple flex h-full flex-col overflow-hidden"
+            >
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <Image
+                  src={guideImage(guide.country)}
+                  alt={guide.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute top-3 right-3 rounded-full bg-white/90 px-2 py-0.5 text-xs font-medium text-[#2b2e28] backdrop-blur-sm">
+                  {guide.lang === "ru" ? "RU" : "EN"}
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <span className="label-upper text-[#7d8c63]">{guide.country}</span>
+                <h2 className="font-display mt-2 text-xl font-semibold leading-snug tracking-tight text-[#2b2e28] dark:text-[#ecebe3]">
+                  {guide.title}
+                </h2>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#6e7167] dark:text-[#9a9c8f]">
+                  {guide.description}
+                </p>
+                <p className="mt-4 text-xs text-[#6e7167]/80 dark:text-[#9a9c8f]/80">
+                  {guide.readingTime} min read · Updated {guide.updatedAt}
+                </p>
+              </div>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </PageShell>
   );
 }
