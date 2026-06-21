@@ -38,7 +38,7 @@ export default async function GuidePage({ params }: Props) {
         <div className="mb-2">
           <Link
             href="/guides"
-            className="text-sm text-[#6e6e73] hover:text-[#ff6a00] dark:text-[#9a9a9e] dark:hover:text-[#ff6a00]"
+            className="text-sm text-[#6e6e73] hover:text-[#7d8c63] dark:text-[#9a9a9e] dark:hover:text-[#7d8c63]"
           >
             ← All guides
           </Link>
@@ -117,13 +117,13 @@ export default async function GuidePage({ params }: Props) {
           ))}
         </article>
 
-        <div className="mt-12 rounded-2xl bg-[#ff6a00]/[0.08] p-6 dark:bg-[#ff6a00]/[0.12]">
+        <div className="mt-12 rounded-2xl bg-[#7d8c63]/[0.08] p-6 dark:bg-[#7d8c63]/[0.12]">
           <p className="mb-4 text-[#3d3d3f] dark:text-[#c7c7cc]">
             {guide.cta.text}
           </p>
           <Link
             href={guide.cta.href}
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#ff6a00] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#e55f00] transition"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[#7d8c63] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#e55f00] transition"
           >
             {guide.cta.label}
           </Link>

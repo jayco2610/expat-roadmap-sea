@@ -21,7 +21,7 @@ export function AccommodationCard({
       onClick={() => onSelect(item.id)}
       className={`w-full rounded-2xl border p-4 text-left transition ${
         selected
-          ? "border-[#ff6a00] bg-[#ff6a00]/5 ring-2 ring-[#ff6a00]/30 dark:bg-[#ff6a00]/15"
+          ? "border-[#7d8c63] bg-[#7d8c63]/5 ring-2 ring-[#7d8c63]/30 dark:bg-[#7d8c63]/15"
           : "border-black/8 bg-white hover:border-black/15 dark:border-white/10 dark:bg-[#1c1c1e] dark:hover:border-white/20"
       } ${compact ? "min-w-[280px] shrink-0 snap-center lg:min-w-0 lg:w-full" : "w-full"}`}
     >
@@ -32,7 +32,7 @@ export function AccommodationCard({
               className={`rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase ${
                 item.type === "hostel"
                   ? "bg-[#34c759]/15 text-[#248a3d] dark:text-[#34c759]"
-                  : "bg-[#ff6a00]/15 text-[#ff6a00]"
+                  : "bg-[#7d8c63]/15 text-[#7d8c63]"
               }`}
             >
               {item.type}

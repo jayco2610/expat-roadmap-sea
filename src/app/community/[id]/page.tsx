@@ -32,14 +32,14 @@ export default async function ProfilePage({ params }: Props) {
     <PageShell>
       <Link
         href="/community"
-        className="mb-6 inline-flex text-sm text-[#ff6a00] hover:underline"
+        className="mb-6 inline-flex text-sm text-[#7d8c63] hover:underline"
       >
         ← Back to community
       </Link>
 
       <article className="card-apple max-w-2xl p-6 sm:p-8">
         <div className="flex items-start gap-4">
-          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-[#ff6a00]/15">
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-[#7d8c63]/15">
             {profile.avatarUrl ? (
               <img
                 src={profile.avatarUrl}
@@ -47,7 +47,7 @@ export default async function ProfilePage({ params }: Props) {
                 className="h-full w-full object-cover"
               />
             ) : (
-              <span className="flex h-full w-full items-center justify-center text-2xl font-semibold text-[#ff6a00]">
+              <span className="flex h-full w-full items-center justify-center text-2xl font-semibold text-[#7d8c63]">
                 {profile.displayName.charAt(0).toUpperCase()}
               </span>
             )}

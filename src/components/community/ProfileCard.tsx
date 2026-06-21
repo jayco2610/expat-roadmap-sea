@@ -5,7 +5,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
   return (
     <Link href={`/community/${profile.id}`} className="card-apple block p-5">
       <div className="flex items-start gap-4">
-        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#ff6a00]/15">
+        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-[#7d8c63]/15">
           {profile.avatarUrl ? (
             <img
               src={profile.avatarUrl}
@@ -13,7 +13,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="flex h-full w-full items-center justify-center text-lg font-semibold text-[#ff6a00]">
+            <span className="flex h-full w-full items-center justify-center text-lg font-semibold text-[#7d8c63]">
               {profile.displayName.charAt(0).toUpperCase()}
             </span>
           )}
@@ -31,7 +31,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
             </p>
           ) : null}
           {profile.languages.length > 0 ? (
-            <p className="mt-2 text-xs text-[#ff6a00]">{profile.languages.join(" · ")}</p>
+            <p className="mt-2 text-xs text-[#7d8c63]">{profile.languages.join(" · ")}</p>
           ) : null}
         </div>
       </div>

@@ -64,7 +64,7 @@ function MapController({
 }
 
 function createMarkerIcon(type: Accommodation["type"], selected: boolean) {
-  const color = type === "hostel" ? "#34c759" : "#ff6a00";
+  const color = type === "hostel" ? "#34c759" : "#7d8c63";
   const size = selected ? 36 : 28;
   const ring = selected ? "box-shadow:0 0 0 4px rgba(255,106,0,0.35);" : "";
 
@@ -120,7 +120,7 @@ export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanv
             <div className="min-w-[180px] p-1">
               <p className="font-semibold text-[#1d1d1f]">{item.name}</p>
               <p className="mt-1 text-xs text-[#6e6e73]">{item.address}</p>
-              <p className="mt-2 text-sm font-semibold text-[#ff6a00]">
+              <p className="mt-2 text-sm font-semibold text-[#7d8c63]">
                 ${item.pricePerNight} / night
               </p>
             </div>

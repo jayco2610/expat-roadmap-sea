@@ -12,7 +12,7 @@ export function Navbar() {
           className="shrink-0 text-sm font-bold tracking-[0.1em] whitespace-nowrap text-[#111114] uppercase dark:text-[#f5f5f5]"
         >
           Expat Roadmap{" "}
-          <span className="text-[#ff6a00]">SEA</span>
+          <span className="text-[#7d8c63]">SEA</span>
         </Link>
 
         <NavbarLinks />

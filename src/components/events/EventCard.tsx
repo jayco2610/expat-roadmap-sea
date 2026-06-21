@@ -22,7 +22,7 @@ export function EventCard({ event }: EventCardProps) {
 
   return (
     <Link href={`/events/${event.id}`} className="card-apple block p-5">
-      <p className="text-xs font-medium tracking-wide text-[#ff6a00] uppercase">{date}</p>
+      <p className="text-xs font-medium tracking-wide text-[#7d8c63] uppercase">{date}</p>
       <h2 className="font-display mt-1 text-lg font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
         {event.title}
       </h2>

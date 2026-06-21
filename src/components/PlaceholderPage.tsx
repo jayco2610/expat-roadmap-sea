@@ -21,7 +21,7 @@ export function PlaceholderPage({ title, description, icon }: PlaceholderPagePro
       <p className="mt-4 text-lg leading-relaxed text-[#6e6e73] dark:text-[#a1a1a6]">
         {description}
       </p>
-      <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#ff6a00]/10 px-4 py-2 text-sm font-medium text-[#ff6a00]">
+      <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#7d8c63]/10 px-4 py-2 text-sm font-medium text-[#7d8c63]">
         Coming soon
       </p>
       <div className="mt-10">

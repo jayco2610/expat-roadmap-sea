@@ -67,7 +67,7 @@ export function FeatureGrid() {
                   <div>
                     <p
                       className={`label-upper ${
-                        isAccent ? "text-white/70" : "text-[#ff6a00]"
+                        isAccent ? "text-white/70" : "text-[#7d8c63]"
                       }`}
                     >
                       0{index + 1}
@@ -97,7 +97,7 @@ export function FeatureGrid() {
                       className={`text-sm font-medium ${
                         isAccent
                           ? "text-white/80 group-hover:text-white"
-                          : "text-[#6e6e73] group-hover:text-[#ff6a00] dark:text-[#9a9a9e]"
+                          : "text-[#6e6e73] group-hover:text-[#7d8c63] dark:text-[#9a9a9e]"
                       } transition`}
                     >
                       Open

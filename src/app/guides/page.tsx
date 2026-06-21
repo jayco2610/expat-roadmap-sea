@@ -55,10 +55,10 @@ export default function GuidesPage() {
                 <li key={guide.slug}>
                   <Link
                     href={`/guides/${guide.slug}`}
-                    className="group block rounded-2xl border border-black/[0.08] bg-white p-5 transition hover:border-[#ff6a00]/40 hover:shadow-md dark:border-white/[0.08] dark:bg-[#1c1c1e] dark:hover:border-[#ff6a00]/40"
+                    className="group block rounded-2xl border border-black/[0.08] bg-white p-5 transition hover:border-[#7d8c63]/40 hover:shadow-md dark:border-white/[0.08] dark:bg-[#1c1c1e] dark:hover:border-[#7d8c63]/40"
                   >
                     <div className="mb-2 flex items-start justify-between gap-3">
-                      <h3 className="font-medium leading-snug text-[#1d1d1f] group-hover:text-[#ff6a00] dark:text-[#f5f5f7] dark:group-hover:text-[#ff6a00]">
+                      <h3 className="font-medium leading-snug text-[#1d1d1f] group-hover:text-[#7d8c63] dark:text-[#f5f5f7] dark:group-hover:text-[#7d8c63]">
                         {guide.title}
                       </h3>
                       <span className="shrink-0 rounded-full bg-[#f5f5f7] px-2 py-0.5 text-xs text-[#6e6e73] dark:bg-[#2c2c2e] dark:text-[#9a9a9e]">

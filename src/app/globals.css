@@ -6,22 +6,24 @@
 @theme {
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "SF Pro Display", system-ui, sans-serif;
-  --font-display: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display",
-    system-ui, sans-serif;
+  --font-display: var(--font-lora), "Iowan Old Style", Georgia, "Times New Roman",
+    serif;
 
-  --color-surface: #f2f2f7;
-  --color-surface-elevated: #ffffff;
-  --color-ink: #111114;
-  --color-ink-muted: #6e6e73;
-  --color-accent: #ff6a00;
-  --color-accent-hover: #ff7e1f;
-  --color-border: rgba(0, 0, 0, 0.06);
+  /* Warm off-white canvas, deep olive accent, graphite ink */
+  --color-surface: #f4f3ee;
+  --color-surface-elevated: #fbfaf6;
+  --color-ink: #2b2e28;
+  --color-ink-muted: #6e7167;
+  --color-accent: #55633f;
+  --color-accent-hover: #46522f;
+  --color-accent-soft: #7d8c63;
+  --color-border: rgba(43, 46, 40, 0.1);
 
-  --color-surface-dark: #0a0a0a;
-  --color-surface-elevated-dark: #161618;
-  --color-ink-dark: #f5f5f5;
-  --color-ink-muted-dark: #9a9a9e;
-  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-surface-dark: #161714;
+  --color-surface-elevated-dark: #1e201a;
+  --color-ink-dark: #ecebe3;
+  --color-ink-muted-dark: #9a9c8f;
+  --color-border-dark: rgba(236, 235, 227, 0.12);
 }
 
 html {
@@ -43,19 +45,19 @@ body {
 
 .font-display {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 @layer components {
   .glass-nav {
-    background: rgba(242, 242, 247, 0.8);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(244, 243, 238, 0.78);
+    backdrop-filter: saturate(160%) blur(20px);
+    -webkit-backdrop-filter: saturate(160%) blur(20px);
     border-bottom: 1px solid var(--color-border);
   }
 
   .dark .glass-nav {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(22, 23, 20, 0.8);
     border-bottom-color: var(--color-border-dark);
   }
 

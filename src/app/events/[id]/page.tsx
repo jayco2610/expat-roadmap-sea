@@ -53,12 +53,12 @@ export default async function EventDetailPage({ params }: Props) {
 
   return (
     <PageShell>
-      <Link href="/events" className="mb-6 inline-flex text-sm text-[#ff6a00] hover:underline">
+      <Link href="/events" className="mb-6 inline-flex text-sm text-[#7d8c63] hover:underline">
         ← All events
       </Link>
 
       <article className="card-apple max-w-2xl p-6 sm:p-8">
-        <p className="text-sm font-medium text-[#ff6a00]">
+        <p className="text-sm font-medium text-[#7d8c63]">
           {dateFmt.format(event.startsAt)}
         </p>
         <h1 className="font-display mt-2 text-3xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
@@ -77,7 +77,7 @@ export default async function EventDetailPage({ params }: Props) {
 
         <p className="mt-4 text-sm text-[#6e6e73] dark:text-[#a1a1a6]">
           Hosted by{" "}
-          <Link href={`/community/${event.author.id}`} className="text-[#ff6a00] hover:underline">
+          <Link href={`/community/${event.author.id}`} className="text-[#7d8c63] hover:underline">
             {event.author.displayName}
           </Link>
         </p>
@@ -95,7 +95,7 @@ export default async function EventDetailPage({ params }: Props) {
             <ul className="mt-4 space-y-1 text-sm text-[#6e6e73] dark:text-[#a1a1a6]">
               {going.map((r) => (
                 <li key={r.id}>
-                  <Link href={`/community/${r.profile.id}`} className="text-[#ff6a00] hover:underline">
+                  <Link href={`/community/${r.profile.id}`} className="text-[#7d8c63] hover:underline">
                     {r.profile.displayName}
                   </Link>
                 </li>

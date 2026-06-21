@@ -14,7 +14,7 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
       <div>
         <h1 className="font-display text-3xl font-bold tracking-tight text-[#111114] dark:text-[#f5f5f5]">
           Welcome
-          <span className="block text-[#ff6a00]">
+          <span className="block text-[#7d8c63]">
             {mode === "signin" ? "Sign in" : "Create account"}
           </span>
         </h1>

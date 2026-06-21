@@ -63,7 +63,7 @@ export function AvatarUpload({ currentUrl, userId, displayName }: Props) {
         type="button"
         onClick={() => fileInputRef.current?.click()}
         disabled={uploading}
-        className="group relative h-20 w-20 overflow-hidden rounded-full bg-black/8 ring-2 ring-transparent transition focus-visible:outline-none focus-visible:ring-[#ff6a00] hover:ring-[#ff6a00] dark:bg-white/10"
+        className="group relative h-20 w-20 overflow-hidden rounded-full bg-black/8 ring-2 ring-transparent transition focus-visible:outline-none focus-visible:ring-[#7d8c63] hover:ring-[#7d8c63] dark:bg-white/10"
       >
         {previewUrl ? (
           <img
