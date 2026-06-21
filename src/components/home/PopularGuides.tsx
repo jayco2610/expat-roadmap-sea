@@ -4,8 +4,9 @@ import { guides } from "@/lib/guides";
 import { guideImage } from "@/lib/guide-image";
 
 export function PopularGuides() {
-  const featured = guides[0];
-  const rest = guides.slice(1, 3);
+  const enGuides = guides.filter((g) => g.lang === "en");
+  const featured = enGuides[0];
+  const rest = enGuides.slice(1, 3);
   if (!featured) return null;
 
   return (
