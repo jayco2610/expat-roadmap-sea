@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Lora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/Footer";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { Navbar } from "@/components/Navbar";
@@ -85,6 +86,7 @@ export default function RootLayout({
           </div>
           <InstallPrompt />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
