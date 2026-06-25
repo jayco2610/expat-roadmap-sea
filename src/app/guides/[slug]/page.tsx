@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { getGuide, guides } from "@/lib/guides";
+import { getLinksForCountry } from "@/lib/embassy-links";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -31,6 +32,7 @@ export default async function GuidePage({ params }: Props) {
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) notFound();
+  const officialLinks = getLinksForCountry(guide.country);
 
   return (
     <PageShell>
@@ -117,7 +119,35 @@ export default async function GuidePage({ params }: Props) {
           ))}
         </article>
 
-        <div className="mt-12 rounded-2xl bg-[#7d8c63]/[0.08] p-6 dark:bg-[#7d8c63]/[0.12]">
+        {officialLinks.length > 0 && (
+          <div className="mt-10 rounded-2xl border border-[#e5e5ea] bg-[#f5f5f7] p-6 dark:border-[#3a3a3c] dark:bg-[#1c1c1e]">
+            <h2 className="mb-4 text-base font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
+              Official links
+            </h2>
+            <ul className="space-y-2">
+              {officialLinks.map((link) => (
+                <li key={link.url} className="flex items-start gap-2">
+                  <span className="mt-0.5 text-[#7d8c63]">↗</span>
+                  <div>
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-[#2AABEE] hover:underline"
+                    >
+                      {link.label}
+                    </a>
+                    {link.note && (
+                      <span className="ml-2 text-xs text-[#9a9a9e]">{link.note}</span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="mt-6 rounded-2xl bg-[#7d8c63]/[0.08] p-6 dark:bg-[#7d8c63]/[0.12]">
           <p className="mb-4 text-[#3d3d3f] dark:text-[#c7c7cc]">
             {guide.cta.text}
           </p>
