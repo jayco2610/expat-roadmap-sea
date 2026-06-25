@@ -58,7 +58,7 @@ export function Hero() {
               href="https://t.me/expat_roadmap_bot"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-lg border border-[#cdd6b8]/50 bg-[#cdd6b8]/15 px-6 py-3 text-[0.9375rem] font-medium text-[#cdd6b8] backdrop-blur-sm transition hover:bg-[#cdd6b8]/25"
+              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-lg border border-[#2AABEE]/60 bg-[#2AABEE]/15 px-6 py-3 text-[0.9375rem] font-medium text-[#2AABEE] backdrop-blur-sm transition hover:bg-[#2AABEE]/25"
             >
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.57-.46.71-.93.44l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.52.26l.18-2.63 4.72-4.27c.21-.18-.04-.28-.32-.1L7.9 14.49l-2.53-.79c-.55-.17-.56-.55.12-.81l9.88-3.81c.46-.17.86.1.27.72z"/>
