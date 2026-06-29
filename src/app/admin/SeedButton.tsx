@@ -2,14 +2,22 @@
 
 import { useState } from "react";
 
-export function SeedCommunityButton() {
+function AdminSeedRow({
+  title,
+  description,
+  endpoint,
+}: {
+  title: string;
+  description: string;
+  endpoint: string;
+}) {
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  async function handleSeed() {
+  async function handle() {
     setState("loading");
     try {
-      const res = await fetch("/api/admin/seed-community", { method: "POST" });
+      const res = await fetch(endpoint, { method: "POST" });
       const data = await res.json();
       if (res.ok) {
         setState("done");
@@ -26,22 +34,42 @@ export function SeedCommunityButton() {
 
   return (
     <div className="glass-card flex flex-wrap items-center justify-between gap-4 p-5">
-      <div>
-        <p className="font-semibold text-[#2b2e28] dark:text-[#ecebe3]">Seed community profiles</p>
+      <div className="min-w-0">
+        <p className="font-semibold text-[#2b2e28] dark:text-[#ecebe3]">{title}</p>
         <p className="text-sm text-[#6e7167]">
-          {state === "idle" && "Add 35 demo members with avatars. Safe to run multiple times."}
-          {state === "loading" && "Adding profiles…"}
-          {state === "done" && message}
+          {state === "idle" && description}
+          {state === "loading" && "Running…"}
+          {state === "done" && `✓ ${message}`}
           {state === "error" && `Error: ${message}`}
         </p>
       </div>
       <button
-        onClick={handleSeed}
+        onClick={handle}
         disabled={state === "loading" || state === "done"}
         className="btn-primary shrink-0 text-sm disabled:opacity-50"
       >
-        {state === "loading" ? "Running…" : state === "done" ? "Done" : "Run seed"}
+        {state === "loading" ? "Running…" : state === "done" ? "Done" : "Run"}
       </button>
     </div>
+  );
+}
+
+export function SeedCommunityButton() {
+  return (
+    <AdminSeedRow
+      title="Seed community profiles (35 members)"
+      description="Add 35 demo expats with avatars from 18+ countries. Safe to run multiple times."
+      endpoint="/api/admin/seed-community"
+    />
+  );
+}
+
+export function SeedRuBeautyButton() {
+  return (
+    <AdminSeedRow
+      title="Replace placeholders → Russian beauty profiles"
+      description="Remove Mia Chen / Arun Patel / Lena Kowalski (no-avatar duplicates) and add 8 Russian girls: tattoo artist, photographer, nail artist, MUA, lash specialist, blogger, massage therapist, salon owner."
+      endpoint="/api/admin/seed-ru-beauty"
+    />
   );
 }
