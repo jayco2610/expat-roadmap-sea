@@ -44,6 +44,52 @@ export async function createEvent(
   redirect(`/events/${event.id}`);
 }
 
+export async function updateEvent(
+  id: string,
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const { profile } = await requireProfile();
+
+  const event = await prisma.event.findFirst({ where: { id, authorId: profile.id } });
+  if (!event) return { error: "Event not found or you don't have permission." };
+
+  const parsed = eventSchema.safeParse({
+    title: formData.get("title"),
+    description: formData.get("description"),
+    city: formData.get("city"),
+    location: formData.get("location"),
+    startsAt: formData.get("startsAt"),
+    endsAt: formData.get("endsAt") || undefined,
+    capacity: formData.get("capacity") || undefined,
+  });
+
+  if (!parsed.success) return { error: "Please check all required fields." };
+
+  const { endsAt, capacity, startsAt, ...rest } = parsed.data;
+
+  await prisma.event.update({
+    where: { id },
+    data: {
+      ...rest,
+      startsAt: new Date(startsAt),
+      endsAt: endsAt ? new Date(endsAt) : null,
+      capacity: capacity === "" || capacity === undefined ? null : Number(capacity),
+    },
+  });
+
+  revalidatePath("/events");
+  revalidatePath(`/events/${id}`);
+  redirect(`/events/${id}`);
+}
+
+export async function deleteEvent(id: string): Promise<void> {
+  const { profile } = await requireProfile();
+  await prisma.event.deleteMany({ where: { id, authorId: profile.id } });
+  revalidatePath("/events");
+  redirect("/events");
+}
+
 export async function rsvpEvent(eventId: string, status: RsvpStatus = "GOING") {
   const { profile } = await requireProfile();
 

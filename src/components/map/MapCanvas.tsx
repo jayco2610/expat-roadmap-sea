@@ -2,6 +2,7 @@
 
 import type { Accommodation, CityId } from "@/lib/accommodations";
 import { cityCenters } from "@/lib/accommodations";
+import type { HousingMapItem } from "./MapExplorer";
 import { seaLocations, type SeaLocation } from "@/lib/sea-locations";
 import L from "leaflet";
 import { useRouter } from "next/navigation";
@@ -10,6 +11,7 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 type MapCanvasProps = {
   items: Accommodation[];
+  housingItems?: HousingMapItem[];
   selectedId: string | null;
   city: CityId | "all";
   onSelect: (id: string) => void;
@@ -77,6 +79,17 @@ function createMarkerIcon(type: Accommodation["type"], selected: boolean) {
   });
 }
 
+function createHousingIcon(selected: boolean) {
+  const size = selected ? 34 : 26;
+  const ring = selected ? "box-shadow:0 0 0 4px rgba(125,92,140,0.35);" : "";
+  return L.divIcon({
+    className: "",
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    html: `<span style="display:flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;border-radius:8px;background:#7C3AED;border:3px solid #fff;font-size:${size * 0.5}px;line-height:1;${ring}">🏠</span>`,
+  });
+}
+
 const badgeEmoji: Record<SeaLocation["badge"], string> = {
   Hot: "🔥",
   Trending: "📈",
@@ -127,7 +140,7 @@ function CityMarkers({ onOpenCity }: { onOpenCity: (slug: string) => void }) {
   );
 }
 
-export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanvasProps) {
+export default function MapCanvas({ items, housingItems = [], selectedId, city, onSelect }: MapCanvasProps) {
   const router = useRouter();
   // Bright, colorful Voyager basemap — green parks, blue water, like the design reference
   const tileUrl =
@@ -173,6 +186,35 @@ export default function MapCanvas({ items, selectedId, city, onSelect }: MapCanv
               <p className="mt-2 text-sm font-semibold text-[#7d8c63]">
                 ${item.pricePerNight} / night
               </p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+      {housingItems.map((item) => (
+        <Marker
+          key={item.id}
+          position={[item.lat, item.lng]}
+          icon={createHousingIcon(item.id === selectedId)}
+          eventHandlers={{
+            click: () => onSelect(item.id),
+          }}
+        >
+          <Popup>
+            <div className="min-w-[180px] p-1">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-[#7C3AED]">
+                Community listing
+              </p>
+              <p className="mt-1 font-semibold text-[#1d1d1f]">{item.title}</p>
+              <p className="mt-0.5 text-xs text-[#6e6e73]">{item.address}, {item.city}</p>
+              <p className="mt-2 text-sm font-semibold text-[#7C3AED]">
+                ${item.priceMonth} / mo
+              </p>
+              <a
+                href={`/housing/${item.id}`}
+                className="mt-2 block text-xs font-medium text-[#7C3AED] hover:underline"
+              >
+                View listing →
+              </a>
             </div>
           </Popup>
         </Marker>

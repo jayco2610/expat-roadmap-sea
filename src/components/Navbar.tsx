@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { UserMenu } from "@/components/auth/UserMenu";
+import { MobileMenu } from "@/components/MobileMenu";
 import { NavbarLinks } from "@/components/NavbarLinks";
 
 export function Navbar() {
@@ -25,12 +26,9 @@ export function Navbar() {
           <Link href="/map" className="btn-primary hidden text-sm md:inline-flex">
             Explore map
           </Link>
+          <MobileMenu />
         </div>
       </nav>
-
-      <div className="border-t border-black/5 px-4 py-2 md:hidden dark:border-white/10">
-        <NavbarLinks mobile />
-      </div>
     </header>
   );
 }

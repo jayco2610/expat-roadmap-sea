@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSessionUser } from "@/lib/auth";
+import { deleteHousingListing } from "@/actions/housing";
+import { DeleteButton } from "@/components/ui/DeleteButton";
+import { getCurrentProfile, getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 import { housingImage } from "@/lib/housing-image";
@@ -51,6 +53,8 @@ export default async function HousingDetailPage({
   if (!listing) notFound();
 
   const viewer = await getSessionUser();
+  const myProfile = await getCurrentProfile();
+  const isOwner = Boolean(myProfile && myProfile.id === listing.authorId);
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${listing.address}, ${listing.city}`,
   )}`;
@@ -65,12 +69,25 @@ export default async function HousingDetailPage({
   return (
     <div className="px-4 pt-4 pb-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
-        <Link
-          href="/housing"
-          className="mb-4 inline-flex text-sm font-medium text-[#55633f] hover:underline"
-        >
-          ← Housing
-        </Link>
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <Link
+            href="/housing"
+            className="inline-flex text-sm font-medium text-[#55633f] hover:underline"
+          >
+            ← Housing
+          </Link>
+          {isOwner && (
+            <div className="flex items-center gap-3">
+              <Link
+                href={`/housing/${listing.id}/edit`}
+                className="rounded-lg border border-black/10 px-4 py-2.5 text-sm font-medium text-[#2b2e28] transition hover:bg-black/5 dark:border-white/15 dark:text-[#ecebe3] dark:hover:bg-white/8"
+              >
+                Edit
+              </Link>
+              <DeleteButton onDelete={deleteHousingListing.bind(null, listing.id)} />
+            </div>
+          )}
+        </div>
 
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl">
           <Image
@@ -102,7 +119,7 @@ export default async function HousingDetailPage({
         </div>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_300px]">
-          <div>
+          <div className="order-2 lg:order-1">
             <h2 className="font-display text-xl font-semibold text-[#2b2e28] dark:text-[#ecebe3]">
               About this place
             </h2>
@@ -127,7 +144,7 @@ export default async function HousingDetailPage({
           </div>
 
           {/* Contact panel — glass */}
-          <aside className="glass-card h-fit p-5">
+          <aside className="order-1 glass-card h-fit p-5 lg:order-2">
             <p className="text-sm text-[#6e7167]">Posted by</p>
             <p className="font-display mt-0.5 text-lg font-semibold text-[#2b2e28] dark:text-[#ecebe3]">
               {listing.author.displayName}

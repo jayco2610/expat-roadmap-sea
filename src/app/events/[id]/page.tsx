@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { deleteEvent } from "@/actions/events";
 import { RsvpButtons } from "@/components/events/RsvpButtons";
+import { DeleteButton } from "@/components/ui/DeleteButton";
 import { PageShell } from "@/components/layout/PageShell";
 import { getCurrentProfile, getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
@@ -37,6 +39,7 @@ export default async function EventDetailPage({ params }: Props) {
 
   const user = await getSessionUser();
   const myProfile = await getCurrentProfile();
+  const isOwner = Boolean(myProfile && myProfile.id === event.authorId);
   const myRsvp = myProfile
     ? await prisma.eventRsvp.findUnique({
         where: {
@@ -53,9 +56,22 @@ export default async function EventDetailPage({ params }: Props) {
 
   return (
     <PageShell>
-      <Link href="/events" className="mb-6 inline-flex text-sm text-[#7d8c63] hover:underline">
-        ← All events
-      </Link>
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <Link href="/events" className="inline-flex text-sm text-[#7d8c63] hover:underline">
+          ← All events
+        </Link>
+        {isOwner && (
+          <div className="flex items-center gap-3">
+            <Link
+              href={`/events/${event.id}/edit`}
+              className="rounded-lg border border-black/10 px-4 py-2.5 text-sm font-medium text-[#2b2e28] transition hover:bg-black/5 dark:border-white/15 dark:text-[#ecebe3] dark:hover:bg-white/8"
+            >
+              Edit
+            </Link>
+            <DeleteButton onDelete={deleteEvent.bind(null, event.id)} label="Delete event" />
+          </div>
+        )}
+      </div>
 
       <article className="card-apple max-w-2xl p-6 sm:p-8">
         <p className="text-sm font-medium text-[#7d8c63]">

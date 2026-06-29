@@ -36,3 +36,40 @@ export async function createJobListing(
   revalidatePath("/jobs");
   redirect("/jobs");
 }
+
+export async function updateJobListing(
+  id: string,
+  _prev: ActionState,
+  formData: FormData,
+): Promise<ActionState> {
+  const { profile } = await requireProfile();
+
+  const listing = await prisma.jobListing.findFirst({
+    where: { id, authorId: profile.id },
+  });
+  if (!listing) return { error: "Listing not found or you don't have permission." };
+
+  const parsed = jobSchema.safeParse({
+    title: formData.get("title"),
+    description: formData.get("description"),
+    city: formData.get("city"),
+    kind: formData.get("kind"),
+    compensation: formData.get("compensation") || undefined,
+    remote: formData.get("remote") === "on",
+  });
+
+  if (!parsed.success) return { error: "Please check all required fields." };
+
+  await prisma.jobListing.update({ where: { id }, data: parsed.data });
+
+  revalidatePath("/jobs");
+  revalidatePath(`/jobs/${id}`);
+  redirect(`/jobs/${id}`);
+}
+
+export async function deleteJobListing(id: string): Promise<void> {
+  const { profile } = await requireProfile();
+  await prisma.jobListing.deleteMany({ where: { id, authorId: profile.id } });
+  revalidatePath("/jobs");
+  redirect("/jobs");
+}

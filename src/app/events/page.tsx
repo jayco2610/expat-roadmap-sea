@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
-import { EventCard } from "@/components/events/EventCard";
+import { EventsListClient } from "@/components/events/EventsListClient";
 import { PageShell } from "@/components/layout/PageShell";
-import { EmptyState } from "@/components/ui/EmptyState";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
@@ -44,26 +43,9 @@ export default async function EventsPage() {
         action={{ href: "/events/new", label: "Create event" }}
       />
 
-      {events.length === 0 ? (
-        <EmptyState
-          title="No upcoming events"
-          description="Host a nomad meetup, workshop, or dinner."
-          action={{ href: "/events/new", label: "Create event" }}
-        />
-      ) : (
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {events.map((event) => (
-            <li key={event.id}>
-              <EventCard
-                event={{
-                  ...event,
-                  _count: { rsvps: event.rsvps.length },
-                }}
-              />
-            </li>
-          ))}
-        </ul>
-      )}
+      <EventsListClient
+        events={events.map((e) => ({ ...e, _count: { rsvps: e.rsvps.length } }))}
+      />
     </PageShell>
   );
 }

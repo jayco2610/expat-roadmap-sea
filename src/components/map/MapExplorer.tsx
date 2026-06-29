@@ -12,6 +12,17 @@ import {
 import { AccommodationCard } from "./AccommodationCard";
 import { MapFilters } from "./MapFilters";
 
+export type HousingMapItem = {
+  id: string;
+  title: string;
+  city: string;
+  address: string;
+  priceMonth: number;
+  propertyType: string;
+  lat: number;
+  lng: number;
+};
+
 const MapCanvas = dynamic(() => import("./MapCanvas"), {
   ssr: false,
   loading: () => (
@@ -21,7 +32,7 @@ const MapCanvas = dynamic(() => import("./MapCanvas"), {
   ),
 });
 
-export function MapExplorer() {
+export function MapExplorer({ housingItems = [] }: { housingItems?: HousingMapItem[] }) {
   const [city, setCity] = useState<CityId | "all">("all");
   const [priceRange, setPriceRange] = useState<PriceRangeId>("all");
   const [type, setType] = useState<AccommodationType | "all">("all");
@@ -65,6 +76,7 @@ export function MapExplorer() {
         <div className="relative order-1 h-[58dvh] sm:h-[62dvh] lg:order-2 lg:h-auto lg:min-h-0 lg:flex-1">
           <MapCanvas
             items={filtered}
+            housingItems={housingItems}
             selectedId={selectedId}
             city={city}
             onSelect={handleSelect}

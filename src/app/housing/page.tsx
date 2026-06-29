@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { unstable_cache } from "next/cache";
-import { HousingCard } from "@/components/housing/HousingCard";
+import { HousingListClient } from "@/components/housing/HousingListClient";
 import { PageShell } from "@/components/layout/PageShell";
-import { EmptyState } from "@/components/ui/EmptyState";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
@@ -42,21 +41,7 @@ export default async function HousingPage() {
         action={{ href: "/housing/new", label: "Post listing" }}
       />
 
-      {listings.length === 0 ? (
-        <EmptyState
-          title="No listings yet"
-          description="Share your apartment or find a sublet for fellow nomads."
-          action={{ href: "/housing/new", label: "Post listing" }}
-        />
-      ) : (
-        <ul className="grid gap-4 sm:grid-cols-2">
-          {listings.map((listing) => (
-            <li key={listing.id}>
-              <HousingCard listing={listing} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <HousingListClient listings={listings} />
     </PageShell>
   );
 }

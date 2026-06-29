@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
@@ -26,6 +27,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       tags: guide.tags,
     },
   };
+}
+
+function renderInline(text: string): React.ReactNode[] {
+  const parts: React.ReactNode[] = [];
+  const re = /\*\*(.+?)\*\*|\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    if (m[1] !== undefined) {
+      parts.push(<strong key={key++}>{m[1]}</strong>);
+    } else {
+      parts.push(
+        <a key={key++} href={m[3]} target="_blank" rel="noopener noreferrer" className="text-[#2AABEE] hover:underline">
+          {m[2]}
+        </a>
+      );
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
 }
 
 export default async function GuidePage({ params }: Props) {
@@ -94,7 +118,7 @@ export default async function GuidePage({ params }: Props) {
                         className="list-decimal space-y-1 pl-5 leading-relaxed"
                       >
                         {lines.map((line, j) => (
-                          <li key={j}>{line.replace(/^\d+\.\s*/, "")}</li>
+                          <li key={j}>{renderInline(line.replace(/^\d+\.\s*/, ""))}</li>
                         ))}
                       </ol>
                     ) : (
@@ -103,14 +127,14 @@ export default async function GuidePage({ params }: Props) {
                         className="list-disc space-y-1 pl-5 leading-relaxed"
                       >
                         {lines.map((line, j) => (
-                          <li key={j}>{line.replace(/^-\s*/, "")}</li>
+                          <li key={j}>{renderInline(line.replace(/^-\s*/, ""))}</li>
                         ))}
                       </ul>
                     );
                   }
                   return (
                     <p key={i} className="leading-relaxed">
-                      {paragraph}
+                      {renderInline(paragraph)}
                     </p>
                   );
                 })}

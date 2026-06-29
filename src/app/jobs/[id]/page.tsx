@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { deleteJobListing } from "@/actions/jobs";
+import { DeleteButton } from "@/components/ui/DeleteButton";
 import { PageShell } from "@/components/layout/PageShell";
-import { getSessionUser } from "@/lib/auth";
+import { getCurrentProfile, getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
@@ -50,6 +52,8 @@ export default async function JobDetailPage({
   if (!listing) notFound();
 
   const viewer = await getSessionUser();
+  const myProfile = await getCurrentProfile();
+  const isOwner = Boolean(myProfile && myProfile.id === listing.authorId);
   const vis = listing.author.contactVisibility;
   const canSeeContact = vis === "PUBLIC" || (vis === "MEMBERS" && Boolean(viewer));
   const telegram =
@@ -59,15 +63,25 @@ export default async function JobDetailPage({
 
   return (
     <PageShell>
-      <Link
-        href="/jobs"
-        className="mb-6 inline-flex text-sm font-medium text-[#55633f] hover:underline"
-      >
-        ← Jobs &amp; services
-      </Link>
+      <div className="mb-6 flex items-center justify-between gap-4">
+        <Link href="/jobs" className="inline-flex text-sm font-medium text-[#55633f] hover:underline">
+          ← Jobs &amp; services
+        </Link>
+        {isOwner && (
+          <div className="flex items-center gap-3">
+            <Link
+              href={`/jobs/${listing.id}/edit`}
+              className="rounded-lg border border-black/10 px-4 py-2.5 text-sm font-medium text-[#2b2e28] transition hover:bg-black/5 dark:border-white/15 dark:text-[#ecebe3] dark:hover:bg-white/8"
+            >
+              Edit
+            </Link>
+            <DeleteButton onDelete={deleteJobListing.bind(null, listing.id)} />
+          </div>
+        )}
+      </div>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
-        <div>
+        <div className="order-2 lg:order-1">
           <div className="flex flex-wrap items-center gap-2">
             <span
               className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase ${
@@ -102,7 +116,7 @@ export default async function JobDetailPage({
         </div>
 
         {/* Contact panel — glass */}
-        <aside className="glass-card h-fit p-5">
+        <aside className="order-1 glass-card h-fit p-5 lg:order-2">
           <p className="text-sm text-[#6e7167]">Posted by</p>
           <p className="font-display mt-0.5 text-lg font-semibold text-[#2b2e28] dark:text-[#ecebe3]">
             {listing.author.displayName}

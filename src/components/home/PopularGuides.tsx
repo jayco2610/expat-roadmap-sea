@@ -7,6 +7,7 @@ export function PopularGuides() {
   const enGuides = guides.filter((g) => g.lang === "en");
   const featured = enGuides[0];
   const rest = enGuides.slice(1, 3);
+  const extra = enGuides.slice(3);
   if (!featured) return null;
 
   return (
@@ -88,6 +89,37 @@ export function PopularGuides() {
             ))}
           </div>
         </div>
+
+        {extra.length > 0 && (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {extra.map((g) => (
+              <Link
+                key={g.slug}
+                href={`/guides/${g.slug}`}
+                className="group card-apple flex gap-3 overflow-hidden p-3"
+              >
+                <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-xl">
+                  <Image
+                    src={guideImage(g.country)}
+                    alt={g.title}
+                    fill
+                    sizes="96px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex min-w-0 flex-col justify-center">
+                  <span className="label-upper text-[#7d8c63]">{g.country}</span>
+                  <h3 className="font-display mt-1 line-clamp-2 text-base font-semibold leading-snug text-[#2b2e28] dark:text-[#ecebe3]">
+                    {g.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-[#6e7167]/80 dark:text-[#9a9c8f]/80">
+                    {g.readingTime} min read
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
