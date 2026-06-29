@@ -42,13 +42,18 @@ export default async function CommunityPage() {
           action={{ href: "/settings/profile", label: "Create profile" }}
         />
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {profiles.map((profile) => (
-            <li key={profile.id}>
-              <ProfileCard profile={profile} />
-            </li>
-          ))}
-        </ul>
+        <>
+          <p className="mb-5 text-sm text-[#6e6e73] dark:text-[#a1a1a6]">
+            {profiles.length} member{profiles.length !== 1 ? "s" : ""} across Southeast Asia
+          </p>
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {profiles.map((profile) => (
+              <li key={profile.id}>
+                <ProfileCard profile={profile} />
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </PageShell>
   );

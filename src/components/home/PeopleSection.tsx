@@ -5,7 +5,7 @@ import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
 const getPeople = unstable_cache(
-  () => prisma.profile.findMany({ orderBy: { createdAt: "desc" }, take: 4 }),
+  () => prisma.profile.findMany({ orderBy: { createdAt: "desc" }, take: 8 }),
   ["home-people"],
   { revalidate: 60 },
 );
@@ -87,7 +87,7 @@ export async function PeopleSection() {
           </Link>
         </div>
 
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {profiles.map((profile) => (
             <li key={profile.id}>
               <ProfileCard profile={profile} />
