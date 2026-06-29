@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { requireAdmin } from "@/lib/admin";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
+import { SeedCommunityButton } from "./SeedButton";
 
 export const metadata: Metadata = {
   title: "Moderation",
@@ -80,6 +81,11 @@ export default async function AdminPage() {
         title="Moderation"
         description={`${items.length} listing${items.length === 1 ? "" : "s"} waiting for review.`}
       />
+
+      <div className="mb-8">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#6e7167]">Tools</h2>
+        <SeedCommunityButton />
+      </div>
 
       {items.length === 0 ? (
         <div className="glass-card p-8 text-center text-[#6e7167]">
