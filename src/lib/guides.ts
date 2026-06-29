@@ -966,6 +966,653 @@ After 24 months you can apply again — the program does not currently have a ha
       label: "Перейти в сообщество",
     },
   },
+  {
+    slug: "bali-cost-of-living-2026",
+    lang: "en",
+    country: "Indonesia",
+    title: "Cost of Living in Bali 2026: Real Monthly Budget Breakdown",
+    description:
+      "Honest numbers on what life in Bali actually costs in 2026 — rent, food, coworking, transport, and health insurance for digital nomads and long-term expats.",
+    updatedAt: "2026-06-28",
+    readingTime: 9,
+    tags: ["Bali", "cost of living", "Indonesia", "digital nomad", "budget", "2026"],
+    sections: [
+      {
+        heading: "The honest summary",
+        body: `Bali is no longer the ultra-cheap destination it was five years ago. Prices have risen sharply since 2022, especially in Canggu and Seminyak. That said, compared to Western Europe or North America, you can still live well for significantly less.
+
+A realistic monthly budget in 2026:
+- Budget (shared villa, local food, scooter): $900–1,200
+- Mid-range (private 1BR, mix of local and Western, gym): $1,600–2,200
+- Comfortable (modern villa, AC, expat lifestyle): $2,500–3,500+
+
+These numbers assume you already have the E33G or KITAS visa sorted. Tourist visas technically don't allow long stays, but enforcement varies.`,
+      },
+      {
+        heading: "Rent",
+        body: `Rent is the biggest variable and depends heavily on the area.
+
+**Canggu (most popular for nomads):**
+- Shared room in a villa: $300–450/month
+- Private 1BR apartment with AC and pool: $600–900/month
+- Modern 2BR villa with private pool: $1,200–2,000/month
+
+**Ubud (quieter, jungle setting):**
+- Private 1BR: $400–650/month
+- Villa with garden: $700–1,100/month
+
+**Seminyak / Kerobokan (more local feel, cheaper):**
+- 1BR: $400–600/month
+
+Tips: Sign 6–12 month contracts to get 20–30% off monthly rates. Always negotiate — the first price quoted is rarely the final price. Use Facebook groups ("Bali Housing", "Canggu Noticeboard") rather than Airbnb for long-term deals.`,
+      },
+      {
+        heading: "Food",
+        body: `Food is where Bali still delivers real value.
+
+**Warung (local Indonesian restaurant):**
+- Nasi goreng, mie goreng, gado-gado: $1.50–3
+- Full meal with drink: $2–4
+
+**Café / nomad-friendly spots:**
+- Smoothie bowl, coffee, avocado toast: $5–8
+- Full lunch or dinner: $6–12
+
+**Western restaurant / beach club:**
+- Main course: $10–18
+- Cocktail: $5–8
+
+Realistic monthly food budget:
+- Eating mostly local: $150–200
+- Mix of local and café: $300–450
+- Eating out Western-style often: $500–700+
+
+Cooking at home is less common in Bali — most nomads eat out daily since warung food is cheap and good.`,
+      },
+      {
+        heading: "Transport",
+        body: `Scooter rental: $60–90/month (most nomads do this — Bali's roads aren't great but a scooter is essential).
+
+Grab (ride-hailing): $2–5 for most trips within Canggu or Ubud. Reliable, widely used.
+
+Gojek: Similar to Grab, sometimes cheaper for food delivery.
+
+No real public transit exists in Bali. If you don't ride a scooter, you'll spend $150–250/month on Grab for daily errands.
+
+A driver for a half-day of errands or airport runs: $25–40.`,
+      },
+      {
+        heading: "Coworking",
+        body: `Bali has excellent coworking infrastructure, especially in Canggu.
+
+Top options and pricing (2026):
+- **Dojo Bali** (Canggu): $160/month hot desk, fast fiber, strong community
+- **Outpost** (Canggu, Ubud): $150–180/month, multiple locations
+- **Tribal** (Canggu): $130/month, good vibe
+- **The Shala** (Pererenan): $120/month, quieter
+
+Many cafés offer free WiFi with no time pressure — popular ones like Cinta Café or Café Vida are fine for a few hours of work. Day passes at coworking spaces: $10–15.
+
+Monthly coworking budget: $0 (café worker) to $180 (proper desk).`,
+      },
+      {
+        heading: "Health insurance",
+        body: `Indonesia's national health insurance (BPJS) is available to KITAS holders for about $20–40/month. Coverage is basic but functional for routine care.
+
+International health insurance: $80–200/month depending on age, coverage level, and provider. SafetyWing is popular among nomads at around $50/month (basic, with gaps).
+
+Medical care in Bali: Local clinics charge $15–30 for a consultation. International hospitals (BIMC, Siloam) charge $60–150 for a consultation — comparable to Western standards, much cheaper than Western prices.`,
+      },
+      {
+        heading: "Full monthly budget examples",
+        body: `**Budget nomad ($1,000–1,300/month):**
+- Shared room in villa: $350
+- Local food only: $180
+- Scooter: $75
+- Café WiFi (no coworking): $0
+- SafetyWing insurance: $50
+- Activities, misc: $200
+- SIM + utilities: $30
+
+**Mid-range nomad ($1,800–2,200/month):**
+- Private 1BR with pool: $750
+- Mix of local + café food: $400
+- Scooter + occasional Grab: $120
+- Coworking 3x/week: $80
+- Proper health insurance: $120
+- Activities, trips, misc: $350
+
+**Comfortable expat ($2,800–3,500+/month):**
+- Modern villa: $1,400
+- Eating well, beach clubs occasionally: $600
+- Driver + Grab: $250
+- Dedicated coworking desk: $170
+- Full international health insurance: $180
+- Gym, wellness, misc: $400`,
+      },
+    ],
+    cta: {
+      text: "Looking for housing in Bali? Browse community listings or connect with expats who live there.",
+      href: "/housing",
+      label: "Browse Bali housing",
+    },
+  },
+  {
+    slug: "chiang-mai-cost-of-living-2026",
+    lang: "en",
+    country: "Thailand",
+    title: "Cost of Living in Chiang Mai 2026: Full Budget Guide",
+    description:
+      "Real monthly costs for digital nomads and expats in Chiang Mai in 2026 — rent, food, coworking, visa costs, and what's changed since last year.",
+    updatedAt: "2026-06-28",
+    readingTime: 8,
+    tags: ["Chiang Mai", "Thailand", "cost of living", "digital nomad", "2026", "budget"],
+    sections: [
+      {
+        heading: "Why Chiang Mai still works in 2026",
+        body: `Chiang Mai has been a digital nomad hub since at least 2014. Prices have risen but it remains one of the best value-for-quality cities in Southeast Asia. The infrastructure — coworking, cafés, food, healthcare — is genuinely excellent.
+
+Monthly budget range:
+- Budget: $700–1,000
+- Mid-range: $1,200–1,800
+- Comfortable: $2,000–3,000
+
+Compared to Bali or Bangkok, Chiang Mai is cheaper and calmer. The downside: it's landlocked, far from beaches, and the air quality in March–April (burning season) is poor.`,
+      },
+      {
+        heading: "Rent",
+        body: `Chiang Mai has great rental value, especially compared to Bangkok or Bali.
+
+**Nimman area (nomad hub, modern):**
+- Studio apartment: $250–400/month
+- 1BR apartment with gym and pool: $400–600/month
+- Modern condo 1BR: $500–750/month
+
+**Old City (walking distance to temples, more local):**
+- Studio: $200–350/month
+- 1BR: $350–500/month
+
+**Santitham / Huay Kaew (quieter, local):**
+- 1BR: $250–400/month
+
+Long-term negotiation (6+ months) typically drops prices by 15–25%. Most apartments include WiFi, water, and sometimes electric. Check Facebook group "Chiang Mai Expats" and Hipflat for listings.`,
+      },
+      {
+        heading: "Food",
+        body: `Chiang Mai is one of the cheapest places in Asia for food — and the quality is high.
+
+**Street food / local restaurants:**
+- Khao soi (the local specialty): $1–2
+- Full meal: $1.50–3
+- Fresh juice: $1
+
+**Cafés (excellent coffee culture in Chiang Mai):**
+- Coffee: $1.50–3
+- Lunch at a café: $4–7
+
+**Western restaurants:**
+- Main course: $7–12
+- Burger + drink: $8–12
+
+Monthly food budget:
+- Eating mostly Thai: $100–150
+- Mix of Thai + café: $200–350
+- Western-heavy: $400–600
+
+Chiang Mai has hundreds of good cafés — many are laptop-friendly with strong WiFi, making it easy to work without paying for coworking.`,
+      },
+      {
+        heading: "Coworking spaces",
+        body: `Chiang Mai's coworking scene is mature and affordable.
+
+Top spots (2026):
+- **CAMP** (Maya Mall): Free with coffee purchase, consistently packed with nomads. WiFi is decent.
+- **Yellow** (Nimman): $80–120/month, great space
+- **Alt\_ChiangMai**: $100/month, strong community
+- **Punspace** (Nimman): $100–130/month, reliable fast internet, multiple locations
+- **MANA** (coworking + coliving): package deals available
+
+Day pass: $8–12. Monthly: $80–130. Chiang Mai is significantly cheaper than Bali or Bangkok for coworking.`,
+      },
+      {
+        heading: "Transport",
+        body: `Chiang Mai is a mid-sized city. Getting around is cheap.
+
+- **Scooter rental**: $50–70/month (essential for flexibility)
+- **Grab**: $1.50–4 for most rides within the city
+- **Songthaew** (red truck taxis): $0.50–1 per ride, fixed routes
+- **Bicycle**: Many nomads cycle in Nimman area, flat terrain
+
+Monthly transport budget: $50–120 depending on scooter vs. app.
+
+Note: Chiang Mai is walkable within Nimman but spread out otherwise. A scooter is strongly recommended.`,
+      },
+      {
+        heading: "Visa situation 2026",
+        body: `Most nomads in Chiang Mai are on one of these:
+
+**DTV (Destination Thailand Visa):** 10,000 THB one-time fee, 180 days per entry, 5-year validity. Best option if you work remotely — requires proof of remote income.
+
+**Tourist visa + extension:** 30 days on arrival (most nationalities) + 30-day extension at immigration (1,900 THB). Then border run or new tourist visa. Works short-term, gets complicated long-term.
+
+**Thailand LTR Visa:** For higher earners ($80K+ annual income), gives 10-year stay. Expensive to apply but worth it if you qualify.
+
+Immigration office in Chiang Mai is well-organized and less chaotic than Bangkok.`,
+      },
+      {
+        heading: "Sample budgets",
+        body: `**Budget ($800–1,000/month):**
+- Studio near Old City: $280
+- Thai food daily: $130
+- Scooter: $60
+- CAMP café work: $30 (coffees)
+- SafetyWing: $50
+- Misc (activities, SIM, utilities): $150
+
+**Mid-range ($1,400–1,800/month):**
+- Modern 1BR in Nimman: $500
+- Mix of food: $280
+- Scooter + Grab: $100
+- Punspace coworking: $110
+- Health insurance: $100
+- Gym, activities, misc: $250
+
+**Comfortable ($2,200–2,800/month):**
+- Nice condo with gym/pool: $700
+- Good eating + restaurants: $450
+- Car rental or regular Grab: $200
+- Coworking: $130
+- Full insurance: $180
+- Travel within Thailand, misc: $500`,
+      },
+    ],
+    cta: {
+      text: "Planning a move to Chiang Mai? Find housing and connect with the community already there.",
+      href: "/housing",
+      label: "Find housing in Chiang Mai",
+    },
+  },
+  {
+    slug: "ho-chi-minh-city-expat-guide-2026",
+    lang: "en",
+    country: "Vietnam",
+    title: "Ho Chi Minh City Expat Guide 2026: Everything You Need to Know",
+    description:
+      "Practical guide to living in Ho Chi Minh City (Saigon) as an expat in 2026 — neighborhoods, cost of living, visas, transport, and what surprises first-timers.",
+    updatedAt: "2026-06-25",
+    readingTime: 10,
+    tags: ["Ho Chi Minh City", "Saigon", "Vietnam", "expat", "digital nomad", "2026"],
+    sections: [
+      {
+        heading: "Why expats choose HCMC",
+        body: `Ho Chi Minh City (Saigon) is Vietnam's economic capital and the most international city in the country. It's loud, fast, chaotic, and addictive. Most people who plan to stay "a month" end up staying a year.
+
+What makes it work for expats:
+- Low cost of living, high quality of food
+- Excellent connectivity and coworking infrastructure
+- Large expat community across all industries
+- Vietnam e-visa is straightforward and renewable
+- Direct flights to most of SEA and major hubs
+
+What doesn't work:
+- Traffic is relentless. Crossing the street takes practice.
+- Air quality deteriorates during dry season
+- Bureaucracy for business setup is slow
+- Learning Vietnamese is hard — but not required for expat life`,
+      },
+      {
+        heading: "Best neighborhoods",
+        body: `**District 1 (Ben Thanh, Pham Ngu Lao)**
+The tourist and commercial center. Most expensive, most convenient. Lots of bars, cafés, hotels. Good for short stays, less ideal for long-term unless you like city energy 24/7.
+
+**District 2 / Thu Duc (An Phu, Thao Dien)**
+The expat neighborhood. Tree-lined streets, international schools, Western restaurants, bike lanes. Quiet, family-friendly, more expensive than average. Popular with families and corporate expats.
+
+**District 3**
+Local feel with good cafés and restaurants, more Vietnamese, less touristy than D1. Good balance.
+
+**Binh Thanh**
+Up-and-coming. Mix of local life and modern apartments. More affordable than D2, easy access to D1 via bridge.
+
+**Phu Nhuan**
+Local district, authentic, cheaper. Popular with longer-term residents who know the city.
+
+For digital nomads: District 1 or District 3 for walkability, District 2 for quiet and comfort.`,
+      },
+      {
+        heading: "Cost of living overview",
+        body: `HCMC is affordable, though prices have risen since 2022.
+
+**Monthly estimates (2026):**
+- Studio apartment (D1/D3): $400–650
+- 1BR in Thao Dien (D2): $700–1,100
+- Local Vietnamese food daily: $100–150/month
+- Mix of local + Western dining: $250–400/month
+- Scooter rental: $60–90/month
+- Grab for all transport: $100–180/month
+- Coworking: $80–150/month
+
+Realistic monthly totals:
+- Budget: $800–1,100
+- Mid-range: $1,400–2,000
+- Comfortable: $2,200–3,000`,
+      },
+      {
+        heading: "Visas for long-term stays",
+        body: `**E-visa (90 days, single or multiple entry):** $25. Available online, approval in 3 business days. Most nationalities qualify. This is the starting point for almost every expat.
+
+**Temporary Residence Card (TRC):** For stays beyond 90 days, you'll need a sponsor — usually an employer or a locally-registered company. TRC gives 1–2 years of legal residency.
+
+**Business visa (DN):** Requires a sponsor letter from a Vietnamese company. Valid 1–3 months, extendable. Often used by freelancers working with Vietnamese clients.
+
+**Reality check:** Many digital nomads do "visa runs" — leaving Vietnam every 90 days and re-entering. Cambodia, Thailand, and Singapore are common exits. This works but is an administrative grind long-term. If you plan to stay 6+ months, look into the TRC route.`,
+      },
+      {
+        heading: "Getting around",
+        body: `**Grab:** The dominant app for cars and motorbike taxis. Reliable, safe, cheap. A 5km ride costs $1.50–3. Essential app from day one.
+
+**Scooter:** Riding in HCMC traffic is intense. If you're not experienced on a scooter in chaotic traffic, give yourself time to adjust. Rental: $60–90/month. Buy a used scooter for $400–600 if staying long-term.
+
+**Walking:** Possible in District 1 and parts of District 3. Most neighborhoods are too spread out or traffic-heavy for comfortable walking everywhere.
+
+**Public buses:** Exist, cheap ($0.30), but routes aren't intuitive for newcomers.
+
+**Metro:** Line 1 opened in late 2024, connecting Ben Thanh to Thu Duc. Useful for that specific corridor, limited network overall.`,
+      },
+      {
+        heading: "What surprises first-timers",
+        body: `**Noise:** HCMC is genuinely loud. Honking is constant, construction is everywhere. Budget apartments on main roads are hard to sleep in without earplugs.
+
+**Food is extraordinary:** Vietnamese food in HCMC is some of the best in the world at any price point. Pho, banh mi, com tam, bun thit nuong — you can eat incredibly well for $2–4 per meal.
+
+**Heat:** Humidity is high year-round. Expect 30–35°C with high humidity most of the year. AC is non-negotiable for sleeping.
+
+**Cash vs card:** Vietnam is still heavily cash-based. ATMs are everywhere but charge fees. Bring multiple cards. Local bank accounts are hard to open without a residence card.
+
+**Community:** The expat community in HCMC is large and social. Meetup.com, Facebook groups ("Saigon Expats", "Digital Nomads HCMC"), and coworking spaces are the main entry points.`,
+      },
+    ],
+    cta: {
+      text: "Looking for housing or jobs in Ho Chi Minh City? Browse what the community has posted.",
+      href: "/housing",
+      label: "Browse HCMC listings",
+    },
+  },
+  {
+    slug: "phuket-digital-nomad-guide-2026",
+    lang: "en",
+    country: "Thailand",
+    title: "Phuket Digital Nomad Guide 2026: Is It Worth It?",
+    description:
+      "Phuket as a base for digital nomads in 2026 — the honest take on which areas work, what it costs, coworking options, and when to avoid it.",
+    updatedAt: "2026-06-25",
+    readingTime: 7,
+    tags: ["Phuket", "Thailand", "digital nomad", "coworking", "2026"],
+    sections: [
+      {
+        heading: "The honest verdict",
+        body: `Phuket is beautiful, has good infrastructure, and is far better as a nomad base than its party-island reputation suggests. But it's not for everyone.
+
+**Works well for:** People who want beach access, don't mind paying a bit more, and prefer a quieter, less urban environment than Bangkok or Chiang Mai.
+
+**Doesn't work for:** People on a tight budget, those needing a dense nomad community, or anyone who wants walkable urban energy.
+
+Best areas for nomads: **Rawai/Nai Harn** in the south (local, quieter, cheaper) and **Cherng Talay/Laguna** in the north (more developed, newer buildings).
+
+Avoid Patong as a base — it's fine for a night out but the tourist trap vibe and noise make it poor for productive work.`,
+      },
+      {
+        heading: "Neighborhoods breakdown",
+        body: `**Rawai / Nai Harn (south):**
+Most popular among long-term expats and nomads. Genuine local feel, good restaurants, access to quiet beaches like Nai Harn. Less developed than north but that's the point. Rent is lower.
+
+**Cherng Talay / Bang Tao / Laguna (north):**
+More modern, shopping malls nearby, some of the island's best restaurants. Increasingly popular with families and "slow nomads." Pricier but good quality of life.
+
+**Kata / Karon (mid-west):**
+Quieter than Patong, some good cafés, more local in feel. A middle ground.
+
+**Phuket Town (east):**
+Underrated. Authentic Old Town with Sino-Portuguese architecture, excellent local food, lower prices, and a small but genuine expat scene. Good WiFi infrastructure.`,
+      },
+      {
+        heading: "Cost of living",
+        body: `Phuket is more expensive than Chiang Mai but comparable to Bali.
+
+**Rent:**
+- 1BR apartment (Rawai area): $400–650/month
+- Modern condo with pool (Cherng Talay): $700–1,100/month
+- Short-term furnished studio: $600–900/month
+
+**Food:**
+- Local Thai meal: $2–4
+- Café lunch: $6–10
+- Seafood dinner at a good local restaurant: $10–20 per person
+
+**Transport:**
+- Scooter rental: $70–100/month (essential — Phuket has no real public transit)
+- Grab: less reliable than Bangkok/Chiang Mai, surge pricing common
+
+**Monthly totals:**
+- Budget: $1,100–1,500
+- Mid-range: $1,800–2,400
+- Comfortable: $2,800–4,000`,
+      },
+      {
+        heading: "Coworking and WiFi",
+        body: `Phuket's coworking scene is smaller than Chiang Mai or Bali but functional.
+
+Notable spaces (2026):
+- **Hive Phuket** (Cherng Talay area): Well-equipped, good community
+- **Garage Society Phuket**: Multiple locations, reliable
+- **CAMP** cafés at various malls: Free with coffee purchase
+
+Many nomads work from home or from cafés. Internet speeds in condos are generally good — 100–500 Mbps fiber is common in newer buildings. A dedicated desk at coworking: $100–150/month.
+
+High season (Nov–Apr) brings more people and the coworking scene livens up. Low season (May–Oct) is quieter but also cheaper and greener.`,
+      },
+      {
+        heading: "When to go (and avoid)",
+        body: `**Best time:** November to April. Dry season, excellent beaches, warm without being oppressive. This is also peak season — prices are higher and tourist areas more crowded.
+
+**Green season:** May to October. Fewer tourists, much cheaper accommodation, green and lush. West coast beaches (Patong, Kata, Karon) get rough waves and some close. East coast and south (Rawai, Nai Harn) are more sheltered. Rain comes in bursts, not all day.
+
+**Avoid:** If you hate tourists, avoid Patong in December–January at all costs. During Chinese New Year and Songkran (April), prices spike significantly.
+
+For nomads: Low season is actually great — cheaper, quieter, and you get the island to yourself.`,
+      },
+      {
+        heading: "Visas and practical stuff",
+        body: `Same as mainland Thailand — DTV is the best option for nomads (10,000 THB, 180 days per entry, 5-year validity). Tourist visa + extension works short-term.
+
+**Healthcare:** Phuket has good private hospitals — Bangkok Hospital Phuket and Phuket International Hospital are the main options. Costs are reasonable compared to Western countries.
+
+**SIM card:** AIS, DTAC, and True Move all have good coverage island-wide. Tourist SIMs available at the airport. Monthly unlimited data: $10–15.
+
+**Banking:** Get a Bangkok Bank or Kasikorn account if staying long-term — makes life much easier for transfers and local payments.`,
+      },
+    ],
+    cta: {
+      text: "Thinking about basing in Phuket? Find housing and connect with people already there.",
+      href: "/housing",
+      label: "Browse Phuket housing",
+    },
+  },
+  {
+    slug: "best-coworking-spaces-bali-2026",
+    lang: "en",
+    country: "Indonesia",
+    title: "Best Coworking Spaces in Bali 2026: Tested and Ranked",
+    description:
+      "Honest reviews of the best coworking spaces in Canggu, Ubud and Seminyak in 2026 — prices, WiFi speeds, atmosphere, and who each space is right for.",
+    updatedAt: "2026-06-20",
+    readingTime: 6,
+    tags: ["Bali", "coworking", "Canggu", "Ubud", "digital nomad", "2026", "Indonesia"],
+    sections: [
+      {
+        heading: "How we evaluated",
+        body: `We tested spaces based on: WiFi speed and reliability, seating comfort, noise level, community feel, price-to-value ratio, and overall vibe for sustained productive work. Prices are as of mid-2026 — they shift seasonally so always verify before committing.`,
+      },
+      {
+        heading: "Canggu: the nomad epicenter",
+        body: `Canggu has the highest density of coworking per square kilometer of any place in SEA. The quality has improved significantly since 2022.
+
+**Dojo Bali** — the benchmark
+The most established space in Canggu. Fast and reliable fiber (200–400 Mbps consistent), 24/7 access, a proper community of experienced nomads, meeting rooms, phone booths, standing desks, and good AC. The monthly price (~$160/month hot desk, $200+ for dedicated) is justified by the reliability. Events and community nights happen regularly. Best for: serious remote workers, longer stays, people who want community.
+
+**Tribal** (Batu Bolong area)
+Smaller, more intimate. Strong design aesthetic — feels like working in a stylish house. Good WiFi, a bit more social noise during peak hours. Better for half-days or creative types. ~$130/month, $12 day pass.
+
+**Outpost** (multiple locations incl. Canggu and Ubud)
+Solid chain with consistent quality. Often combined with coliving packages which makes it attractive for people arriving without accommodation. Fast WiFi, regular events. ~$150–180/month.
+
+**Dojo Beach** (new in 2025, Pererenan)
+Newer, less crowded, good ocean breezes. Some distraction from beach views but generally productive. Growing in popularity among nomads moving slightly north of central Canggu.`,
+      },
+      {
+        heading: "Ubud: work in the jungle",
+        body: `Ubud attracts a different type — slower pace, more wellness-focused, older demographics on average. Fewer pure tech nomads, more writers, designers, and wellness entrepreneurs.
+
+**Outpost Ubud** (Penestanan)
+The main established option. Green setting, solid WiFi, coliving packages available. Quieter and more focused than Canggu spaces. ~$160/month hot desk.
+
+**Hubud** (central Ubud)
+One of the original Bali coworking spaces — opened 2013. Shows some age but still functional. Strong community legacy, good location near central Ubud. Events and meetups. ~$150/month.
+
+**The Practice** (Ubud)
+Smaller, doubles as a wellness/yoga community space. Works well if that's your scene. WiFi is good, pace is relaxed.
+
+Note: Ubud power cuts happen occasionally. Spaces handle it with backup generators, but worth keeping a hotspot ready.`,
+      },
+      {
+        heading: "Budget options and café working",
+        body: `If you don't want to commit to a coworking membership, Bali's café scene is genuinely excellent for laptop work.
+
+**Café Vida** (Pererenan): Fast WiFi, no time pressure, outdoor setting, great coffee. One of the best free work cafés on the island.
+
+**Cinta Café** (Canggu): Nomad institution. Strong WiFi, cheap smoothies, always full of laptops.
+
+**Kynd Community** (Seminyak): More about the food and aesthetic but WiFi works fine.
+
+**Biasa Deli** (Seminyak): Good WiFi, quieter than Canggu spots.
+
+Budget per day in a café: $5–10 (one or two drinks). Monthly if you go daily: $150–250 — comparable to a coworking membership but no meeting rooms or dedicated desk.`,
+      },
+      {
+        heading: "What to watch out for",
+        body: `**High season crowds:** November to March, Canggu coworking spaces fill up. Dojo and other popular spots can get busy enough that you can't find a seat without arriving early. Book a dedicated desk if you need reliability.
+
+**WiFi during rain:** Bali's internet infrastructure has improved but heavy rain occasionally drops speeds. Always have a backup SIM data plan (Telkomsel is best for coverage).
+
+**Power cuts:** Less common in Canggu now than a few years ago, but still occasional. All established coworking spaces have UPS or generators.
+
+**Noise levels:** Some spaces are inherently social. If you need deep focus for calls or complex work, look for spaces with proper phone booths — Dojo Bali is best for this.`,
+      },
+    ],
+    cta: {
+      text: "Ready to base in Bali? Find long-term housing through the community board.",
+      href: "/housing",
+      label: "Browse Bali housing",
+    },
+  },
+  {
+    slug: "open-bank-account-thailand-foreigner-2026",
+    lang: "en",
+    country: "Thailand",
+    title: "How to Open a Bank Account in Thailand as a Foreigner (2026)",
+    description:
+      "Step-by-step guide to opening a Thai bank account as a foreigner in 2026 — which banks work, what documents you need, and which branches are foreigner-friendly.",
+    updatedAt: "2026-06-22",
+    readingTime: 7,
+    tags: ["Thailand", "banking", "expat", "foreigner", "Bangkok Bank", "Kasikorn", "2026"],
+    sections: [
+      {
+        heading: "Can foreigners open a Thai bank account?",
+        body: `Yes — but with conditions. Thai banks are allowed to open accounts for foreigners, but the requirements vary significantly by bank and even by branch. Some branches are well-practiced with foreigner applications; others will turn you away.
+
+The official requirement is typically a non-immigrant visa (meaning you can't be on a tourist stamp). In practice, some banks accept DTV holders, retirement visa holders, and even tourist visa holders at foreigner-friendly branches — but this varies.
+
+Bottom line: it's possible, often requires some persistence, and is much easier with the right visa and the right branch.`,
+      },
+      {
+        heading: "Which bank is easiest",
+        body: `**Bangkok Bank** — the most foreigner-friendly for non-residents. Has English-speaking staff at most major branches. Accepts DTV holders and Non-B visa holders reliably. Their mobile app (Bualuang mBanking) is decent.
+
+**Kasikorn Bank (KBank)** — second most foreigner-friendly, excellent app. Some branches are very smooth with DTV holders; others are strict. The branch at Central World and Siam Paragon in Bangkok are known to be good.
+
+**SCB (Siam Commercial Bank)** — slightly stricter but possible with a Non-B or Non-O visa. Good app.
+
+**Krungsri (Bank of Ayudhya)** — reportedly more flexible in some locations. Less popular among expats but worth trying if others refuse.
+
+**Avoid starting with:** Krungthai, TMB/TTB — these are harder for foreigners with limited documentation.`,
+      },
+      {
+        heading: "Documents required",
+        body: `Standard requirements (always bring originals + photocopies):
+
+1. **Passport** — with your current visa clearly visible
+2. **Non-immigrant visa** — Non-B, Non-O, Non-OA, DTV, LTR, or KITAS equivalent. Tourist visas are technically not accepted but some branches are lenient.
+3. **TM30 receipt** — the "Report of Residence" your landlord files (or you file) within 24 hours of arriving at your accommodation. Some branches ask for this.
+4. **Thai SIM card** — required for SMS OTP setup. Get one before going to the bank.
+5. **Proof of address** — utility bill, rental contract, or hotel booking. Not always required but good to have.
+6. **Employment letter or proof of funds** — Bangkok Bank may ask for this if opening a savings account.
+
+Minimum deposit: usually 500–1,000 THB ($14–28) to activate the account.`,
+      },
+      {
+        heading: "Best branches for foreigners",
+        body: `**Bangkok:**
+- Bangkok Bank, Silom branch — well-practiced with expats
+- KBank, Siam Paragon branch — reportedly smooth
+- Bangkok Bank, Sukhumvit Soi 11 branch — popular with expat community
+
+**Chiang Mai:**
+- Bangkok Bank, Nimman branch — near the nomad hub, experienced with DTV holders
+- KBank, Central Festival branch
+
+**Phuket:**
+- Bangkok Bank, Central Festival Phuket
+- Any branch in Phuket Town (less tourist-oriented, sometimes more straightforward)
+
+**Avoid:** Branches in heavily tourist areas (like Khao San Road or Patong) — they see too many tourist-visa travelers and may be stricter, or alternatively may be too busy for a proper onboarding.`,
+      },
+      {
+        heading: "Step-by-step process",
+        body: `1. **Get your TM30** — confirm your landlord has filed it, or file it yourself at the local immigration office. Print the receipt.
+
+2. **Get a Thai SIM** — AIS or DTAC, buy at 7-Eleven or the airport. Register with your passport.
+
+3. **Prepare documents** — originals and 2 sets of photocopies of everything.
+
+4. **Go on a weekday morning** — arrive as close to opening (usually 8:30–9:00 AM) as possible. Avoid Friday afternoons and the last day of the month.
+
+5. **Ask for the English-speaking staff or "foreigner account" desk** — not all branches have one but it helps to ask.
+
+6. **Complete the forms** — staff will guide you. The process takes 30–60 minutes.
+
+7. **Set up online banking** — do this in-branch while staff are present. They'll help configure the app and SMS OTP.
+
+8. **Initial deposit** — typically 500–2,000 THB.`,
+      },
+      {
+        heading: "Alternatives if rejected",
+        body: `If a bank turns you away, try these before giving up:
+
+**Wise (formerly TransferWise):** Not a Thai bank but gives you a multi-currency account with a debit card. Widely accepted in Thailand, low fees, great exchange rates. Most nomads use Wise as their primary card regardless of whether they have a Thai account.
+
+**Revolut:** Similar to Wise, works in Thailand, no foreign transaction fees.
+
+**Try another branch:** Seriously. The same bank might say yes at a different branch an hour later. This happens constantly.
+
+**Wait and come back:** If you're on a tourist stamp, get a proper visa first, then try again. A DTV or Non-B makes the process significantly easier.`,
+      },
+    ],
+    cta: {
+      text: "Living in Thailand? Connect with expats who can share firsthand banking tips.",
+      href: "/community",
+      label: "Join the community",
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
