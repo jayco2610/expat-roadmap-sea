@@ -56,6 +56,8 @@ model Profile {
   phone    String?
   telegram String?
 
+  verified          Boolean           @default(false)
+
   contactVisibility ContactVisibility @default(MEMBERS)
   showEmail         Boolean           @default(false)
   showPhone         Boolean           @default(false)

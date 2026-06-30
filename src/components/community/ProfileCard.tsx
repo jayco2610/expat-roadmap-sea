@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Profile } from "@prisma/client";
+import { VerifiedBadge, memberSince } from "@/components/ui/VerifiedBadge";
 
 export function ProfileCard({ profile }: { profile: Profile }) {
   const initials = profile.displayName
@@ -27,13 +28,15 @@ export function ProfileCard({ profile }: { profile: Profile }) {
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex items-center gap-1.5">
             <h2 className="font-display truncate text-[15px] font-semibold leading-tight text-[#1d1d1f] dark:text-[#f5f5f7]">
               {profile.displayName}
             </h2>
+            {profile.verified ? <VerifiedBadge /> : null}
           </div>
           <p className="mt-0.5 truncate text-xs text-[#6e6e73] dark:text-[#a1a1a6]">
-            {[profile.city, profile.country].filter(Boolean).join(", ")}
+            {[profile.city, profile.country].filter(Boolean).join(", ")} · since{" "}
+            {memberSince(profile.createdAt)}
           </p>
           {profile.bio ? (
             <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-[#1d1d1f]/75 dark:text-[#f5f5f7]/70">

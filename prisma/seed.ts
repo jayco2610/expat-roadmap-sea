@@ -330,6 +330,9 @@ Experience with freelancers, remote employees, and small online businesses. Full
     ],
   });
 
+  // Seed profiles are pre-verified (trust signal in the demo).
+  await prisma.profile.updateMany({ data: { verified: true } });
+
   // Seed data is pre-approved so it shows publicly; real user submissions
   // default to PENDING and wait for moderation.
   await prisma.housingListing.updateMany({ data: { status: "PUBLISHED" } });

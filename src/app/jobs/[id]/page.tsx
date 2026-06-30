@@ -8,6 +8,7 @@ import { getCurrentProfile, getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 import { ReportButton } from "@/components/ReportButton";
+import { VerifiedBadge } from "@/components/ui/VerifiedBadge";
 
 async function getListing(id: string) {
   if (!isDbConfigured()) return null;
@@ -18,6 +19,7 @@ async function getListing(id: string) {
         select: {
           displayName: true,
           city: true,
+          verified: true,
           telegram: true,
           email: true,
           showTelegram: true,
@@ -119,9 +121,12 @@ export default async function JobDetailPage({
         {/* Contact panel — glass */}
         <aside className="order-1 glass-card h-fit p-5 lg:order-2">
           <p className="text-sm text-[#6e7167]">Posted by</p>
-          <p className="font-display mt-0.5 text-lg font-semibold text-[#2b2e28] dark:text-[#ecebe3]">
-            {listing.author.displayName}
-          </p>
+          <div className="mt-0.5 flex items-center gap-2">
+            <p className="font-display text-lg font-semibold text-[#2b2e28] dark:text-[#ecebe3]">
+              {listing.author.displayName}
+            </p>
+            {listing.author.verified ? <VerifiedBadge /> : null}
+          </div>
           <p className="text-sm text-[#6e7167]">{listing.author.city}</p>
 
           <div className="mt-4 space-y-2">

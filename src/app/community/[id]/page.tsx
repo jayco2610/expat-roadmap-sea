@@ -5,6 +5,7 @@ import { ContactBlock } from "@/components/community/ContactBlock";
 import { PageShell } from "@/components/layout/PageShell";
 import { getSessionUser } from "@/lib/auth";
 import { contactVisibilityLabels } from "@/lib/contact-privacy";
+import { VerifiedBadge, memberSince } from "@/components/ui/VerifiedBadge";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 
@@ -53,11 +54,15 @@ export default async function ProfilePage({ params }: Props) {
             )}
           </div>
           <div>
-            <h1 className="font-display text-3xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
-              {profile.displayName}
-            </h1>
+            <div className="flex items-center gap-2">
+              <h1 className="font-display text-3xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
+                {profile.displayName}
+              </h1>
+              {profile.verified ? <VerifiedBadge /> : null}
+            </div>
             <p className="mt-1 text-[#6e6e73] dark:text-[#a1a1a6]">
-              {profile.city}, {profile.country}
+              {profile.city}, {profile.country} · Member since{" "}
+              {memberSince(profile.createdAt)}
             </p>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Script from "next/script";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { getGuide, guides } from "@/lib/guides";
+import { AskCommunity } from "@/components/AskCommunity";
 import { getLinksForCountry } from "@/lib/embassy-links";
 
 const BASE_URL = "https://expat-roadmap-sea.vercel.app";
@@ -124,10 +125,13 @@ export default async function GuidePage({ params }: Props) {
             {guide.description}
           </p>
 
-          <div className="mt-4 flex items-center gap-3 text-sm text-[#9a9a9e]">
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-sm text-[#9a9a9e]">
             <span>{guide.readingTime} min read</span>
             <span>·</span>
-            <span>Last updated: {guide.updatedAt}</span>
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#7d8c63]/12 px-2.5 py-1 text-xs font-medium text-[#55633f]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#55633f]" />
+              Updated {guide.updatedAt}
+            </span>
           </div>
         </header>
 
@@ -204,6 +208,8 @@ export default async function GuidePage({ params }: Props) {
             </ul>
           </div>
         )}
+
+        <AskCommunity topic={guide.country} />
 
         <div className="mt-6 rounded-2xl bg-[#7d8c63]/[0.08] p-6 dark:bg-[#7d8c63]/[0.12]">
           <p className="mb-4 text-[#3d3d3f] dark:text-[#c7c7cc]">
