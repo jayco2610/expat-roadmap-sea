@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { moderate } from "@/actions/moderation";
+import { resolveReport } from "@/actions/report";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { requireAdmin } from "@/lib/admin";
@@ -50,6 +51,17 @@ export default async function AdminPage() {
       orderBy: { createdAt: "desc" },
     }),
   ]);
+
+  const reports = await prisma.report.findMany({
+    where: { resolved: false },
+    orderBy: { createdAt: "desc" },
+  });
+  const reportHref = (r: { listingType: string; listingId: string }) =>
+    r.listingType === "job"
+      ? `/jobs/${r.listingId}`
+      : r.listingType === "event"
+        ? `/events/${r.listingId}`
+        : `/housing/${r.listingId}`;
 
   const items: PendingItem[] = [
     ...housing.map((h) => ({
@@ -134,6 +146,49 @@ export default async function AdminPage() {
             </li>
           ))}
         </ul>
+      )}
+
+      {reports.length > 0 && (
+        <div className="mt-10">
+          <h2 className="font-display mb-4 text-2xl font-semibold tracking-tight text-[#2b2e28] dark:text-[#ecebe3]">
+            Reports ({reports.length})
+          </h2>
+          <ul className="space-y-3">
+            {reports.map((r) => (
+              <li
+                key={r.id}
+                className="card-apple flex flex-wrap items-center justify-between gap-4 p-5"
+              >
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="rounded-full bg-red-500/15 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-red-600 uppercase">
+                      {r.listingType}
+                    </span>
+                    <a
+                      href={reportHref(r)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-[#55633f] hover:underline"
+                    >
+                      Open reported listing
+                    </a>
+                  </div>
+                  {r.reason ? (
+                    <p className="mt-1 text-sm text-[#6e7167]">{r.reason}</p>
+                  ) : (
+                    <p className="mt-1 text-sm text-[#6e7167]/70">No reason given</p>
+                  )}
+                </div>
+                <form action={resolveReport}>
+                  <input type="hidden" name="id" value={r.id} />
+                  <button type="submit" className="btn-secondary text-sm">
+                    Mark resolved
+                  </button>
+                </form>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </PageShell>
   );
