@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { isAdmin } from "@/lib/admin";
 import { isDbConfigured } from "@/lib/db";
@@ -469,11 +470,14 @@ export async function POST(req: NextRequest) {
       skipDuplicates: true,
     });
 
+    revalidateTag("community-profiles");
+    revalidateTag("home-people");
+
     return NextResponse.json({
       ok: true,
       created: result.count,
       total: COMMUNITY_PROFILES.length,
-      message: `Created ${result.count} new profiles (${COMMUNITY_PROFILES.length - result.count} already existed).`,
+      message: `Created ${result.count} new profiles (${COMMUNITY_PROFILES.length - result.count} already existed). Cache cleared.`,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 import { isAdmin } from "@/lib/admin";
 import { isDbConfigured } from "@/lib/db";
@@ -137,11 +138,14 @@ export async function POST() {
       skipDuplicates: true,
     });
 
+    revalidateTag("community-profiles");
+    revalidateTag("home-people");
+
     return NextResponse.json({
       ok: true,
       deleted: deleted.count,
       created: created.count,
-      message: `Removed ${deleted.count} old profiles, added ${created.count} new profiles.`,
+      message: `Removed ${deleted.count} old profiles, added ${created.count} new. Page cache cleared.`,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

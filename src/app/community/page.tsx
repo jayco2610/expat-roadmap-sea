@@ -15,7 +15,14 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 const getProfiles = unstable_cache(
-  () => prisma.profile.findMany({ orderBy: { createdAt: "desc" } }),
+  async () => {
+    const all = await prisma.profile.findMany({ orderBy: { createdAt: "desc" } });
+    // Profiles with avatars first, then the rest
+    return [
+      ...all.filter((p) => p.avatarUrl),
+      ...all.filter((p) => !p.avatarUrl),
+    ];
+  },
   ["community-profiles"],
   { revalidate: 60 },
 );
