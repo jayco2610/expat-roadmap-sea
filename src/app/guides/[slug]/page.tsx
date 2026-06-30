@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import type React from "react";
 import Link from "next/link";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { getGuide, guides } from "@/lib/guides";
 import { getLinksForCountry } from "@/lib/embassy-links";
+
+const BASE_URL = "https://expat-roadmap-sea.vercel.app";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,12 +22,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: guide.title,
     description: guide.description,
+    alternates: {
+      canonical: `${BASE_URL}/guides/${slug}`,
+    },
     openGraph: {
       title: guide.title,
       description: guide.description,
       type: "article",
+      url: `${BASE_URL}/guides/${slug}`,
+      siteName: "Expat Roadmap SEA",
       publishedTime: guide.updatedAt,
       tags: guide.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: guide.title,
+      description: guide.description,
     },
   };
 }
@@ -58,8 +71,29 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
   const officialLinks = getLinksForCountry(guide.country);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    dateModified: guide.updatedAt,
+    datePublished: guide.updatedAt,
+    url: `${BASE_URL}/guides/${guide.slug}`,
+    publisher: {
+      "@type": "Organization",
+      name: "Expat Roadmap SEA",
+      url: BASE_URL,
+    },
+    keywords: guide.tags.join(", "),
+  };
+
   return (
     <PageShell>
+      <Script
+        id={`jsonld-guide-${guide.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="mx-auto max-w-2xl">
         <div className="mb-2">
           <Link

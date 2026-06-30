@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     "KITAS Indonesia",
     "expat forum Southeast Asia",
   ],
+  alternates: {
+    canonical: "https://expat-roadmap-sea.vercel.app",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
