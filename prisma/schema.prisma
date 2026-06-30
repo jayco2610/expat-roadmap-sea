@@ -140,3 +140,12 @@ model NewsletterSubscriber {
   email     String   @unique
   source    String   @default("homepage")
 }
+
+model Report {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  listingType String // "housing" | "job" | "event"
+  listingId   String
+  reason      String?
+  resolved    Boolean  @default(false)
+}

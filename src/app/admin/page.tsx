@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { requireAdmin } from "@/lib/admin";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
-import { SeedCommunityButton, SeedRuBeautyButton } from "./SeedButton";
+import { SeedCommunityButton, SeedRuBeautyButton, ResetCommunityButton } from "./SeedButton";
 
 export const metadata: Metadata = {
   title: "Moderation",
@@ -84,6 +84,7 @@ export default async function AdminPage() {
 
       <div className="mb-8 space-y-3">
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#6e7167]">Tools</h2>
+        <ResetCommunityButton />
         <SeedCommunityButton />
         <SeedRuBeautyButton />
       </div>

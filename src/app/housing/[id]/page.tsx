@@ -8,6 +8,7 @@ import { getCurrentProfile, getSessionUser } from "@/lib/auth";
 import { isDbConfigured } from "@/lib/db";
 import { prisma } from "@/lib/prisma";
 import { housingImage } from "@/lib/housing-image";
+import { ReportButton } from "@/components/ReportButton";
 
 async function getListing(id: string) {
   if (!isDbConfigured()) return null;
@@ -178,6 +179,10 @@ export default async function HousingDetailPage({
                   </Link>
                 )
               ) : null}
+            </div>
+
+            <div className="mt-4 border-t border-black/8 pt-3 dark:border-white/10">
+              <ReportButton listingType="housing" listingId={listing.id} />
             </div>
           </aside>
         </div>

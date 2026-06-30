@@ -6,10 +6,12 @@ function AdminSeedRow({
   title,
   description,
   endpoint,
+  danger,
 }: {
   title: string;
   description: string;
   endpoint: string;
+  danger?: boolean;
 }) {
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -46,7 +48,7 @@ function AdminSeedRow({
       <button
         onClick={handle}
         disabled={state === "loading" || state === "done"}
-        className="btn-primary shrink-0 text-sm disabled:opacity-50"
+        className={`shrink-0 text-sm disabled:opacity-50 ${danger ? "btn-secondary" : "btn-primary"}`}
       >
         {state === "loading" ? "Running…" : state === "done" ? "Done" : "Run"}
       </button>
@@ -57,8 +59,8 @@ function AdminSeedRow({
 export function SeedCommunityButton() {
   return (
     <AdminSeedRow
-      title="Seed community profiles (35 members)"
-      description="Add 35 demo expats with avatars from 18+ countries. Safe to run multiple times."
+      title="Seed community (35 expats)"
+      description="Add 35 demo expats with avatars from 18+ countries. Skip-duplicates safe."
       endpoint="/api/admin/seed-community"
     />
   );
@@ -67,9 +69,20 @@ export function SeedCommunityButton() {
 export function SeedRuBeautyButton() {
   return (
     <AdminSeedRow
-      title="Replace placeholders → Russian beauty profiles"
-      description="Remove Mia Chen / Arun Patel / Lena Kowalski (no-avatar duplicates) and add 8 Russian girls: tattoo artist, photographer, nail artist, MUA, lash specialist, blogger, massage therapist, salon owner."
+      title="Add Russian beauty profiles"
+      description="Remove old placeholders (Mia/Arun/Lena) and add 8 Russian girls: tattoo artist, photographer, nail artist, MUA, lash specialist, blogger, massage therapist, salon owner."
       endpoint="/api/admin/seed-ru-beauty"
+    />
+  );
+}
+
+export function ResetCommunityButton() {
+  return (
+    <AdminSeedRow
+      danger
+      title="Hard reset community profiles"
+      description="Delete ALL demo profiles and re-insert 43 members (8 Russian girls first, then 35 expats) with gender-correct photos from randomuser.me."
+      endpoint="/api/admin/reset-community"
     />
   );
 }
