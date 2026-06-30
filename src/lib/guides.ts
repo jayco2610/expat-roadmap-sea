@@ -1613,6 +1613,317 @@ Minimum deposit: usually 500–1,000 THB ($14–28) to activate the account.`,
       label: "Join the community",
     },
   },
+  {
+    slug: "thailand-tax-for-expats-2026",
+    lang: "en",
+    country: "Thailand",
+    title: "Thailand Tax for Expats and Digital Nomads 2026",
+    description:
+      "Thailand changed its foreign income tax rules in 2024. Here is what it means for expats, digital nomads, and remote workers — and how to stay compliant.",
+    updatedAt: "2026-06-25",
+    readingTime: 9,
+    tags: ["Thailand", "tax", "digital nomad", "income tax", "DTV", "2026"],
+    sections: [
+      {
+        heading: "What changed in 2024",
+        body: `Before 2024, Thailand's tax rules had a well-known loophole: foreign income was only taxable if you brought it into Thailand in the same calendar year you earned it. Many expats structured their finances to delay transfers by one year and paid no Thai tax on overseas income.
+
+The Thai Revenue Department closed this loophole in September 2023, with the new rule taking effect from January 1, 2024. Now, **any foreign income brought into Thailand is taxable in the year it is received**, regardless of when it was earned.`,
+      },
+      {
+        heading: "Who is affected",
+        body: `You become a Thai tax resident if you spend **180 days or more** in Thailand in a calendar year. This applies regardless of your visa type — DTV holders, LTR visa holders, and tourists who stay long enough all qualify as tax residents.
+
+Tax residents must file a Thai personal income tax return if they:
+
+- Bring foreign income into Thailand (bank transfers, Wise, Revolut, cash)
+- Have Thai-source income (rental income, local freelance work, Thai employer)
+
+Non-residents (fewer than 180 days) are only taxed on Thai-source income.`,
+      },
+      {
+        heading: "Tax rates in Thailand",
+        body: `Thailand uses a progressive income tax scale:
+
+- 0 THB to 150,000 THB — 0% (exempt)
+- 150,001 to 300,000 THB — 5%
+- 300,001 to 500,000 THB — 10%
+- 500,001 to 750,000 THB — 15%
+- 750,001 to 1,000,000 THB — 20%
+- 1,000,001 to 2,000,000 THB — 25%
+- 2,000,001 to 5,000,000 THB — 30%
+- Over 5,000,000 THB — 35%
+
+Personal deductions (2026): 60,000 THB personal allowance. Additional deductions for spouse, children, parents, and social security contributions apply.`,
+      },
+      {
+        heading: "Double taxation treaties",
+        body: `Thailand has tax treaties with over 60 countries, including the UK, Germany, France, Australia, Canada, and most EU nations. If your home country has a treaty with Thailand, you will not be taxed twice on the same income.
+
+Common treaty outcomes:
+
+- **Remote employees**: Usually taxed where the employer is based, not where you work, if you spend fewer than 183 days in Thailand per year. Check your specific treaty.
+- **Freelancers and self-employed**: Typically taxed in Thailand if you are a Thai tax resident and the income enters Thailand.
+- **Investment income**: Dividends, interest, and royalties have specific treaty rates — usually 10–15%.
+
+The US is not on Thailand's treaty list. American citizens must still file US taxes regardless and need to plan carefully with a tax advisor.`,
+      },
+      {
+        heading: "LTR visa: the official tax exemption",
+        body: `Thailand's Long-Term Resident (LTR) visa, launched in 2022, includes a formal tax benefit: **foreign-source income brought into Thailand by LTR holders is exempt from Thai personal income tax**.
+
+This is the only visa category with a written exemption. The LTR requires:
+
+- Minimum passive income of $80,000 per year, or
+- $40,000 per year plus a Thai property purchase of at least $250,000, or
+- Being a "wealthy global citizen" with $1M in assets
+
+For most digital nomads the LTR income threshold is high. The DTV offers no such exemption.`,
+      },
+      {
+        heading: "Practical approach for most nomads",
+        body: `Here is how most expats and nomads handle the 2024 rule in practice:
+
+1. **Track days carefully.** If you plan to stay under 180 days, you avoid Thai tax residency entirely. Many nomads now split the year between Thailand and another country.
+
+2. **Use offshore accounts wisely.** Income parked in a Singapore, Hong Kong, or EU account and not transferred to Thailand is not taxable in Thailand. Only transfers into Thai accounts or cash brought in trigger liability.
+
+3. **File if required.** Tax year in Thailand is January 1 to December 31. Returns are due by March 31 of the following year. Fines for non-filing are 1,000–2,000 THB, plus 1.5% per month on unpaid tax.
+
+4. **Get a Thai Tax ID (TIN).** Required to file. Apply at your local Revenue Department office with your passport and visa.
+
+5. **Consult a local tax advisor.** The practical interpretation of the new rules is still evolving. A Thai tax advisor charges roughly 5,000–15,000 THB for a filing and is worth the cost if your income is above $30,000 per year.`,
+      },
+      {
+        heading: "What has not changed",
+        body: `Several things remain the same:
+
+- **Thai-source income** was always taxable and still is.
+- **Capital gains on foreign stocks or crypto** are not specifically addressed in Thai law. The Revenue Department has issued informal guidance suggesting they fall under the new rule when remitted to Thailand, but enforcement is inconsistent.
+- **Pensions and retirement income** for LTR retirement visa holders remain exempt.
+- There is **no wealth tax or exit tax** in Thailand.`,
+      },
+    ],
+    cta: {
+      text: "Questions about Thai taxes? Expats in the community share real experiences.",
+      href: "/community",
+      label: "Ask the community",
+    },
+  },
+  {
+    slug: "health-insurance-expats-southeast-asia-2026",
+    lang: "en",
+    country: "Southeast Asia",
+    title: "Health Insurance for Expats in Southeast Asia 2026: What Actually Works",
+    description:
+      "A practical comparison of health insurance options for expats and digital nomads in Thailand, Bali, Vietnam, and Malaysia — with real costs and what each plan covers.",
+    updatedAt: "2026-06-20",
+    readingTime: 10,
+    tags: ["health insurance", "expat", "Southeast Asia", "digital nomad", "Thailand", "Bali", "Vietnam", "2026"],
+    sections: [
+      {
+        heading: "Why local insurance usually does not work",
+        body: `Most Southeast Asian countries offer local health insurance. It is cheap — sometimes $300–600 per year. The problem is coverage gaps: local plans often exclude pre-existing conditions entirely, cap payouts at amounts that do not cover serious treatment, and frequently require payment upfront with reimbursement later (if approved).
+
+In Thailand, local BUPA Thailand plans work reasonably well if you plan to stay permanently. In Vietnam and Indonesia, local plans are primarily designed for citizens with local salary structures. In Malaysia, local plans can be solid but require a long-term visa.
+
+For most expats and digital nomads who move between countries, an **international health insurance plan** is the more reliable option.`,
+      },
+      {
+        heading: "The four main international options",
+        body: `**1. SafetyWing Nomad Insurance**
+Price: ~$56/month (under 39), ~$92/month (40–49)
+Best for: Short-term nomads, budget travelers, DTV and tourist visa holders
+Covers: Emergency care, hospitalization, evacuation. Does NOT cover routine checkups, dental, or pre-existing conditions.
+Caveat: $250 deductible per policy period. US coverage limited to emergencies.
+
+**2. Cigna Global**
+Price: $150–400/month depending on age and coverage tier
+Best for: Families, people with chronic conditions, those who want comprehensive coverage
+Covers: Inpatient, outpatient, dental (add-on), mental health, maternity (add-on), evacuation
+Caveat: Pre-existing conditions excluded for first 2 years, then reviewed.
+
+**3. AXA International**
+Price: $120–350/month
+Best for: People who want a large hospital network in Asia
+Covers: Inpatient and outpatient, dental optional, good direct billing partnerships in Thailand and Malaysia
+Caveat: Premiums increase significantly after age 45.
+
+**4. BUPA Global**
+Price: $180–500/month
+Best for: Professionals who need coverage in Europe and Asia, business travelers
+Covers: Comprehensive, including mental health and chronic conditions after waiting period
+Caveat: One of the more expensive options; complex claims process.`,
+      },
+      {
+        heading: "What to look for in a plan",
+        body: `Before buying, check these four things:
+
+1. **Direct billing hospitals in your main destination.** In Thailand, most private hospitals in Bangkok and Chiang Mai accept Cigna, AXA, and Allianz directly. In Bali, Siloam and BIMC accept direct billing from a few international providers. In Vietnam, Vinmec and FV Hospital in Ho Chi Minh City have direct billing partnerships.
+
+2. **Annual limit.** Serious illness or an accident can cost $100,000–500,000 USD. A plan with a $50,000 annual cap is not adequate. Look for at least $1M lifetime limit.
+
+3. **Geographic coverage.** If you ever return home for treatment or travel to other regions, make sure your plan covers those locations. Most international plans exclude the US or charge extra.
+
+4. **Pre-existing conditions.** If you have any chronic condition, read the exclusion list carefully before buying. Some insurers offer coverage after a 12–24 month waiting period; others exclude the condition permanently.`,
+      },
+      {
+        heading: "Country-specific notes",
+        body: `**Thailand**: Private hospital costs are moderate by international standards — a night in a good Bangkok hospital runs $200–400. International insurance works well. The DTV visa requires proof of insurance with minimum $50,000 coverage.
+
+**Bali / Indonesia**: Medical infrastructure is limited outside Denpasar. Serious cases are evacuated to Singapore or Bangkok. Your plan must include medical evacuation. BIMC and Siloam are the two reliable hospitals for expats.
+
+**Vietnam**: Good hospitals in Hanoi (Vinmec, French Hospital) and Ho Chi Minh City (FV, Victoria). Standard procedures are affordable. Emergency response outside major cities is slow.
+
+**Malaysia**: Best medical infrastructure in the region after Singapore. Pantai and KPJ hospital chains have good direct billing relationships with international insurers. Local insurance (AIA, Great Eastern) is viable if you have a long-term visa.
+
+**Philippines**: Medical care quality varies widely. International insurance is strongly recommended. Manila has decent private hospitals; outside the capital, options drop significantly.`,
+      },
+      {
+        heading: "The visa insurance requirement",
+        body: `Several visas now require proof of health insurance:
+
+- **Thailand DTV**: Minimum $50,000 coverage required at application
+- **Thailand LTR**: $40,000 minimum, must cover the full visa period
+- **Malaysia DE Rantau**: Not currently required but recommended
+- **Indonesia KITAS/E33G**: No formal requirement but recommended
+
+SafetyWing and WorldNomads are commonly accepted for DTV applications. For LTR, you need a policy letter confirming coverage dates and amounts.`,
+      },
+      {
+        heading: "Actual monthly costs by age",
+        body: `These are approximate 2026 prices for international plans with inpatient + outpatient coverage, Asia region, $1M annual limit:
+
+- Age 25–35: $90–180/month
+- Age 35–45: $150–280/month
+- Age 45–55: $250–450/month
+- Age 55–65: $400–700/month
+
+Budget SafetyWing (emergency only): $56–100/month across ages.
+
+Travel insurance (short-term): $3–8/day, not a substitute for health insurance for long-term stays.`,
+      },
+    ],
+    cta: {
+      text: "Ask expats in the community which insurance they use — real experience beats any guide.",
+      href: "/community",
+      label: "Ask the community",
+    },
+  },
+  {
+    slug: "bali-vs-chiang-mai-vs-da-nang-2026",
+    lang: "en",
+    country: "Southeast Asia",
+    title: "Bali vs Chiang Mai vs Da Nang: Which Is Right for You in 2026",
+    description:
+      "A direct comparison of the three most popular digital nomad destinations in Southeast Asia — cost of living, visa situation, internet, community, and honest trade-offs.",
+    updatedAt: "2026-06-22",
+    readingTime: 11,
+    tags: ["digital nomad", "Bali", "Chiang Mai", "Da Nang", "cost of living", "Southeast Asia", "2026"],
+    sections: [
+      {
+        heading: "The short version",
+        body: `All three cities work for remote workers. The choice is mostly about what you optimize for:
+
+- **Bali (Canggu/Seminyak)**: Best community, best vibe, most expensive of the three, visa is more complex
+- **Chiang Mai**: Most affordable, best for long stays, slower pace, strong nomad infrastructure
+- **Da Nang**: Best value, underrated, great beaches, smaller expat community, simpler visa
+
+If you are new to Southeast Asia and want to meet people fast, start with Bali. If you are optimizing for cost and a quiet productive base, choose Chiang Mai. If you want beaches, low cost, and a less crowded scene, Da Nang.`,
+      },
+      {
+        heading: "Cost of living comparison",
+        body: `Monthly budget for a single person living comfortably (not frugally):
+
+**Bali (Canggu)**
+- Room in shared villa: $600–900
+- Private studio: $900–1,400
+- Food (mix of warungs and cafes): $400–600
+- Scooter rental: $60–80
+- Coworking: $80–150
+- **Total: $1,300–2,400/month**
+
+**Chiang Mai**
+- Room in good apartment: $350–600
+- Private condo with pool: $500–800
+- Food (mix of street food and restaurants): $250–400
+- Scooter rental: $50–70
+- Coworking: $50–100
+- **Total: $900–1,500/month**
+
+**Da Nang**
+- Private studio near beach: $400–700
+- Good 1-bedroom apartment: $500–900
+- Food: $200–350
+- Motorbike rental: $50–70
+- Coworking: $60–100
+- **Total: $800–1,400/month**
+
+Bali is the most expensive by 40–60% compared to Chiang Mai and Da Nang.`,
+      },
+      {
+        heading: "Visa situation",
+        body: `**Bali**: Indonesia does not have a dedicated digital nomad visa. Options are a 60-day visa on arrival (extendable to 60 more days), the E33G Remote Worker Visa (6 months, requires employer letter), or KITAS (1 year, complex). Most nomads cycle between visa on arrival + extension, which means leaving every 120 days.
+
+**Chiang Mai**: Thailand's DTV visa (5 years, 180 days per entry) is one of the best visa options in the region. It costs $275 and requires proof of remote work and financial stability. Alternatively, the 60-day tourist visa + 30-day extension covers shorter stays.
+
+**Da Nang**: Vietnam's e-visa covers 90 days and is renewable, but requires leaving Vietnam to renew. In practice, many nomads do a quick border run to Da Nang from Laos or Cambodia. Vietnam does not have a digital nomad visa. Long-term stays require a business visa or working through an agent.
+
+For visa stability, **Chiang Mai wins decisively** with the DTV. Bali and Da Nang both require more active management.`,
+      },
+      {
+        heading: "Internet and infrastructure",
+        body: `All three cities have reliable internet for remote work. Specific notes:
+
+**Bali**: True fiber internet in Canggu and Seminyak. Coworking spaces are excellent — Dojo, Outpost, Tropical Nomad all have fast symmetric connections. Power outages happen, especially during rainy season (November–March). Buy a good UPS or work from a coworking with backup power.
+
+**Chiang Mai**: DTAC and AIS fiber in most apartments. Speed in the Nimman area is consistently good. Coworking infrastructure is mature — CAMP (the 24-hour McDonald's coworking) has become a legend. Fewer power issues than Bali.
+
+**Da Nang**: Viettel and VNPT fiber is fast and cheap ($15–20/month). The city has fewer purpose-built coworkings than Bali or Chiang Mai, but many cafes work well. 5G coverage is expanding rapidly.`,
+      },
+      {
+        heading: "Community and social life",
+        body: `**Bali** has the largest and most international nomad community in Southeast Asia. Canggu in particular has a density of nomads, entrepreneurs, and creatives that is hard to match. The downside: it can feel like a bubble, and meeting locals meaningfully requires more effort. Nightlife is strong; yoga, surf, and wellness culture is dominant.
+
+**Chiang Mai** has a smaller but tight-knit nomad community. It is older on average — more established freelancers and long-termers than fresh arrivals. The city has a rich Thai culture to engage with. Nightlife exists but is modest. Many people who come for a month stay for a year.
+
+**Da Nang** has the smallest expat community of the three. It is growing, but you will meet more Korean and Chinese tourists than Western nomads. This is a feature if you want to live among locals; it is a drawback if building a professional network fast is important.`,
+      },
+      {
+        heading: "What each city is actually like to work from",
+        body: `**Bali**: Distracting in a good way. The beauty of the island, the social scene, and the endless options make it hard to stay in "work mode." Best for people who are self-disciplined or who work well in bursts. Rainy season (November–March) reduces the lifestyle appeal significantly.
+
+**Chiang Mai**: Genuinely one of the best cities in the world to focus on deep work. The low cost removes financial pressure. The culture is calming. Nimman area has everything within walking distance. Boring by Bali standards — in the best way.
+
+**Da Nang**: Good balance of beach lifestyle and productivity. The city is compact, traffic is light, and the pace is relaxed. Underrated for people who have already done Bali and Chiang Mai and want something quieter.`,
+      },
+      {
+        heading: "Who should choose which",
+        body: `**Choose Bali if:**
+- You are new to nomad life and want to build a network fast
+- You value lifestyle (surf, yoga, nightlife, wellness) alongside work
+- Budget above $2,000/month is fine
+- You can handle visa complexity
+
+**Choose Chiang Mai if:**
+- Cost efficiency is a priority
+- You want a stable, long-term base with a great visa (DTV)
+- You prefer a slower, more local experience
+- You are working on something that needs sustained focus
+
+**Choose Da Nang if:**
+- You want a beach base without Bali prices
+- You are okay with a smaller expat community
+- You want to experience Vietnam without the chaos of Hanoi or Ho Chi Minh City
+- Budget under $1,200/month is important`,
+      },
+    ],
+    cta: {
+      text: "People in the community have lived in all three. Ask specific questions and get real answers.",
+      href: "/community",
+      label: "Ask the community",
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
