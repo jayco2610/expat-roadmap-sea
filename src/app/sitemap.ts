@@ -41,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...guidePages,
     {
+      url: `${BASE_URL}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${BASE_URL}/community`,
       lastModified: new Date(),
       changeFrequency: "daily",

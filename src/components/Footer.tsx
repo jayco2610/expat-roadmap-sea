@@ -32,9 +32,17 @@ export function Footer() {
           </nav>
         </div>
 
-        <p className="mt-10 text-xs text-[#6e6e73] dark:text-[#a1a1a6]">
-          © {new Date().getFullYear()} Expat Roadmap SEA. Built for explorers.
-        </p>
+        <div className="mt-10 flex items-center justify-between">
+          <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6]">
+            © {new Date().getFullYear()} Expat Roadmap SEA. Built for explorers.
+          </p>
+          <Link
+            href="/about"
+            className="text-xs text-[#6e6e73] transition hover:text-[#1d1d1f] dark:text-[#a1a1a6] dark:hover:text-[#f5f5f7]"
+          >
+            About the project
+          </Link>
+        </div>
       </div>
     </footer>
   );
