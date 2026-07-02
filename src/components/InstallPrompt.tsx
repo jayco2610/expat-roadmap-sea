@@ -20,6 +20,11 @@ export function InstallPrompt() {
       window.matchMedia("(display-mode: standalone)").matches || nav.standalone === true;
     if (standalone) return;
 
+    // Only nudge on phones. On desktop Chrome has its own install button in
+    // the address bar, so our banner just conflicts and confuses.
+    const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+    if (!isMobile) return;
+
     const ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
     setIsIOS(ios);
 
@@ -48,8 +53,13 @@ export function InstallPrompt() {
 
   async function install() {
     if (!deferred) return;
-    await deferred.prompt();
-    await deferred.userChoice;
+    try {
+      await deferred.prompt();
+      await deferred.userChoice;
+    } catch {
+      // prompt can only be used once; ignore repeat clicks
+    }
+    setDeferred(null);
     dismiss();
   }
 
