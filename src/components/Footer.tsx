@@ -18,7 +18,13 @@ export function Footer() {
 
           <nav aria-label="Footer">
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {navLinks.map(({ href, label }) => (
+              {[
+                ...navLinks,
+                { href: "/compare", label: "Compare cities" },
+                { href: "/tools/visa-checker", label: "Visa checker" },
+                { href: "/tools/cost-calculator", label: "Cost calculator" },
+                { href: "/pro", label: "Pro" },
+              ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
