@@ -12,6 +12,8 @@ const BASE_URL = "https://expat-roadmap-sea.vercel.app";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }));
 }
@@ -19,7 +21,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const guide = getGuide(slug);
-  if (!guide) return {};
+  if (!guide) notFound();
   return {
     title: guide.title,
     description: guide.description,

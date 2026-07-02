@@ -6,6 +6,8 @@ import { PageShell } from "@/components/layout/PageShell";
 import { destinations, getDestination } from "@/lib/destinations";
 import { getGuide } from "@/lib/guides";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
 }
