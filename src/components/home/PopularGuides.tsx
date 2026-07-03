@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { guides } from "@/lib/guides";
-import { guideImage } from "@/lib/guide-image";
+import { guideCover } from "@/lib/guide-image";
 
 export function PopularGuides() {
   const enGuides = guides.filter((g) => g.lang === "en");
@@ -38,7 +38,7 @@ export function PopularGuides() {
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden">
               <Image
-                src={guideImage(featured.country)}
+                src={guideCover(featured)}
                 alt={featured.title}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -69,7 +69,7 @@ export function PopularGuides() {
               >
                 <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-xl">
                   <Image
-                    src={guideImage(g.country)}
+                    src={guideCover(g)}
                     alt={g.title}
                     fill
                     sizes="112px"
@@ -100,7 +100,7 @@ export function PopularGuides() {
               >
                 <div className="relative h-20 w-24 shrink-0 overflow-hidden rounded-xl">
                   <Image
-                    src={guideImage(g.country)}
+                    src={guideCover(g)}
                     alt={g.title}
                     fill
                     sizes="96px"

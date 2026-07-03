@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { guides, type Guide } from "@/lib/guides";
 import { normalizeCountry } from "@/lib/guide-filters";
-import { guideImage } from "@/lib/guide-image";
+import { guideCover } from "@/lib/guide-image";
 
 function score(current: Guide, other: Guide): number {
   let s = 0;
@@ -36,7 +36,7 @@ export function RelatedGuides({ current }: { current: Guide }) {
             >
               <div className="relative aspect-[16/9] w-full overflow-hidden">
                 <Image
-                  src={guideImage(g.country)}
+                  src={guideCover(g)}
                   alt={g.title}
                   fill
                   sizes="(max-width: 640px) 100vw, 33vw"

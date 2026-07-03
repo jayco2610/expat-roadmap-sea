@@ -1,3 +1,10 @@
+import { guideImageBySlug } from "@/lib/guide-image-map";
+
+// Per-guide cover photo when one exists, otherwise the per-country image.
+export function guideCover(guide: { slug: string; country: string }): string {
+  return guideImageBySlug[guide.slug] ?? guideImage(guide.country);
+}
+
 export function guideImage(country: string): string {
   const c = country.toLowerCase();
   if (c.includes("thai") || c.includes("таил")) return "/images/guide-thailand-dtv.jpg";

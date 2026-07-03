@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { guideTopics, type GuideCard } from "@/lib/guide-filters";
-import { guideImage } from "@/lib/guide-image";
+import { guideCover } from "@/lib/guide-image";
 
 type Props = { guides: GuideCard[] };
 
@@ -111,7 +111,7 @@ export function GuidesExplorer({ guides }: Props) {
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <Image
-                    src={guideImage(guide.country)}
+                    src={guideCover(guide)}
                     alt={guide.title}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
