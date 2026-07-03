@@ -7,6 +7,10 @@ import { PageShell } from "@/components/layout/PageShell";
 import { getGuide, guides } from "@/lib/guides";
 import { AskCommunity } from "@/components/AskCommunity";
 import { getLinksForCountry } from "@/lib/embassy-links";
+import { headingId } from "@/lib/guide-filters";
+import { ReadingProgress } from "@/components/guides/ReadingProgress";
+import { GuideToc } from "@/components/guides/GuideToc";
+import { RelatedGuides } from "@/components/guides/RelatedGuides";
 
 const BASE_URL = "https://expat-roadmap-sea.vercel.app";
 
@@ -92,11 +96,13 @@ export default async function GuidePage({ params }: Props) {
 
   return (
     <PageShell>
+      <ReadingProgress />
       <Script
         id={`jsonld-guide-${guide.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <GuideToc headings={guide.sections.map((s) => s.heading)} />
       <div className="mx-auto max-w-2xl">
         <div className="mb-2">
           <Link
@@ -140,7 +146,10 @@ export default async function GuidePage({ params }: Props) {
         <article className="space-y-8">
           {guide.sections.map((section) => (
             <section key={section.heading}>
-              <h2 className="mb-3 text-xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">
+              <h2
+                id={headingId(section.heading)}
+                className="mb-3 scroll-mt-24 text-xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]"
+              >
                 {section.heading}
               </h2>
               <div className="space-y-3 text-[#3d3d3f] dark:text-[#c7c7cc]">
@@ -210,6 +219,8 @@ export default async function GuidePage({ params }: Props) {
             </ul>
           </div>
         )}
+
+        <RelatedGuides current={guide} />
 
         <AskCommunity topic={guide.country} />
 

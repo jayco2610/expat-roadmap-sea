@@ -34,16 +34,19 @@ export function Newsletter() {
         >
           <div className="relative max-w-xl">
             <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Get the inside track on expat life
+              Get the SEA Visa Cheatsheet — free
             </h2>
             <p className="mt-3 text-white/80">
-              New visa guides, city breakdowns, and community picks. One useful
-              email, no spam.
+              Visa rules for 6 countries in one table, plus new guides as we
+              publish them. One useful email, no spam.
             </p>
 
             {done ? (
               <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
-                ✓ You&apos;re on the list. Talk soon.
+                ✓ You&apos;re in.{" "}
+                <a href="/cheatsheet" className="underline underline-offset-2 hover:text-white/80">
+                  Open your cheatsheet →
+                </a>
               </p>
             ) : (
               <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-3 sm:flex-row">

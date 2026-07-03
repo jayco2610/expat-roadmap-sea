@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import { Hero } from "@/components/Hero";
+import { StatsStrip } from "@/components/home/StatsStrip";
+import { AskBotSection } from "@/components/home/AskBotSection";
 import { DestinationsSection } from "@/components/home/DestinationsSection";
 import { PopularGuides } from "@/components/home/PopularGuides";
 import { UpcomingEvents } from "@/components/home/UpcomingEvents";
@@ -16,8 +18,12 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <Suspense fallback={null}>
+        <StatsStrip />
+      </Suspense>
       <DestinationsSection />
       <PopularGuides />
+      <AskBotSection />
       <Suspense fallback={null}>
         <UpcomingEvents />
       </Suspense>
