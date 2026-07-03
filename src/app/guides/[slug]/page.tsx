@@ -7,10 +7,13 @@ import { PageShell } from "@/components/layout/PageShell";
 import { getGuide, guides } from "@/lib/guides";
 import { AskCommunity } from "@/components/AskCommunity";
 import { getLinksForCountry } from "@/lib/embassy-links";
-import { headingId } from "@/lib/guide-filters";
+import { headingId, normalizeCountry } from "@/lib/guide-filters";
+import { guideAlternates, guideFaqs } from "@/lib/guide-extras";
 import { ReadingProgress } from "@/components/guides/ReadingProgress";
 import { GuideToc } from "@/components/guides/GuideToc";
 import { RelatedGuides } from "@/components/guides/RelatedGuides";
+import { GuideBreadcrumbs } from "@/components/guides/GuideBreadcrumbs";
+import { GuideFaqSection } from "@/components/guides/GuideFaqSection";
 
 const BASE_URL = "https://expat-roadmap-sea.vercel.app";
 
@@ -26,11 +29,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) notFound();
+  const altSlug = guideAlternates[slug];
+  const languages = altSlug
+    ? {
+        [guide.lang]: `${BASE_URL}/guides/${slug}`,
+        [guide.lang === "en" ? "ru" : "en"]: `${BASE_URL}/guides/${altSlug}`,
+        "x-default": `${BASE_URL}/guides/${guide.lang === "en" ? slug : altSlug}`,
+      }
+    : undefined;
   return {
     title: guide.title,
     description: guide.description,
     alternates: {
       canonical: `${BASE_URL}/guides/${slug}`,
+      ...(languages ? { languages } : {}),
     },
     openGraph: {
       title: guide.title,
@@ -104,14 +116,18 @@ export default async function GuidePage({ params }: Props) {
       />
       <GuideToc headings={guide.sections.map((s) => s.heading)} />
       <div className="mx-auto max-w-2xl">
-        <div className="mb-2">
-          <Link
-            href="/guides"
-            className="text-sm text-[#6e6e73] hover:text-[#7d8c63] dark:text-[#9a9a9e] dark:hover:text-[#7d8c63]"
-          >
-            ← All guides
-          </Link>
-        </div>
+        <GuideBreadcrumbs
+          baseUrl={BASE_URL}
+          crumbs={[
+            { name: "Home", href: "/" },
+            { name: "Guides", href: "/guides" },
+            {
+              name: normalizeCountry(guide.country),
+              href: `/guides?country=${encodeURIComponent(normalizeCountry(guide.country))}`,
+            },
+            { name: guide.title },
+          ]}
+        />
 
         <header className="mb-10 mt-4">
           <div className="mb-3 flex flex-wrap gap-2">
@@ -218,6 +234,10 @@ export default async function GuidePage({ params }: Props) {
               ))}
             </ul>
           </div>
+        )}
+
+        {guideFaqs[guide.slug] && (
+          <GuideFaqSection faqs={guideFaqs[guide.slug]} lang={guide.lang} />
         )}
 
         <RelatedGuides current={guide} />

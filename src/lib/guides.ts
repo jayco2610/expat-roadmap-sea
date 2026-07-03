@@ -1924,6 +1924,88 @@ For visa stability, **Chiang Mai wins decisively** with the DTV. Bali and Da Nan
       label: "Ask the community",
     },
   },
+  {
+    slug: "philippines-digital-nomad-guide-2026",
+    lang: "en",
+    country: "Philippines",
+    title: "Philippines for Digital Nomads 2026: New Visa, Real Costs & Where to Base",
+    description:
+      "The Philippines finally has a digital nomad visa on the way. What EO 86 actually gives you, what it costs to live in Manila, Cebu, and Siargao, and whether the internet holds up.",
+    updatedAt: "2026-07-03",
+    readingTime: 9,
+    tags: ["Philippines", "digital nomad", "visa", "cost of living", "2026"],
+    sections: [
+      {
+        heading: "The short version",
+        body: `The Philippines has been the missing piece of the Southeast Asia nomad map: English everywhere, 7,000+ islands, and some of the friendliest people in the region — but until recently, no visa designed for remote workers.
+
+That changed with Executive Order No. 86 (2025), which created the framework for a Philippine digital nomad visa: up to one year of stay, renewable for another year. The program is still being rolled out, and some details depend on implementation — this guide covers what is confirmed, what is not, and how nomads actually live there today.`,
+      },
+      {
+        heading: "The digital nomad visa (EO 86) — what is confirmed",
+        body: `Key parameters as of mid-2026:
+
+- **Stay**: up to 12 months, renewable for another 12
+- **Income requirement**: around $24,000/year (~$2,000/month) from work performed for clients or employers outside the Philippines
+- **Documents**: valid passport, proof of remote work (contracts or freelance agreements), 3–6 months of bank statements, health insurance, clean criminal record
+- **Work restriction**: you cannot work for Philippine companies or clients
+
+One catch most blogs skip: EO 86 requires applicants to come from countries that offer a **reciprocal digital nomad visa** to Filipino nationals. The official list of qualifying countries had not been published as of early 2026 — so whether your passport qualifies is still an open question.
+
+Trust only the Department of Foreign Affairs, the Bureau of Immigration, or a Philippine embassy for application steps. Ignore any site selling "guaranteed approval."`,
+      },
+      {
+        heading: "How nomads stay there today (without the DNV)",
+        body: `The practical route most remote workers already use: enter visa-free (30 days for most nationalities), then extend at a Bureau of Immigration office. The Philippines has one of the most extendable tourist regimes in Asia — extensions can be chained for a long-term stay, with a trip to the BI office every 1–2 months.
+
+It is paperwork-heavy but reliable, and it is how most of the existing nomad community in Cebu and Siargao operates. Just remember: a tourist status never allows local employment.`,
+      },
+      {
+        heading: "Where to base: Manila vs Cebu vs Siargao",
+        body: `**Manila** — the capital, the flights, the big-city infrastructure. Traffic is brutal and prices are the highest in the country. Base here only if you need the airport or a corporate scene. Makati and BGC are the practical districts.
+
+**Cebu** — the balance pick, and 20–40% cheaper than Manila. A real city with malls, hospitals, coworking, and an international airport, plus beaches and diving within day-trip range. The largest nomad community in the country.
+
+**Siargao** — the surf island. Small, social, beautiful, and the cheapest of the three. Internet has improved (fiber + Starlink in cafes), but power cuts still happen. Best for a season, not necessarily a year.`,
+      },
+      {
+        heading: "Real costs (2026)",
+        body: `Monthly figures for a single person:
+
+**Cebu:**
+- Baseline nomad budget: $800–850 including rent, food, coworking, transport
+- Comfortable (AC, reliable internet, some travel): $1,500–1,800
+- 1BR apartment: from ~$340
+
+**Siargao:**
+- Total with rent: from ~$780
+- 1BR: $180–260
+
+**Manila:**
+- Realistic comfortable range: $1,500–2,500
+- Budget living is possible at $800–1,200 — easier outside the capital
+
+Compared to the rest of SEA: cheaper than Bali, comparable to Chiang Mai and Da Nang, with English fluency no other country in the region matches.`,
+      },
+      {
+        heading: "Internet and the honest downsides",
+        body: `The internet question is the one that decides the Philippines for most remote workers. Cities are fine now — fiber in Manila and Cebu handles video calls without drama. Islands are a different story: LTE coverage varies, and Siargao runs on a mix of fiber, LTE, and Starlink with occasional brownouts.
+
+Other honest downsides:
+
+- Typhoon season (roughly June–November) is real and affects flights and power
+- Inter-island logistics eat time: many trips route through Manila or Cebu
+- No dedicated nomad infrastructure yet — fewer coworking spaces than Bali or Chiang Mai
+
+What you get in return: English as an official language, visa flexibility, warm culture, and beaches that make Thailand look crowded.`,
+      },
+    ],
+    cta: {
+      text: "Weighing the Philippines against Thailand or Vietnam? Ask the assistant — it knows the visa rules and budgets for both.",
+      href: "https://t.me/expat_roadmap_bot",
+      label: "Ask the AI assistant",
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
