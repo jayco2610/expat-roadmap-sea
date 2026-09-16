@@ -6,6 +6,7 @@ import { InstallPrompt } from "@/components/InstallPrompt";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
+import Pulse from "@/components/Pulse";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -85,6 +86,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
+            <Pulse />
             <Footer />
           </div>
           <InstallPrompt />
